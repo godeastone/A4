@@ -1,0 +1,24 @@
+{
+"display_name": "Shape Detection Service", 
+"name": "shape_detection", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"face_detection": [
+"shape_detection.mojom.FaceDetectionProvider"
+], 
+"text_detection": [
+"shape_detection.mojom.TextDetection"
+], 
+"barcode_detection": [
+"shape_detection.mojom.BarcodeDetection"
+]
+}
+}
+}
+}

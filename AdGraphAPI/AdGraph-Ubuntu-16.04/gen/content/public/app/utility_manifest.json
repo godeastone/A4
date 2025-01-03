@@ -1,0 +1,68 @@
+{
+"required_files": {
+"v8_context_snapshot_data": [
+{
+"path": "v8_context_snapshot.bin", 
+"platform": "linux"
+}
+], 
+"v8_natives_data": [
+{
+"path": "natives_blob.bin", 
+"platform": "linux"
+}, 
+{
+"path": "assets/natives_blob.bin", 
+"platform": "android"
+}
+], 
+"v8_snapshot_64_data": [
+{
+"path": "assets/v8_context_snapshot_64.bin", 
+"platform": "android"
+}
+], 
+"v8_snapshot_32_data": [
+{
+"path": "assets/v8_context_snapshot_32.bin", 
+"platform": "android"
+}
+]
+}, 
+"display_name": "Content (utility process)", 
+"name": "content_utility", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"device": [
+"device:power_monitor", 
+"device:time_zone_monitor"
+], 
+"content_browser": [
+"dwrite_font_proxy", 
+"field_trials", 
+"font_cache"
+], 
+"*": [
+"app"
+]
+}, 
+"provides": {
+"service_manager:service_factory": [
+"service_manager.mojom.ServiceFactory"
+], 
+"browser": [
+"content.mojom.Child", 
+"content.mojom.ChildControl", 
+"content.mojom.ChildHistogramFetcher", 
+"content.mojom.ChildHistogramFetcherFactory", 
+"content.mojom.ResourceUsageReporter", 
+"IPC.mojom.ChannelBootstrap", 
+"printing.mojom.PdfToEmfConverterFactory", 
+"printing.mojom.PdfToPwgRasterConverter", 
+"service_manager.mojom.ServiceFactory"
+]
+}
+}
+}
+}

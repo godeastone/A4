@@ -1,0 +1,36 @@
+{
+  "c++": {
+    "extensions.mojom.WebstoreInstallResult": {
+      "hashable": false, 
+      "typename": "::extensions::webstore_install::Result", 
+      "traits_headers": [
+        "chrome/common/extensions/mojom/inline_install_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "chrome/common/extensions/api/webstore/webstore_api_constants.h", 
+        "chrome/common/extensions/webstore_install_result.h"
+      ]
+    }, 
+    "extensions.mojom.WebstoreInstallStage": {
+      "hashable": false, 
+      "typename": "::extensions::api::webstore::InstallStage", 
+      "traits_headers": [
+        "chrome/common/extensions/mojom/inline_install_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "chrome/common/extensions/api/webstore/webstore_api_constants.h", 
+        "chrome/common/extensions/webstore_install_result.h"
+      ]
+    }
+  }
+}

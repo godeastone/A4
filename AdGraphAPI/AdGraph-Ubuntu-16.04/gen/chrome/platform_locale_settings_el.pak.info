@@ -1,0 +1,11 @@
+IDS_STANDARD_FONT_FAMILY,10100,../../chrome/app/resources/locale_settings_linux.grd
+IDS_FIXED_FONT_FAMILY,10101,../../chrome/app/resources/locale_settings_linux.grd
+IDS_SERIF_FONT_FAMILY,10102,../../chrome/app/resources/locale_settings_linux.grd
+IDS_SANS_SERIF_FONT_FAMILY,10103,../../chrome/app/resources/locale_settings_linux.grd
+IDS_CURSIVE_FONT_FAMILY,10104,../../chrome/app/resources/locale_settings_linux.grd
+IDS_FANTASY_FONT_FAMILY,10105,../../chrome/app/resources/locale_settings_linux.grd
+IDS_PICTOGRAPH_FONT_FAMILY,10106,../../chrome/app/resources/locale_settings_linux.grd
+IDS_DEFAULT_FONT_SIZE,10107,../../chrome/app/resources/locale_settings_linux.grd
+IDS_DEFAULT_FIXED_FONT_SIZE,10108,../../chrome/app/resources/locale_settings_linux.grd
+IDS_MINIMUM_FONT_SIZE,10109,../../chrome/app/resources/locale_settings_linux.grd
+IDS_MINIMUM_LOGICAL_FONT_SIZE,10110,../../chrome/app/resources/locale_settings_linux.grd

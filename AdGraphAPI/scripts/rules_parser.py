@@ -9,7 +9,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--target-dir', type=str)
 parser.add_argument('--domain', type=str)
-parser.add_argument('--strategy', type=str)
+parser.add_argument('--strategy', type=str, default=None)
 parser.add_argument('--parse-modified', action='store_true')
 args = parser.parse_args()
 
@@ -131,7 +131,15 @@ def get_ad_check(base_domain_url, url_row, event_type):
 
     return ad_check
 
-
+def find_file_name(path):
+    f_list = []
+    for root, dirs, files in os.walk(path):
+        for f in files:
+            if f.startswith("log_"):
+                f_list.append(f)
+            else:
+                raise("Why timeline file does not starting with 'log_'?")
+    return f_list
 SCRIPT_CONTENT = 'NetworkScriptRequest'
 IFRAME_CONTENT = 'NetworkIframeRequest'
 IMAGE_CONTENT = 'NetworkImageRequest'
@@ -140,84 +148,88 @@ CSS_CONTENT = 'NetworkLinkRequest'
 XMLHTTP_CONTENT = 'NetworkXMLHTTPRequest'
 
 
-home_dir = os.getenv("HOME")
-base_directory = home_dir + '/rendering_stream/'
+base_directory = '/yopo-artifact/data/rendering_stream/'
 # make sure to use the specific version of Easylist.
 filter_lists_addr = base_directory + 'filterlists/'
 
 easylist_file = filter_lists_addr + 'easylist.txt'
 easyprivacy_file = filter_lists_addr + 'easyprivacy.txt'
 warning_file = filter_lists_addr + 'warning.txt'
-killer_file = filter_lists_addr + 'killer.txt'
+anti_file = filter_lists_addr + 'antiadblock.txt'
 fanboyannoyance_file = filter_lists_addr + 'fanboyannoyance.txt'
 blockzilla_file = filter_lists_addr + 'blockzilla.txt'
 peter_file = filter_lists_addr + 'peter.txt'
 squid_file = filter_lists_addr + 'squid.txt'
 
-raw_rules = read_rules(easylist_file) + read_rules(easyprivacy_file)
+raw_rules = read_rules(easylist_file) + read_rules(easyprivacy_file) + read_rules(warning_file) + read_rules(anti_file) + read_rules(fanboyannoyance_file) + read_rules(blockzilla_file) + read_rules(peter_file) + read_rules(squid_file)
 
 
-adblock_rules_script = AdblockRules(raw_rules, use_re2=True, max_mem=1024*1024*1024,
+adblock_rules_script = AdblockRules(raw_rules, use_re2=False, max_mem=1024*1024*1024,
                                     supported_options=['script', 'domain', 'subdocument'], skip_unsupported_rules=False)
-adblock_rules_script_third = AdblockRules(raw_rules, use_re2=True, max_mem=1024*1024*1024, supported_options=[
+adblock_rules_script_third = AdblockRules(raw_rules, use_re2=False, max_mem=1024*1024*1024, supported_options=[
                                           'third-party', 'script', 'domain', 'subdocument'], skip_unsupported_rules=False)
 
-adblock_rules_image = AdblockRules(raw_rules, use_re2=True, max_mem=1024*1024*1024,
+adblock_rules_image = AdblockRules(raw_rules, use_re2=False, max_mem=1024*1024*1024,
                                    supported_options=['image', 'domain', 'subdocument'], skip_unsupported_rules=False)
-adblock_rules_image_third = AdblockRules(raw_rules, use_re2=True, max_mem=1024*1024*1024, supported_options=[
+adblock_rules_image_third = AdblockRules(raw_rules, use_re2=False, max_mem=1024*1024*1024, supported_options=[
                                          'third-party', 'image', 'domain', 'subdocument'], skip_unsupported_rules=False)
 
-adblock_rules_css = AdblockRules(raw_rules, use_re2=True, max_mem=1024*1024*1024, supported_options=[
+adblock_rules_css = AdblockRules(raw_rules, use_re2=False, max_mem=1024*1024*1024, supported_options=[
                                  'stylesheet', 'domain', 'subdocument'], skip_unsupported_rules=False)
-adblock_rules_css_third = AdblockRules(raw_rules, use_re2=True, max_mem=1024*1024*1024, supported_options=[
+adblock_rules_css_third = AdblockRules(raw_rules, use_re2=False, max_mem=1024*1024*1024, supported_options=[
                                        'third-party', 'stylesheet', 'domain', 'subdocument'], skip_unsupported_rules=False)
 
-adblock_rules_xmlhttp = AdblockRules(raw_rules, use_re2=True, max_mem=1024*1024*1024, supported_options=[
+adblock_rules_xmlhttp = AdblockRules(raw_rules, use_re2=False, max_mem=1024*1024*1024, supported_options=[
                                      'xmlhttprequest', 'domain', 'subdocument'], skip_unsupported_rules=False)
-adblock_rules_xmlhttp_third = AdblockRules(raw_rules, use_re2=True, max_mem=1024*1024*1024, supported_options=[
+adblock_rules_xmlhttp_third = AdblockRules(raw_rules, use_re2=False, max_mem=1024*1024*1024, supported_options=[
                                            'third-party', 'xmlhttprequest', 'domain', 'subdocument'], skip_unsupported_rules=False)
 
-adblock_rules_third = AdblockRules(raw_rules, use_re2=True, max_mem=1024*1024*1024, supported_options=[
+adblock_rules_third = AdblockRules(raw_rules, use_re2=False, max_mem=1024*1024*1024, supported_options=[
                                    'third-party', 'domain', 'subdocument'], skip_unsupported_rules=False)
-adblock_rules_domain = AdblockRules(raw_rules, use_re2=True, max_mem=1024*1024 *
+adblock_rules_domain = AdblockRules(raw_rules, use_re2=False, max_mem=1024*1024 *
                                     1024, supported_options=['domain', 'subdocument'], skip_unsupported_rules=False)
 
 
 timeline_files = os.listdir(args.target_dir)
 timeline_files_set = set(timeline_files)
 
+
 if args.parse_modified:
-    timeline_file = 'modified_%s_' % args.strategy + args.domain + '.json'
+    timeline_file_dir = 'modified_%s_' % args.strategy + args.domain
 else:
-    timeline_file = args.domain + '.json'
-print("Now processing: %s" % timeline_file)
-timeline_fpath = '/'.join([args.target_dir + '/' + timeline_file])
-updated_stream_file_to_write = '/'.join([args.target_dir, 'parsed_' + timeline_file])
-rendering_stream = read_json(timeline_fpath)
-url = rendering_stream['url']
+    timeline_file_dir = args.domain
 
-# Create a json object here that contains AD/NONAD information about each event.
-updated_rendering_stream = {}
-updated_rendering_stream['url'] = url
-updated_rendering_stream['timeline'] = []
+timeline_file_name_list = find_file_name(args.target_dir + '/' + timeline_file_dir)
+# timeline_file_name = "log_nacos.io_1682632603.465261.json"
+for timeline_file_name in timeline_file_name_list:
+    print("Now processing: {}/{}".format(args.target_dir + '/' + args.domain, timeline_file_name))
+    timeline_fpath = args.target_dir + '/' + timeline_file_dir + '/' + timeline_file_name
+    updated_stream_file_to_write = '/'.join([args.target_dir, args.domain, 'parsed_' + timeline_file_name])
+    rendering_stream = read_json(timeline_fpath)
+    url = rendering_stream['url']
 
-for json_item in rendering_stream['timeline']:
-    updated_json_item = json_item
+    # Create a json object here that contains AD/NONAD information about each event.
+    updated_rendering_stream = {}
+    updated_rendering_stream['url'] = url
+    updated_rendering_stream['timeline'] = []
 
-    if json_item['event_type'] == SCRIPT_CONTENT or json_item['event_type'] == IMAGE_CONTENT or json_item['event_type'] == VIDEO_CONTENT or json_item['event_type'] == CSS_CONTENT or json_item['event_type'] == IFRAME_CONTENT or json_item['event_type'] == XMLHTTP_CONTENT:
-        if json_item['request_url'].strip() == '':
-            ad_check = False
+    for json_item in rendering_stream['timeline']:
+        updated_json_item = json_item
+
+        if json_item['event_type'] == SCRIPT_CONTENT or json_item['event_type'] == IMAGE_CONTENT or json_item['event_type'] == VIDEO_CONTENT or json_item['event_type'] == CSS_CONTENT or json_item['event_type'] == IFRAME_CONTENT or json_item['event_type'] == XMLHTTP_CONTENT:
+            if json_item['request_url'].strip() == '':
+                ad_check = False
+            else:
+                ad_check = get_ad_check(
+                    url, json_item['request_url'], json_item['event_type'])
         else:
-            ad_check = get_ad_check(
-                url, json_item['request_url'], json_item['event_type'])
-    else:
-        ad_check = False
+            ad_check = False
 
-    if ad_check:
-        updated_json_item['ad_check'] = 'AD'
-    else:
-        updated_json_item['ad_check'] = 'NONAD'
+        if ad_check:
+            updated_json_item['ad_check'] = 'AD'
+        else:
+            updated_json_item['ad_check'] = 'NONAD'
 
-    updated_rendering_stream['timeline'].append(updated_json_item)
+        updated_rendering_stream['timeline'].append(updated_json_item)
 
-write_json(updated_stream_file_to_write, updated_rendering_stream)
+    write_json(updated_stream_file_to_write, updated_rendering_stream)

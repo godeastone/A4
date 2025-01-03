@@ -1,0 +1,15 @@
+defines = -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND
+include_dirs = -I../../native_client/src/public/linux_syscalls -I../.. -Inewlib_pnacl_nonsfi/gen
+cflags = -fno-strict-aliasing -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -fcolor-diagnostics -fmerge-all-constants --pnacl-allow-translate -arch x86-32-nonsfi --pnacl-bias=x86-32-nonsfi --target=i686-unknown-nacl -Wall -Werror -Wextra -Wimplicit-fallthrough -Wthread-safety -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -fomit-frame-pointer -g0 -fvisibility=hidden -O2 -fno-ident -fdata-sections -ffunction-sections
+cflags_cc = -std=gnu++14 -fno-exceptions -fno-rtti -fvisibility-inlines-hidden
+label_name = base_static
+root_out_dir = newlib_pnacl_nonsfi
+target_out_dir = newlib_pnacl_nonsfi/obj/base
+target_output_name = libbase_static
+
+build newlib_pnacl_nonsfi/obj/base/base_static/base_switches.o: newlib_pnacl_nonsfi_cxx ../../base/base_switches.cc
+
+build newlib_pnacl_nonsfi/obj/base/libbase_static.a: newlib_pnacl_nonsfi_alink newlib_pnacl_nonsfi/obj/base/base_static/base_switches.o
+  arflags =
+  output_extension = .a
+  output_dir = newlib_pnacl_nonsfi/obj/base

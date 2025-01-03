@@ -1,0 +1,26 @@
+{
+"display_name": "Tracing", 
+"name": "tracing", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:singleton", 
+"service_manager:service_manager"
+]
+}, 
+"provides": {
+"tracing": [
+"tracing.mojom.Coordinator"
+], 
+"app": [
+"tracing.mojom.AgentRegistry", 
+"tracing.mojom.PerfettoService"
+], 
+"tests": [
+"*"
+]
+}
+}
+}
+}

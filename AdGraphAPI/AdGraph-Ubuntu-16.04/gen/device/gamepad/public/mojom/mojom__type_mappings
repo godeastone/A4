@@ -1,0 +1,124 @@
+{
+  "c++": {
+    "device.mojom.GamepadVector": {
+      "hashable": false, 
+      "typename": "device::GamepadVector", 
+      "traits_headers": [
+        "device/gamepad/public/mojom/gamepad_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": true, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "device/gamepad/public/cpp/gamepad.h"
+      ]
+    }, 
+    "device.mojom.GamepadPose": {
+      "hashable": false, 
+      "typename": "device::GamepadPose", 
+      "traits_headers": [
+        "device/gamepad/public/mojom/gamepad_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": true, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "device/gamepad/public/cpp/gamepad.h"
+      ]
+    }, 
+    "device.mojom.GamepadHapticActuator": {
+      "hashable": false, 
+      "typename": "device::GamepadHapticActuator", 
+      "traits_headers": [
+        "device/gamepad/public/mojom/gamepad_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": true, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "device/gamepad/public/cpp/gamepad.h"
+      ]
+    }, 
+    "device.mojom.GamepadHapticActuatorType": {
+      "hashable": false, 
+      "typename": "device::GamepadHapticActuatorType", 
+      "traits_headers": [
+        "device/gamepad/public/mojom/gamepad_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "device/gamepad/public/cpp/gamepad.h"
+      ]
+    }, 
+    "device.mojom.Gamepad": {
+      "hashable": false, 
+      "typename": "device::Gamepad", 
+      "traits_headers": [
+        "device/gamepad/public/mojom/gamepad_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "device/gamepad/public/cpp/gamepad.h"
+      ]
+    }, 
+    "device.mojom.GamepadQuaternion": {
+      "hashable": false, 
+      "typename": "device::GamepadQuaternion", 
+      "traits_headers": [
+        "device/gamepad/public/mojom/gamepad_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": true, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "device/gamepad/public/cpp/gamepad.h"
+      ]
+    }, 
+    "device.mojom.GamepadButton": {
+      "hashable": false, 
+      "typename": "device::GamepadButton", 
+      "traits_headers": [
+        "device/gamepad/public/mojom/gamepad_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "device/gamepad/public/cpp/gamepad.h"
+      ]
+    }, 
+    "device.mojom.GamepadHand": {
+      "hashable": false, 
+      "typename": "device::GamepadHand", 
+      "traits_headers": [
+        "device/gamepad/public/mojom/gamepad_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "device/gamepad/public/cpp/gamepad.h"
+      ]
+    }
+  }
+}

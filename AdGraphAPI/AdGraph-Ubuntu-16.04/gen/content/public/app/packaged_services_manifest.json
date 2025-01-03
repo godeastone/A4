@@ -1,0 +1,391 @@
+{
+"services": [
+{
+"display_name": "Heap Profiling Service", 
+"sandbox_type": "profiling", 
+"name": "heap_profiling", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"*": [
+"app"
+], 
+"resource_coordinator": [
+"heap_profiler_helper"
+], 
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"profiling": [
+"heap_profiling.mojom.ProfilingService"
+], 
+"heap_profiler": [
+"memory_instrumentation.mojom.HeapProfiler"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Content Decryption Module Service", 
+"sandbox_type": "cdm", 
+"name": "cdm", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"*": [
+"app"
+]
+}, 
+"provides": {
+"media:cdm": [
+"media.mojom.CdmService"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Media Service", 
+"name": "media", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"*": [
+"app"
+]
+}, 
+"provides": {
+"media:media": [
+"media.mojom.MediaService"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Audio", 
+"sandbox_type": "none", 
+"name": "audio", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"info": [
+"audio.mojom.SystemInfo"
+], 
+"stream_factory": [
+"audio.mojom.StreamFactory"
+], 
+"debug_recording": [
+"audio.mojom.DebugRecording"
+], 
+"device_notifier": [
+"audio.mojom.DeviceNotifier"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Data Decoder Service", 
+"name": "data_decoder", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"json_parser": [
+"data_decoder.mojom.JsonParser"
+], 
+"xml_parser": [
+"data_decoder.mojom.XmlParser"
+], 
+"image_decoder": [
+"data_decoder.mojom.ImageDecoder"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Device Service", 
+"name": "device", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"device:mtp": [
+"device.mojom.MtpManager"
+], 
+"device:input_service": [
+"device.mojom.InputDeviceManager"
+], 
+"device:screen_orientation": [
+"device.mojom.ScreenOrientationListener"
+], 
+"device:ip_geolocator": [
+"device.mojom.PublicIpAddressGeolocationProvider"
+], 
+"device:power_monitor": [
+"device.mojom.PowerMonitor"
+], 
+"device:nfc": [
+"device.mojom.NFCProvider"
+], 
+"device:wake_lock": [
+"device.mojom.WakeLockProvider"
+], 
+"device:serial": [
+"device.mojom.SerialDeviceEnumerator", 
+"device.mojom.SerialIoHandler"
+], 
+"device:geolocation_config": [
+"device.mojom.GeolocationConfig"
+], 
+"device:fingerprint": [
+"device.mojom.Fingerprint"
+], 
+"device:geolocation_control": [
+"device.mojom.GeolocationControl"
+], 
+"device:time_zone_monitor": [
+"device.mojom.TimeZoneMonitor"
+], 
+"device:geolocation": [
+"device.mojom.GeolocationContext"
+], 
+"device:battery_monitor": [
+"device.mojom.BatteryMonitor"
+], 
+"device:hid": [
+"device.mojom.HidManager"
+], 
+"device:vibration": [
+"device.mojom.VibrationManager"
+], 
+"device:generic_sensor": [
+"device.mojom.SensorProvider"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Metrics Service", 
+"name": "metrics", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"url_keyed_metrics": [
+"ukm.mojom.UkmRecorderInterface"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Network Service", 
+"sandbox_type": "network", 
+"name": "network", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"test": [
+"network.mojom.NetworkServiceTest"
+], 
+"network_service": [
+"network.mojom.NetworkService"
+], 
+"url_loader": [
+"network.mojom.URLLoaderFactory"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Global Resource Coordinator", 
+"name": "resource_coordinator", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"metrics": [
+"url_keyed_metrics"
+], 
+"service_manager": [
+"service_manager:all_users", 
+"service_manager:service_manager"
+]
+}, 
+"provides": {
+"tests": [
+"*"
+], 
+"page_signal": [
+"resource_coordinator.mojom.PageSignalGenerator"
+], 
+"coordination_unit_introspector": [
+"resource_coordinator.mojom.CoordinationUnitIntrospector"
+], 
+"app": [
+"memory_instrumentation.mojom.Coordinator"
+], 
+"heap_profiler_helper": [
+"memory_instrumentation.mojom.HeapProfilerHelper"
+], 
+"coordination_unit": [
+"resource_coordinator.mojom.CoordinationUnitProvider"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Shape Detection Service", 
+"name": "shape_detection", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"face_detection": [
+"shape_detection.mojom.FaceDetectionProvider"
+], 
+"barcode_detection": [
+"shape_detection.mojom.BarcodeDetection"
+], 
+"text_detection": [
+"shape_detection.mojom.TextDetection"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Tracing", 
+"name": "tracing", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:singleton", 
+"service_manager:service_manager"
+]
+}, 
+"provides": {
+"tracing": [
+"tracing.mojom.Coordinator"
+], 
+"app": [
+"tracing.mojom.AgentRegistry", 
+"tracing.mojom.PerfettoService"
+], 
+"tests": [
+"*"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Video Capture", 
+"sandbox_type": "none", 
+"name": "video_capture", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"capture": [
+"video_capture.mojom.DeviceFactoryProvider"
+], 
+"tests": [
+"video_capture.mojom.DeviceFactoryProvider", 
+"video_capture.mojom.TestingControls"
+]
+}
+}
+}
+}, 
+{
+"sandbox_type": "none", 
+"display_name": "Visuals Service", 
+"name": "viz", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"catalog": [
+"directory"
+], 
+"*": [
+"app"
+], 
+"ui": [
+"ozone"
+], 
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"viz_host": [
+"viz.mojom.VizMain"
+]
+}
+}
+}
+}
+], 
+"display_name": "Content Packaged Services", 
+"name": "content_packaged_services", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"content_browser": [], 
+"*": [
+"app"
+], 
+"service_manager": [
+"service_manager:client_process", 
+"service_manager:singleton", 
+"service_manager:user_id"
+]
+}, 
+"provides": {
+"service_manager:service_factory": [
+"service_manager.mojom.ServiceFactory"
+]
+}
+}
+}
+}

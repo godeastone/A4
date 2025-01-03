@@ -1,0 +1,4 @@
+gen/third_party/blink/public/media_devices_mojo_bindings.sources_list
+gen/media/capture/mojom/video_capture.sources_list
+gen/media/mojo/interfaces/interfaces.sources_list
+gen/ui/gfx/geometry/mojo/mojo.sources_list

@@ -1,0 +1,41 @@
+<link rel="import" href="chrome://resources/html/polymer.html">
+
+<link rel="import" href="chrome://resources/cr_elements/cr_search_field/cr_search_field_behavior.html">
+<link rel="import" href="print_preview_shared_css.html">
+
+<dom-module id="print-preview-search-box">
+  <template>
+    <style include="print-preview-shared">
+      :host {
+        display: flex;
+        position: relative;
+        user-select: none;
+      }
+
+      .search-box-icon {
+        display: inline-block;
+        height: 1em;
+        left: 8px;
+        position: absolute;
+        right: 8px;
+        top: 6px;
+        user-select: none;
+        width: 1em;
+      }
+
+      .search-box-input {
+        text-indent: 2em;
+        width: 100%;
+      }
+
+      .search-box-input::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+      }
+    </style>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAQAAACRZI9xAAABBElEQVQoFXXBPUsUABwH4P9QZGd4gzQIIc3a4JLVx6hJ0NDp6QPkIrTnoDQ5XFMhDQZCU5OI4MuWm0pCS9DocogEyf0K8bor9Hmq/jBiwVfnzn23aLT+Z8y+iFNtET88qn6G7Iq2dXOmrToR39yvHs/FmVd1yZSfolU9Postd+ovq2Jbo7rsidfVx4w4NlFdtsWb6mNWHHpQXdbErmZdcsuG2DRQXZ7q6HhnyE03NCzp+OVl9bjtg4gjK5Z9EXFiVrN63LOuLSLizLGO+ORh9TPjo0071rww7kDEocf1Lw3DdcG8iDgwWVfT1BIRR0braga1RMSzuo5Bb8V7d+t6BjwxXPUbpgyZUOsKz6kAAAAASUVORK5CYII=" class="search-box-icon" alt="">
+    <input type="search" id="searchInput" class="search-box-input"
+        on-search="onSearchTermSearch" on-input="onSearchTermInput"
+        incremental aria-label$="[[label]]" placeholder="[[label]]">
+  </template>
+  <script src="print_preview_search_box.js"></script>
+</dom-module>

@@ -1,0 +1,396 @@
+{
+  "c++": {
+    "gfx.mojom.InsetsF": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "gfx::InsetsF", 
+      "traits_headers": [
+        "ui/gfx/geometry/mojo/geometry_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "ui/gfx/geometry/point.h", 
+        "ui/gfx/geometry/point_f.h", 
+        "ui/gfx/geometry/size.h", 
+        "ui/gfx/geometry/rect.h", 
+        "ui/gfx/geometry/rect_f.h", 
+        "ui/gfx/geometry/safe_integer_conversions.h", 
+        "ui/gfx/geometry/scroll_offset.h", 
+        "ui/gfx/geometry/insets.h", 
+        "ui/gfx/geometry/vector2d.h", 
+        "ui/gfx/geometry/vector2d_f.h"
+      ]
+    }, 
+    "arc.mojom.VideoEncodeProfile": {
+      "hashable": false, 
+      "typename": "media::VideoEncodeAccelerator::SupportedProfile", 
+      "traits_headers": [
+        "components/arc/common/video_encode_accelerator_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "media/video/video_encode_accelerator.h"
+      ]
+    }, 
+    "arc.mojom.VideoFramePlane": {
+      "hashable": false, 
+      "typename": "arc::VideoFramePlane", 
+      "traits_headers": [
+        "components/arc/common/video_accelerator_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": true, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "media/base/video_codecs.h", 
+        "components/arc/video_accelerator/video_frame_plane.h", 
+        "ui/gfx/geometry/size.h"
+      ]
+    }, 
+    "gfx.mojom.SizeF": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "gfx::SizeF", 
+      "traits_headers": [
+        "ui/gfx/geometry/mojo/geometry_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "ui/gfx/geometry/point.h", 
+        "ui/gfx/geometry/point_f.h", 
+        "ui/gfx/geometry/size.h", 
+        "ui/gfx/geometry/rect.h", 
+        "ui/gfx/geometry/rect_f.h", 
+        "ui/gfx/geometry/safe_integer_conversions.h", 
+        "ui/gfx/geometry/scroll_offset.h", 
+        "ui/gfx/geometry/insets.h", 
+        "ui/gfx/geometry/vector2d.h", 
+        "ui/gfx/geometry/vector2d_f.h"
+      ]
+    }, 
+    "gfx.mojom.PointF": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "gfx::PointF", 
+      "traits_headers": [
+        "ui/gfx/geometry/mojo/geometry_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "ui/gfx/geometry/point.h", 
+        "ui/gfx/geometry/point_f.h", 
+        "ui/gfx/geometry/size.h", 
+        "ui/gfx/geometry/rect.h", 
+        "ui/gfx/geometry/rect_f.h", 
+        "ui/gfx/geometry/safe_integer_conversions.h", 
+        "ui/gfx/geometry/scroll_offset.h", 
+        "ui/gfx/geometry/insets.h", 
+        "ui/gfx/geometry/vector2d.h", 
+        "ui/gfx/geometry/vector2d_f.h"
+      ]
+    }, 
+    "gfx.mojom.Vector2d": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "gfx::Vector2d", 
+      "traits_headers": [
+        "ui/gfx/geometry/mojo/geometry_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "ui/gfx/geometry/point.h", 
+        "ui/gfx/geometry/point_f.h", 
+        "ui/gfx/geometry/size.h", 
+        "ui/gfx/geometry/rect.h", 
+        "ui/gfx/geometry/rect_f.h", 
+        "ui/gfx/geometry/safe_integer_conversions.h", 
+        "ui/gfx/geometry/scroll_offset.h", 
+        "ui/gfx/geometry/insets.h", 
+        "ui/gfx/geometry/vector2d.h", 
+        "ui/gfx/geometry/vector2d_f.h"
+      ]
+    }, 
+    "gfx.mojom.Vector2dF": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "gfx::Vector2dF", 
+      "traits_headers": [
+        "ui/gfx/geometry/mojo/geometry_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "ui/gfx/geometry/point.h", 
+        "ui/gfx/geometry/point_f.h", 
+        "ui/gfx/geometry/size.h", 
+        "ui/gfx/geometry/rect.h", 
+        "ui/gfx/geometry/rect_f.h", 
+        "ui/gfx/geometry/safe_integer_conversions.h", 
+        "ui/gfx/geometry/scroll_offset.h", 
+        "ui/gfx/geometry/insets.h", 
+        "ui/gfx/geometry/vector2d.h", 
+        "ui/gfx/geometry/vector2d_f.h"
+      ]
+    }, 
+    "gfx.mojom.Point": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "gfx::Point", 
+      "traits_headers": [
+        "ui/gfx/geometry/mojo/geometry_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "ui/gfx/geometry/point.h", 
+        "ui/gfx/geometry/point_f.h", 
+        "ui/gfx/geometry/size.h", 
+        "ui/gfx/geometry/rect.h", 
+        "ui/gfx/geometry/rect_f.h", 
+        "ui/gfx/geometry/safe_integer_conversions.h", 
+        "ui/gfx/geometry/scroll_offset.h", 
+        "ui/gfx/geometry/insets.h", 
+        "ui/gfx/geometry/vector2d.h", 
+        "ui/gfx/geometry/vector2d_f.h"
+      ]
+    }, 
+    "gfx.mojom.Rect": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "gfx::Rect", 
+      "traits_headers": [
+        "ui/gfx/geometry/mojo/geometry_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "ui/gfx/geometry/point.h", 
+        "ui/gfx/geometry/point_f.h", 
+        "ui/gfx/geometry/size.h", 
+        "ui/gfx/geometry/rect.h", 
+        "ui/gfx/geometry/rect_f.h", 
+        "ui/gfx/geometry/safe_integer_conversions.h", 
+        "ui/gfx/geometry/scroll_offset.h", 
+        "ui/gfx/geometry/insets.h", 
+        "ui/gfx/geometry/vector2d.h", 
+        "ui/gfx/geometry/vector2d_f.h"
+      ]
+    }, 
+    "gfx.mojom.RectF": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "gfx::RectF", 
+      "traits_headers": [
+        "ui/gfx/geometry/mojo/geometry_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "ui/gfx/geometry/point.h", 
+        "ui/gfx/geometry/point_f.h", 
+        "ui/gfx/geometry/size.h", 
+        "ui/gfx/geometry/rect.h", 
+        "ui/gfx/geometry/rect_f.h", 
+        "ui/gfx/geometry/safe_integer_conversions.h", 
+        "ui/gfx/geometry/scroll_offset.h", 
+        "ui/gfx/geometry/insets.h", 
+        "ui/gfx/geometry/vector2d.h", 
+        "ui/gfx/geometry/vector2d_f.h"
+      ]
+    }, 
+    "arc.mojom.VideoCodecProfile": {
+      "hashable": false, 
+      "typename": "media::VideoCodecProfile", 
+      "traits_headers": [
+        "components/arc/common/video_accelerator_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "media/base/video_codecs.h", 
+        "components/arc/video_accelerator/video_frame_plane.h", 
+        "ui/gfx/geometry/size.h"
+      ]
+    }, 
+    "arc.mojom.Rect": {
+      "hashable": false, 
+      "typename": "::gfx::Rect", 
+      "traits_headers": [
+        "components/arc/common/arc_gfx_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "ui/gfx/geometry/rect.h", 
+        "ui/gfx/range/range.h"
+      ]
+    }, 
+    "arc.mojom.Size": {
+      "hashable": false, 
+      "typename": "gfx::Size", 
+      "traits_headers": [
+        "components/arc/common/video_accelerator_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "media/base/video_codecs.h", 
+        "components/arc/video_accelerator/video_frame_plane.h", 
+        "ui/gfx/geometry/size.h"
+      ]
+    }, 
+    "arc.mojom.VideoEncodeAccelerator.Error": {
+      "hashable": false, 
+      "typename": "media::VideoEncodeAccelerator::Error", 
+      "traits_headers": [
+        "components/arc/common/video_encode_accelerator_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "media/video/video_encode_accelerator.h"
+      ]
+    }, 
+    "gfx.mojom.Insets": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "gfx::Insets", 
+      "traits_headers": [
+        "ui/gfx/geometry/mojo/geometry_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "ui/gfx/geometry/point.h", 
+        "ui/gfx/geometry/point_f.h", 
+        "ui/gfx/geometry/size.h", 
+        "ui/gfx/geometry/rect.h", 
+        "ui/gfx/geometry/rect_f.h", 
+        "ui/gfx/geometry/safe_integer_conversions.h", 
+        "ui/gfx/geometry/scroll_offset.h", 
+        "ui/gfx/geometry/insets.h", 
+        "ui/gfx/geometry/vector2d.h", 
+        "ui/gfx/geometry/vector2d_f.h"
+      ]
+    }, 
+    "gfx.mojom.Size": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "gfx::Size", 
+      "traits_headers": [
+        "ui/gfx/geometry/mojo/geometry_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "ui/gfx/geometry/point.h", 
+        "ui/gfx/geometry/point_f.h", 
+        "ui/gfx/geometry/size.h", 
+        "ui/gfx/geometry/rect.h", 
+        "ui/gfx/geometry/rect_f.h", 
+        "ui/gfx/geometry/safe_integer_conversions.h", 
+        "ui/gfx/geometry/scroll_offset.h", 
+        "ui/gfx/geometry/insets.h", 
+        "ui/gfx/geometry/vector2d.h", 
+        "ui/gfx/geometry/vector2d_f.h"
+      ]
+    }, 
+    "arc.mojom.VideoPixelFormat": {
+      "hashable": false, 
+      "typename": "media::VideoPixelFormat", 
+      "traits_headers": [
+        "components/arc/common/video_encode_accelerator_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "media/video/video_encode_accelerator.h"
+      ]
+    }, 
+    "gfx.mojom.ScrollOffset": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "gfx::ScrollOffset", 
+      "traits_headers": [
+        "ui/gfx/geometry/mojo/geometry_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "ui/gfx/geometry/point.h", 
+        "ui/gfx/geometry/point_f.h", 
+        "ui/gfx/geometry/size.h", 
+        "ui/gfx/geometry/rect.h", 
+        "ui/gfx/geometry/rect_f.h", 
+        "ui/gfx/geometry/safe_integer_conversions.h", 
+        "ui/gfx/geometry/scroll_offset.h", 
+        "ui/gfx/geometry/insets.h", 
+        "ui/gfx/geometry/vector2d.h", 
+        "ui/gfx/geometry/vector2d_f.h"
+      ]
+    }, 
+    "arc.mojom.Range": {
+      "hashable": false, 
+      "typename": "::gfx::Range", 
+      "traits_headers": [
+        "components/arc/common/arc_gfx_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "ui/gfx/geometry/rect.h", 
+        "ui/gfx/range/range.h"
+      ]
+    }
+  }
+}

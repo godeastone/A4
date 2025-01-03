@@ -1,0 +1,19 @@
+{
+"sandbox_type": "utility", 
+"display_name": "Unzip Service", 
+"name": "unzip_service", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"unzip_file": [
+"unzip.mojom.Unzipper"
+]
+}
+}
+}
+}

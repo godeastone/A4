@@ -1,0 +1,16 @@
+defines = -DGFX_RANGE_IMPLEMENTATION -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND
+include_dirs = -I. -I../.. -Iirt_x64/gen
+cflags = -fno-strict-aliasing -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -fcolor-diagnostics -fmerge-all-constants -integrated-as -m64 -march=x86-64 -fasynchronous-unwind-tables -fomit-frame-pointer -Wall -Werror -Wextra -Wimplicit-fallthrough -Wthread-safety -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -Os -ffunction-sections -fdata-sections -fomit-frame-pointer -g0 -fvisibility=hidden
+cflags_cc = -std=gnu++14 -fno-exceptions -fno-rtti -fvisibility-inlines-hidden
+label_name = range
+root_out_dir = irt_x64
+target_out_dir = irt_x64/obj/ui/gfx/range
+target_output_name = librange
+
+build irt_x64/obj/ui/gfx/range/range.inputdeps.stamp: irt_x64_stamp irt_x64/obj/base/anchor_functions_buildflags.stamp irt_x64/obj/base/build_date.stamp irt_x64/obj/base/cfi_buildflags.stamp irt_x64/obj/base/debugging_buildflags.stamp irt_x64/obj/base/partition_alloc_buildflags.stamp irt_x64/obj/base/protected_memory_buildflags.stamp irt_x64/obj/base/synchronization_buildflags.stamp irt_x64/obj/base/allocator/buildflags.stamp ./tls_edit irt_x64/obj/ui/gfx/range/range__jumbo_merge.stamp
+build irt_x64/obj/ui/gfx/range/range/range_jumbo_1.o: irt_x64_cxx irt_x64/gen/ui/gfx/range/range_jumbo_1.cc || irt_x64/obj/ui/gfx/range/range.inputdeps.stamp
+
+build irt_x64/obj/ui/gfx/range/librange.a: irt_x64_alink irt_x64/obj/ui/gfx/range/range/range_jumbo_1.o || irt_x64/obj/base/libbase.a irt_x64/obj/ui/gfx/gfx_export.stamp irt_x64/obj/ui/gfx/range/range__jumbo_merge.stamp irt_x64/obj/base/libbase_static.a irt_x64/obj/base/numerics/base_numerics.stamp irt_x64/obj/base/third_party/dynamic_annotations/dynamic_annotations.stamp irt_x64/obj/third_party/modp_b64/libmodp_b64.a
+  arflags =
+  output_extension = .a
+  output_dir = irt_x64/obj/ui/gfx/range

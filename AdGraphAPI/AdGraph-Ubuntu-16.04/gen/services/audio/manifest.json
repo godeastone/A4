@@ -1,0 +1,28 @@
+{
+"sandbox_type": "none", 
+"display_name": "Audio", 
+"name": "audio", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"info": [
+"audio.mojom.SystemInfo"
+], 
+"stream_factory": [
+"audio.mojom.StreamFactory"
+], 
+"debug_recording": [
+"audio.mojom.DebugRecording"
+], 
+"device_notifier": [
+"audio.mojom.DeviceNotifier"
+]
+}
+}
+}
+}

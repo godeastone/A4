@@ -1,0 +1,142 @@
+{
+  "c++": {
+    "net.interfaces.IPEndPoint": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "net::IPEndPoint", 
+      "traits_headers": [
+        "net/interfaces/ip_endpoint_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "net/base/ip_endpoint.h"
+      ]
+    }, 
+    "net.interfaces.HostResolverRequestInfo": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "std::unique_ptr<net::HostResolver::RequestInfo>", 
+      "traits_headers": [
+        "net/dns/mojo_host_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": true, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "net/dns/host_resolver.h"
+      ]
+    }, 
+    "net.interfaces.IPAddress": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "net::IPAddress", 
+      "traits_headers": [
+        "net/interfaces/ip_address_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "net/base/ip_address.h"
+      ]
+    }, 
+    "proxy_resolver.mojom.ProxyServer": {
+      "hashable": false, 
+      "typename": "net::ProxyServer", 
+      "traits_headers": [
+        "services/proxy_resolver/public/cpp/proxy_resolver_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "net/base/proxy_server.h", 
+        "net/proxy_resolution/proxy_info.h"
+      ]
+    }, 
+    "net.interfaces.AddressFamily": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "net::AddressFamily", 
+      "traits_headers": [
+        "net/interfaces/address_family_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "net/base/address_family.h"
+      ]
+    }, 
+    "net.interfaces.AddressList": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "net::AddressList", 
+      "traits_headers": [
+        "net/interfaces/address_list_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "net/base/address_list.h"
+      ]
+    }, 
+    "proxy_resolver.mojom.ProxyServer::Scheme": {
+      "hashable": false, 
+      "typename": "net::ProxyScheme", 
+      "traits_headers": [
+        "services/proxy_resolver/public/cpp/proxy_resolver_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "net/base/proxy_server.h", 
+        "net/proxy_resolution/proxy_info.h"
+      ]
+    }, 
+    "proxy_resolver.mojom.ProxyInfo": {
+      "hashable": false, 
+      "typename": "net::ProxyInfo", 
+      "traits_headers": [
+        "services/proxy_resolver/public/cpp/proxy_resolver_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "net/base/proxy_server.h", 
+        "net/proxy_resolution/proxy_info.h"
+      ]
+    }, 
+    "url.mojom.Url": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "GURL", 
+      "traits_headers": [
+        "url/mojom/url_gurl_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "url/gurl.h"
+      ]
+    }
+  }
+}

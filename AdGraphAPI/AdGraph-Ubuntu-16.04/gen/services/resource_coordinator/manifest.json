@@ -1,0 +1,37 @@
+{
+"display_name": "Global Resource Coordinator", 
+"name": "resource_coordinator", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"metrics": [
+"url_keyed_metrics"
+], 
+"service_manager": [
+"service_manager:all_users", 
+"service_manager:service_manager"
+]
+}, 
+"provides": {
+"tests": [
+"*"
+], 
+"page_signal": [
+"resource_coordinator.mojom.PageSignalGenerator"
+], 
+"coordination_unit_introspector": [
+"resource_coordinator.mojom.CoordinationUnitIntrospector"
+], 
+"app": [
+"memory_instrumentation.mojom.Coordinator"
+], 
+"heap_profiler_helper": [
+"memory_instrumentation.mojom.HeapProfilerHelper"
+], 
+"coordination_unit": [
+"resource_coordinator.mojom.CoordinationUnitProvider"
+]
+}
+}
+}
+}

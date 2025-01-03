@@ -1,0 +1,22 @@
+defines = -DMEDIA_SHMEM_IMPLEMENTATION -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND -DUSE_PULSEAUDIO -DDLOPEN_PULSEAUDIO
+include_dirs = -I../.. -Iirt_x64/gen
+cflags = -fno-strict-aliasing -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -fcolor-diagnostics -fmerge-all-constants -integrated-as -m64 -march=x86-64 -fasynchronous-unwind-tables -fomit-frame-pointer -Wall -Werror -Wextra -Wimplicit-fallthrough -Wthread-safety -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -fomit-frame-pointer -g0 -fvisibility=hidden -Os -ffunction-sections -fdata-sections
+cflags_cc = -std=gnu++14 -fno-exceptions -fno-rtti -fvisibility-inlines-hidden
+label_name = shared_memory_support
+root_out_dir = irt_x64
+target_out_dir = irt_x64/obj/media
+target_output_name = libshared_memory_support
+
+build irt_x64/obj/media/shared_memory_support.inputdeps.stamp: irt_x64_stamp irt_x64/obj/base/anchor_functions_buildflags.stamp irt_x64/obj/base/build_date.stamp irt_x64/obj/base/cfi_buildflags.stamp irt_x64/obj/base/debugging_buildflags.stamp irt_x64/obj/base/partition_alloc_buildflags.stamp irt_x64/obj/base/protected_memory_buildflags.stamp irt_x64/obj/base/synchronization_buildflags.stamp irt_x64/obj/base/allocator/buildflags.stamp ./tls_edit irt_x64/obj/ui/gfx/geometry/geometry__jumbo_merge.stamp
+build irt_x64/obj/media/shared_memory_support/audio_bus.o: irt_x64_cxx ../../media/base/audio_bus.cc || irt_x64/obj/media/shared_memory_support.inputdeps.stamp
+build irt_x64/obj/media/shared_memory_support/audio_latency.o: irt_x64_cxx ../../media/base/audio_latency.cc || irt_x64/obj/media/shared_memory_support.inputdeps.stamp
+build irt_x64/obj/media/shared_memory_support/audio_parameters.o: irt_x64_cxx ../../media/base/audio_parameters.cc || irt_x64/obj/media/shared_memory_support.inputdeps.stamp
+build irt_x64/obj/media/shared_memory_support/audio_point.o: irt_x64_cxx ../../media/base/audio_point.cc || irt_x64/obj/media/shared_memory_support.inputdeps.stamp
+build irt_x64/obj/media/shared_memory_support/channel_layout.o: irt_x64_cxx ../../media/base/channel_layout.cc || irt_x64/obj/media/shared_memory_support.inputdeps.stamp
+build irt_x64/obj/media/shared_memory_support/sample_format.o: irt_x64_cxx ../../media/base/sample_format.cc || irt_x64/obj/media/shared_memory_support.inputdeps.stamp
+build irt_x64/obj/media/shared_memory_support/vector_math.o: irt_x64_cxx ../../media/base/vector_math.cc || irt_x64/obj/media/shared_memory_support.inputdeps.stamp
+
+build irt_x64/obj/media/libshared_memory_support.a: irt_x64_alink irt_x64/obj/media/shared_memory_support/audio_bus.o irt_x64/obj/media/shared_memory_support/audio_latency.o irt_x64/obj/media/shared_memory_support/audio_parameters.o irt_x64/obj/media/shared_memory_support/audio_point.o irt_x64/obj/media/shared_memory_support/channel_layout.o irt_x64/obj/media/shared_memory_support/sample_format.o irt_x64/obj/media/shared_memory_support/vector_math.o || irt_x64/obj/base/libbase.a irt_x64/obj/ui/gfx/geometry/libgeometry.a irt_x64/obj/base/libbase_static.a irt_x64/obj/base/numerics/base_numerics.stamp irt_x64/obj/base/third_party/dynamic_annotations/dynamic_annotations.stamp irt_x64/obj/third_party/modp_b64/libmodp_b64.a irt_x64/obj/ui/gfx/gfx_export.stamp
+  arflags =
+  output_extension = .a
+  output_dir = irt_x64/obj/media

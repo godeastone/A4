@@ -1,0 +1,113 @@
+{
+metadata: {
+  namespace: "Event",
+  export: "CORE_EXPORT",
+},
+data: [
+  {
+    name: "third_party/blink/renderer/core/css/FontFaceSetLoadEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/css/MediaQueryListEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/dom/events/CustomEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/dom/events/Event",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/AnimationEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/AnimationPlaybackEvent",
+    RuntimeEnabled: "WebAnimationsAPIEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/ApplicationCacheErrorEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/BeforeUnloadEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/ClipboardEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/CompositionEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/DragEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/ErrorEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/FocusEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/HashChangeEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/InputEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/KeyboardEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/MessageEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/MouseEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/MutationEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/PageTransitionEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/PointerEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/PopStateEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/ProgressEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/PromiseRejectionEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/ResourceProgressEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/SecurityPolicyViolationEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/TextEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/TouchEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/TransitionEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/UIEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/events/WheelEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/html/forms/FormDataEvent",
+    RuntimeEnabled: "FormDataEventEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/core/html/track/TrackEvent",
+  },
+  {
+    name: "third_party/blink/renderer/core/mojo/test/MojoInterfaceRequestEvent",
+    RuntimeEnabled: "MojoJSTestEnabled",
+  },
+]
+}

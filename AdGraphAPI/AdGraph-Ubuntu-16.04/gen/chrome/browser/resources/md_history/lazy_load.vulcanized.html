@@ -1,0 +1,818 @@
+<html><head><!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+--><!--
+@license
+Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+--></head>
+<body>
+  <div hidden="" by-polymer-bundler=""><link rel="import" href="chrome://resources/html/polymer.html">
+<link rel="import" href="chrome://resources/polymer/v1_0/polymer/polymer.html">
+<dom-module id="paper-material-styles" assetpath="chrome://resources/polymer/v1_0/paper-styles/element-styles/" css-build="shadow">
+  <template>
+    <style scope="paper-material-styles">:host, html {
+  --paper-material_-_display:  block; --paper-material_-_position:  relative;;
+        --paper-material-elevation-1_-_box-shadow:  var(--shadow-elevation-2dp_-_box-shadow);;
+        --paper-material-elevation-2_-_box-shadow:  var(--shadow-elevation-4dp_-_box-shadow);;
+        --paper-material-elevation-3_-_box-shadow:  var(--shadow-elevation-6dp_-_box-shadow);;
+        --paper-material-elevation-4_-_box-shadow:  var(--shadow-elevation-8dp_-_box-shadow);;
+        --paper-material-elevation-5_-_box-shadow:  var(--shadow-elevation-16dp_-_box-shadow);;
+}
+
+:host(.paper-material), .paper-material {
+  display: var(--paper-material_-_display); position: var(--paper-material_-_position);
+}
+
+:host(.paper-material[elevation="1"]), .paper-material[elevation="1"] {
+  box-shadow: var(--paper-material-elevation-1_-_box-shadow);
+}
+
+:host(.paper-material[elevation="2"]), .paper-material[elevation="2"] {
+  box-shadow: var(--paper-material-elevation-2_-_box-shadow);
+}
+
+:host(.paper-material[elevation="3"]), .paper-material[elevation="3"] {
+  box-shadow: var(--paper-material-elevation-3_-_box-shadow);
+}
+
+:host(.paper-material[elevation="4"]), .paper-material[elevation="4"] {
+  box-shadow: var(--paper-material-elevation-4_-_box-shadow);
+}
+
+:host(.paper-material[elevation="5"]), .paper-material[elevation="5"] {
+  box-shadow: var(--paper-material-elevation-5_-_box-shadow);
+}
+
+</style>
+  </template>
+</dom-module>
+<dom-module id="paper-button" assetpath="chrome://resources/polymer/v1_0/paper-button/" css-build="shadow">
+  <template strip-whitespace="">
+    <style include="paper-material-styles" scope="paper-button">:host {
+  display: var(--layout-inline_-_display);
+        align-items: var(--layout-center-center_-_align-items); justify-content: var(--layout-center-center_-_justify-content);
+        position: relative;
+        box-sizing: border-box;
+        min-width: 5.14em;
+        margin: 0 0.29em;
+        background: transparent;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: transparent;
+        font: inherit;
+        text-transform: uppercase;
+        outline-width: 0;
+        border-radius: 3px;
+        user-select: none;
+        cursor: pointer;
+        z-index: 0;
+        padding: 0.7em 0.57em;
+
+        font-family: var(--paper-font-common-base_-_font-family); -webkit-font-smoothing: var(--paper-font-common-base_-_-webkit-font-smoothing);
+        ;
+}
+
+:host([elevation="1"]) {
+  box-shadow: var(--paper-material-elevation-1_-_box-shadow);
+}
+
+:host([elevation="2"]) {
+  box-shadow: var(--paper-material-elevation-2_-_box-shadow);
+}
+
+:host([elevation="3"]) {
+  box-shadow: var(--paper-material-elevation-3_-_box-shadow);
+}
+
+:host([elevation="4"]) {
+  box-shadow: var(--paper-material-elevation-4_-_box-shadow);
+}
+
+:host([elevation="5"]) {
+  box-shadow: var(--paper-material-elevation-5_-_box-shadow);
+}
+
+:host([hidden]) {
+  display: none !important;
+}
+
+:host([raised].keyboard-focus) {
+  font-weight: bold;
+        ;
+}
+
+:host(:not([raised]).keyboard-focus) {
+  font-weight: bold;
+        ;
+}
+
+:host([disabled]) {
+  background: #eaeaea;
+        color: #a8a8a8;
+        cursor: auto;
+        pointer-events: none;
+
+        ;
+}
+
+:host([animated]) {
+  transition: var(--shadow-transition_-_transition);
+}
+
+paper-ripple {
+  color: var(--paper-button-ink-color);
+}
+
+</style>
+
+    <slot></slot>
+  </template>
+
+  </dom-module>
+<link rel="import" href="chrome://resources/html/util.html">
+<dom-module id="cr-action-menu" assetpath="chrome://resources/cr_elements/cr_action_menu/" css-build="shadow">
+  <template>
+    <style scope="cr-action-menu">:host dialog {
+  background-color: white;
+        border: none;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px var(--paper-grey-500);
+        margin: 0;
+        outline: none;
+        padding: 8px 0;
+
+        ;
+}
+
+:host dialog::backdrop {
+  background-color: transparent;
+}
+
+:host ::content> .dropdown-item {
+  background: none;
+        border: none;
+        border-radius: 0;
+        box-sizing: border-box;
+        color: var(--paper-grey-900);
+        font: inherit;
+        min-height: 32px;
+        padding: 0 24px;
+        text-align: start;
+        user-select: none;
+        width: 100%;
+}
+
+:host ::content> .dropdown-item:not([hidden]) {
+  align-items: center;
+        display: flex;
+}
+
+:host ::content> .dropdown-item[disabled] {
+  opacity: var(--cr-action-menu-disabled-item-opacity, 0.65);
+}
+
+:host ::content> .dropdown-item:not([disabled]) {
+  cursor: var(--cr-actionable_-_cursor);
+}
+
+:host ::content> .dropdown-item:focus {
+  background-color: var(--google-grey-200);
+        outline: none;
+}
+
+.item-wrapper {
+  outline: none;
+}
+
+</style>
+    <dialog id="dialog" tabindex="0">
+      <div class="item-wrapper" tabindex="-1" role="menu">
+        <slot name="item" id="contentNode"></slot>
+      </div>
+    </dialog>
+  </template>
+  </dom-module>
+<dom-module id="iron-collapse" assetpath="chrome://resources/polymer/v1_0/iron-collapse/" css-build="shadow">
+
+  <template>
+
+    <style scope="iron-collapse">:host {
+  display: block;
+        transition-duration: var(--iron-collapse-transition-duration, 300ms);
+        
+        overflow: visible;
+}
+
+:host(.iron-collapse-closed) {
+  display: none;
+}
+
+:host(:not(.iron-collapse-opened)) {
+  overflow: hidden;
+}
+
+</style>
+
+    <slot></slot>
+
+  </template>
+
+</dom-module>
+
+<link rel="import" href="chrome://history/constants.html">
+<dom-module id="history-synced-device-card" assetpath="chrome://history/" css-build="shadow">
+  <template>
+    <style include="shared-style" scope="history-synced-device-card">:host {
+  margin: var(--card-sizing_-_margin); max-width: var(--card-sizing_-_max-width); min-width: var(--card-sizing_-_min-width); padding: var(--card-sizing_-_padding); width: var(--card-sizing_-_width);
+        -webkit-tap-highlight-color: transparent;
+        display: block;
+        padding-bottom: var(--card-padding-between);
+}
+
+#card-heading {
+  -webkit-padding-end: 0;
+        cursor: pointer;
+        justify-content: space-between;
+}
+
+#tab-item-list {
+  padding: 8px 0;
+}
+
+#last-update-time {
+  color: var(--secondary-text-color);
+}
+
+#title-left-content {
+  display: flex;
+        overflow: hidden;
+}
+
+#device-name {
+  overflow: hidden;
+        padding-right: 3px;
+        text-overflow: ellipsis;
+}
+
+#right-buttons {
+  -webkit-margin-end: 12px;
+        color: var(--secondary-text-color);
+}
+
+#collapse {
+  overflow: hidden;
+}
+
+#history-item-container {
+  box-shadow: var(--shadow-elevation-2dp_-_box-shadow);
+        background: #fff;
+        border-radius: var(--cr-card-border-radius);
+}
+
+.item-container {
+  align-items: center;
+        display: flex;
+        margin: 0 20px;
+        min-height: var(--item-height);
+}
+
+.window-separator {
+  background-color: var(--card-border-color);
+        height: 1px;
+        margin: 5px auto;
+        width: 80%;
+}
+
+</style>
+    <div id="history-item-container">
+      <div class="card-title" id="card-heading" aria-expanded$="[[opened]]" aria-controls="collapse" on-click="toggleTabCard">
+        <div id="title-left-content">
+          <div id="device-name">
+            [[device]]
+          </div>
+          <span id="last-update-time">[[lastUpdateTime]]</span>
+        </div>
+        <div id="right-buttons">
+          <paper-icon-button-light class="more-vert-button">
+            <button id="menu-button" on-click="onMenuButtonTap_" title="$i18n{moreActionsButton}">
+              <div></div>
+              <div></div>
+              <div></div>
+            </button>
+          </paper-icon-button-light>
+          <paper-icon-button-light>
+            <button id="collapse-button" title$="[[getCollapseTitle_(opened)]]">
+              <iron-icon icon="[[getCollapseIcon_(opened)]]" id="dropdown-indicator">
+              </iron-icon>
+            </button>
+          </paper-icon-button-light>
+        </div>
+      </div>
+
+      <iron-collapse opened="{{opened}}" id="collapse">
+        <div id="tab-item-list">
+          <template is="dom-repeat" items="[[tabs]]" as="tab" id="tab-list" notify-dom-change="">
+            <div class="item-container">
+              <div class="website-icon"></div>
+              <a href="[[tab.url]]" class="website-title" title="[[tab.title]]" on-click="openTab_" on-contextmenu="onLinkRightClick_">
+                <history-searched-label title="[[tab.title]]" search-term="[[searchTerm]]"></history-searched-label>
+              </a>
+            </div>
+            <div class="window-separator" hidden$="[[!isWindowSeparatorIndex_(index, separatorIndexes)]]">
+            </div>
+          </template>
+        </div>
+      </iron-collapse>
+    </div>
+  </template>
+  </dom-module>
+<dom-module id="history-synced-device-manager" assetpath="chrome://history/" css-build="shadow">
+  <template>
+    <style include="shared-style cr-shared-style paper-button-style" scope="history-synced-device-manager">:host {
+  display: block;
+        overflow: auto;
+}
+
+#illustration {
+  background: -webkit-image-set(
+            url("chrome://history/images/100/sign_in_promo.jpg") 1x,
+            url("chrome://history/images/200/sign_in_promo.jpg") 2x)
+                no-repeat center center;
+        height: 222px;
+        margin-top: 100px;
+        width: 574px;
+}
+
+#no-synced-tabs {
+  height: 100%;
+}
+
+#sign-in-guide {
+  align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow-x: hidden;
+        text-align: center;
+}
+
+#sign-in-promo {
+  font-size: 215%;
+        margin-top: 40px;
+}
+
+#sign-in-promo-desc {
+  color: var(--secondary-text-color);
+        font-size: 123%;
+        margin-top: 10px;
+}
+
+#sign-in-button {
+  margin: 24px 0;
+}
+
+#synced-device-list {
+  padding-top: var(--first-card-padding-top);
+}
+
+</style>
+    <div id="synced-device-list" hidden="[[!syncedDevices_.length]]">
+      <template is="dom-repeat" items="[[syncedDevices_]]" as="syncedDevice">
+        <history-synced-device-card device="[[syncedDevice.device]]" last-update-time="[[syncedDevice.lastUpdateTime]]" tabs="[[syncedDevice.tabs]]" separator-indexes="[[syncedDevice.separatorIndexes]]" search-term="[[searchTerm]]" session-tag="[[syncedDevice.tag]]" opened="{{syncedDevice.opened}}">
+        </history-synced-device-card>
+      </template>
+    </div>
+    <div id="no-synced-tabs" class="centered-message" hidden="[[!showNoSyncedMessage(signInState, syncedDevices_.length,
+                                       guestSession_)]]">
+      [[noSyncedTabsMessage(fetchingSyncedTabs_, searchTerm)]]
+    </div>
+    <div id="sign-in-guide" hidden="[[!showSignInGuide(signInState, guestSession_)]]">
+      <div id="illustration"></div>
+      <div id="sign-in-promo">$i18n{signInPromo}</div>
+      <div id="sign-in-promo-desc">$i18n{signInPromoDesc}</div>
+      <paper-button id="sign-in-button" class="action-button" on-click="onSignInTap_">
+        $i18n{signInButton}
+      </paper-button>
+    </div>
+
+    <cr-lazy-render id="menu">
+      <template>
+        <cr-action-menu>
+          <button id="menuOpenButton" slot="item" class="dropdown-item" on-click="onOpenAllTap_">
+            $i18n{openAll}
+          </button>
+          <button id="menuDeleteButton" slot="item" class="dropdown-item" on-click="onDeleteSessionTap_">
+            $i18n{deleteSession}
+          </button>
+        </cr-action-menu>
+      </template>
+    </cr-lazy-render>
+  </template>
+  </dom-module>
+<dom-module id="cr-checkbox" assetpath="chrome://resources/cr_elements/cr_checkbox/" css-build="shadow">
+  <template>
+    <style scope="cr-checkbox">:host {
+  -webkit-tap-highlight-color: transparent;
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        outline: none;
+        user-select: none;
+
+        --cr-checkbox-size: 16px;
+        --cr-checkbox-border-size: 2px;
+        --cr-checkbox-ripple-size: 40px;
+        --cr-checkbox-ripple-offset: calc(var(--cr-checkbox-size)/2 -
+            var(--cr-checkbox-ripple-size)/2 - var(--cr-checkbox-border-size));
+}
+
+:host([disabled]) {
+  cursor: initial;
+        opacity: var(--cr-disabled-opacity);
+        pointer-events: none;
+}
+
+#checkbox {
+  background: none;
+        border: var(--cr-checkbox-border-size) solid
+            var(--cr-checkbox-unchecked-box-color, var(--google-grey-700));
+        border-radius: 2px;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        flex-shrink: 0;
+        height: var(--cr-checkbox-size);
+        margin: 0;
+        outline: none;
+        padding: 0;
+        position: relative;
+        transform: none;  
+        width: var(--cr-checkbox-size);
+}
+
+#checkmark {
+  border-color: var(--cr-checkbox-mark-color, white);
+        border-style: solid;
+        border-width: 0 2px 2px 0;
+        content: '';
+        display: block;
+        height: 73%;
+        transform: scale(0) rotate(45deg);
+        transform-origin: 100% 80%;
+        width: 36%;
+}
+
+:host-context([dir='rtl']) #checkmark {
+  transform-origin: 50% 14%;
+}
+
+:host([checked]) #checkbox {
+  background: var(--cr-checkbox-checked-box-color,
+            var(--google-blue-600));
+        border-color: var(--cr-checkbox-checked-box-color,
+            var(--google-blue-600));
+}
+
+:host([checked]) #checkmark {
+  transform: scale(1) rotate(45deg);
+        
+        transition: transform 140ms ease-out;
+}
+
+paper-ripple {
+  --paper-ripple-opacity: var(--cr-checkbox-ripple-opacity, 0.1);
+        color: var(--cr-checkbox-ripple-unchecked-color, var(--google-grey-900));
+        height: var(--cr-checkbox-ripple-size);
+        left: var(--cr-checkbox-ripple-offset);
+        pointer-events: none;
+        top: var(--cr-checkbox-ripple-offset);
+        transition: color linear 80ms;
+        width: var(--cr-checkbox-ripple-size);
+}
+
+:host([checked]) paper-ripple {
+  color: var(--cr-checkbox-ripple-checked-color, var(--google-blue-600));
+}
+
+:host-context([dir=rtl]) paper-ripple {
+  left: auto;
+        right: var(--cr-checkbox-ripple-offset);
+}
+
+#label-container {
+  -webkit-padding-start: 20px;
+        white-space: normal;
+
+        ;
+}
+
+:host(.no-label) #label-container {
+  display: none;
+}
+
+</style>
+    <button id="checkbox" tabindex="-1" on-focus="onButtonFocus_">
+      <span id="checkmark"></span>
+    </button>
+    <div id="label-container"><slot></slot></div>
+  </template>
+  </dom-module>
+<dom-module id="cr-dialog" assetpath="chrome://resources/cr_elements/cr_dialog/" css-build="shadow">
+  <template>
+    <style include="cr-hidden-style cr-icons" scope="cr-dialog">dialog {
+  --scroll-border: 1px solid var(--paper-grey-300);
+        border: 0;
+        border-radius: 8px;
+        bottom: 50%;
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.12),
+                    0 16px 16px rgba(0, 0, 0, 0.24);
+        color: inherit;
+        overflow-y: hidden;
+        padding: 0;
+        top: 50%;
+        width: 512px;
+        ;
+}
+
+dialog[open] #content-wrapper {
+  display: flex;
+        flex-direction: column;
+        max-height: 100vh;
+        overflow: auto;
+        ;
+}
+
+.top-container, :host ::content> [slot=button-container], :host ::content> [slot=footer] {
+  flex-shrink: 0;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+}
+
+:host ::content> [slot=body] {
+  -webkit-padding-end: 20px;
+        -webkit-padding-start: 20px;
+        padding-bottom: 0;
+        padding-top: 0;
+        ;
+}
+
+:host ::content> [slot=title] {
+  -webkit-padding-end: 20px;
+        -webkit-padding-start: 20px;
+        flex: 1;
+        font-size: calc(15 / 13 * 100%);
+        line-height: 1;
+        padding-bottom: 16px;
+        padding-top: 16px;
+        ;
+}
+
+:host ::content> [slot=button-container] {
+  display: flex;
+        justify-content: flex-end;
+        padding: 16px;
+        ;
+}
+
+:host ::content> [slot=footer] {
+  border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+        border-top: 1px solid var(--divider-color);
+        margin: 0;
+        padding: 16px 20px;
+}
+
+.body-container {
+  border-bottom: 1px solid transparent;
+        border-top: 1px solid transparent;
+
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        min-height: 60px; 
+        overflow: auto;
+
+        ;
+}
+
+.body-container.bottom-scrollable {
+  border-bottom: var(--scroll-border);
+}
+
+.body-container.top-scrollable {
+  border-top: var(--scroll-border);
+}
+
+.top-container {
+  align-items: flex-start;
+        display: flex;
+        min-height: var(--cr-dialog-top-container-min-height, 31px);
+}
+
+.title-container {
+  display: flex;
+        flex: 1;
+        outline: none;
+}
+
+#closeContainer {
+  --layout-inline_-_display:  flex;;
+
+        -webkit-margin-end: 4px;
+        align-self: flex-start;
+        margin-top: 4px;
+
+        ;
+}
+
+#closeContainer:hover {
+  ;
+}
+
+#closeContainer:active {
+  ;
+}
+
+#closeContainer paper-ripple {
+  ;
+}
+
+</style>
+    <dialog id="dialog">
+      <div id="content-wrapper">
+        <div class="top-container">
+          <div class="title-container" tabindex="-1">
+            <slot name="title"></slot>
+          </div>
+          <paper-icon-button-light id="closeContainer" class="icon-clear" hidden$="[[!showCloseButton]]">
+            <button id="close" aria-label$="[[closeText]]" on-tap="cancel" on-keypress="onCloseKeypress_">
+            </button>
+          </paper-icon-button-light>
+        </div>
+        <slot name="header"></slot>
+        <div class="body-container">
+          <span id="bodyTopMarker"></span>
+          <slot name="body"></slot>
+          <span id="bodyBottomMarker"></span>
+        </div>
+        <slot name="button-container"></slot>
+        <slot name="footer"></slot>
+      </div>
+    </dialog>
+  </template>
+  </dom-module>
+<dom-module id="cr-drawer" assetpath="chrome://resources/cr_elements/cr_drawer/" css-build="shadow">
+  <template>
+    <style scope="cr-drawer">:host dialog {
+  --drawer-width: 256px;
+        --transition-timing: 200ms ease;
+        background-color: #fff;
+        border: none;
+        bottom: 0;
+        left: calc(-1 * var(--drawer-width));
+        margin: 0;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        transition: left var(--transition-timing);
+        width: var(--drawer-width);
+}
+
+:host dialog, #container {
+  height: 100%;
+        word-break: break-word;
+}
+
+:host(.opening) dialog {
+  left: 0;
+}
+
+:host([align=rtl]) dialog {
+  left: auto;
+        right: calc(-1 * var(--drawer-width));
+        transition: right var(--transition-timing);
+}
+
+:host(.opening[align=rtl]) dialog {
+  right: 0;
+}
+
+:host dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: opacity var(--transition-timing);
+}
+
+:host(.opening) dialog::backdrop {
+  opacity: 1;
+}
+
+.drawer-header {
+  -webkit-padding-start: 24px;
+        align-items: center;
+        border-bottom: var(--cr-separator-line);
+        display: flex;
+        font-size: 123.08%;  
+        min-height: 56px;
+        outline: none;
+}
+
+:host ::content> .drawer-content {
+  height: calc(100% - 56px);
+        overflow: auto;
+}
+
+</style>
+    <dialog id="dialog" on-cancel="onDialogCancel_" on-tap="onDialogTap_">
+      <div id="container" on-tap="onContainerTap_">
+        <div class="drawer-header" tabindex="-1">[[heading]]</div>
+        <slot></slot>
+      </div>
+    </dialog>
+  </template>
+</dom-module>
+<dom-module id="cr-toolbar-selection-overlay" assetpath="chrome://resources/cr_elements/cr_toolbar/" css-build="shadow">
+  <template>
+    <style include="cr-icons" scope="cr-toolbar-selection-overlay">:host {
+  -webkit-padding-start: var(--cr-toolbar-field-margin, 0);
+        display: flex;
+        height: 56px;
+}
+
+#overlay-content {
+  align-items: center;
+        display: flex;
+        flex: 1;
+        margin: 0 auto;
+        max-width: var(--selection-overlay-max-width, initial);
+        padding: 0 var(--selection-overlay-padding, 24px);
+}
+
+paper-button {
+  font-weight: 500;
+}
+
+paper-button[disabled] {
+  background: transparent;
+        color: inherit;
+        opacity: 0.7;
+}
+
+#number-selected {
+  flex: 1;
+}
+
+paper-icon-button-light {
+  -webkit-margin-end: 24px;
+        -webkit-margin-start: 2px;
+        height: 36px;
+        width: 36px;
+}
+
+button iron-icon {
+  height: 20px;
+        width: 20px;
+}
+
+</style>
+    <div id="overlay-content">
+      <paper-icon-button-light>
+        <button on-tap="onClearSelectionTap_" title="[[cancelLabel]]">
+          <iron-icon icon="cr:clear"></iron-icon>
+        </button>
+      </paper-icon-button-light>
+      <div id="number-selected">[[selectionLabel]]</div>
+      <paper-button on-tap="onClearSelectionTap_">
+        [[cancelLabel]]
+      </paper-button>
+      <paper-button id="delete" on-tap="onDeleteTap_" disabled="[[deleteDisabled]]">
+        [[deleteLabel]]
+      </paper-button>
+    </div>
+  </template>
+  </dom-module>
+</div>
+  
+<script src="lazy_load.crisper.js"></script></body></html>

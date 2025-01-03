@@ -125,7 +125,7 @@ namespace AdGraphAPI
 
                        + feature_dictionary[LABEL_NODE_ID].get<std::string>() + ","
 
-                       //    + feature_dictionary[FEATURE_REQUEST_URL].get<std::string>() + ","
+                       // + feature_dictionary[FEATURE_REQUEST_URL].get<std::string>() + ","
 
                        + std::to_string(feature_dictionary[FEATURE_GRAPH_NODES].get<int>()) + "," + std::to_string(feature_dictionary[FEATURE_GRAPH_EDGES].get<int>()) + "," + std::to_string(feature_dictionary[FEATURE_GRAPH_NODES_EDGES].get<double>()) + "," + std::to_string(feature_dictionary[FEATURE_GRAPH_EDGES_NODES].get<double>()) + ","
 

@@ -1,0 +1,20 @@
+{
+"sandbox_type": "utility", 
+"display_name": "Printing", 
+"name": "chrome_printing", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"converter": [
+"printing.mojom.PdfToEmfConverterFactory", 
+"printing.mojom.PdfToPwgRasterConverter"
+]
+}
+}
+}
+}

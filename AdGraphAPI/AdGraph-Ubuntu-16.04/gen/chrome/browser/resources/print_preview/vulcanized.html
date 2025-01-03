@@ -1,0 +1,2568 @@
+<!DOCTYPE html><html dir="$i18n{textdirection}" lang="$i18n{language}"><head><base href="chrome://print"><!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+--><!--
+@license
+Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+--><!--
+@license
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    html {
+      /* Remove 300ms delay for 'click' event, when using touch interface. */
+      touch-action: manipulation;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      width: 100%;
+    }
+  </style>
+</head>
+<body><div hidden="" by-polymer-bundler=""><link rel="import" href="chrome://resources/html/polymer.html">
+
+<link rel="import" href="chrome://resources/polymer/v1_0/polymer/polymer.html">
+<dom-module id="iron-collapse" assetpath="chrome://resources/polymer/v1_0/iron-collapse/" css-build="shadow">
+
+  <template>
+
+    <style scope="iron-collapse">:host {
+  display: block;
+        transition-duration: var(--iron-collapse-transition-duration, 300ms);
+        
+        overflow: visible;
+}
+
+:host(.iron-collapse-closed) {
+  display: none;
+}
+
+:host(:not(.iron-collapse-opened)) {
+  overflow: hidden;
+}
+
+</style>
+
+    <slot></slot>
+
+  </template>
+
+</dom-module>
+
+<script src="chrome://resources/js/load_time_data.js"></script>
+<script src="strings.js"></script>
+<dom-module id="print-preview-shared" assetpath="new/" css-build="shadow">
+  <template>
+    <style scope="print-preview-shared">h1 {
+  line-height: 1;
+        user-select: none;
+}
+
+button, input[type='button'], select, input[type='checkbox'], input[type='radio'] {
+  -webkit-appearance: none;
+        background-image: linear-gradient(#ededed, #ededed 38%, #dedede);
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        border-radius: 2px;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08),
+            inset 0 1px 2px rgba(255, 255, 255, 0.75);
+        color: #444;
+        font: inherit;
+        margin: 0 1px 0 0;
+        outline: none;
+        text-shadow: 0 1px 0 rgb(240, 240, 240);
+        user-select: none;
+}
+
+button, input[type='button'], select {
+  min-height: 2em;
+        min-width: 4em;
+        padding-bottom: 1px;
+      
+        padding-top: 1px;
+}
+
+input[type='number'], input[type='search'], input[type='text'], input:not([type]), textarea {
+  border: 1px solid #bfbfbf;
+        border-radius: 2px;
+        box-sizing: border-box;
+        color: #444;
+        font: inherit;
+        margin: 0;
+        
+        min-height: 2em;
+        outline: none;
+        padding: 3px;
+}
+
+:host > * {
+  --print-preview-hover_-_border-color:  rgba(0, 0, 0, 0.3); --print-preview-hover_-_box-shadow:  0 1px 0 rgba(0, 0, 0, 0.12),
+              inset 0 1px 2px rgba(255, 255, 255, 0.95); --print-preview-hover_-_color:  black;;
+      
+
+        
+        --print-preview-active_-_box-shadow:  none; --print-preview-active_-_text-shadow:  none;;
+}
+
+:disabled:-webkit-any( button, input[type='button'], select) {
+  background-image: linear-gradient(#f1f1f1, #f1f1f1 38%, #e6e6e6);
+        border-color: rgba(80, 80, 80, 0.2);
+        box-shadow: 0 1px 0 rgba(80, 80, 80, 0.08),
+            inset 0 1px 2px rgba(255, 255, 255, 0.75);
+        color: #aaa;
+}
+
+input:disabled:-webkit-any([type='search'], [type='text'], :not([type])) {
+  color: #999;
+}
+
+:enabled:focus:-webkit-any( select, input[type='checkbox'], input[type='number'], input[type='radio'], input[type='search'], input[type='text'], input:not([type]), button, input[type='button']) {
+  border-color: rgb(77, 144, 254);
+        outline: none;
+        
+        transition: border-color 200ms;
+}
+
+html:not(.focus-outline-visible) :enabled:focus:-webkit-any(input[type='checkbox'], input[type='radio'], button) {
+  border-color: rgba(0,0,0,0.25);
+}
+
+</style>
+  </template>
+</dom-module>
+<dom-module id="button" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared" scope="button">button {
+  -webkit-padding-end: 10px;
+        -webkit-padding-start: 10px;
+}
+
+button:enabled:hover {
+  background-image: linear-gradient(#f0f0f0, #f0f0f0 38%, #e0e0e0);
+        border-color: var(--print-preview-hover_-_border-color); box-shadow: var(--print-preview-hover_-_box-shadow); color: var(--print-preview-hover_-_color);
+}
+
+button:enabled:active {
+  background-image: linear-gradient(#e7e7e7, #e7e7e7 38%, #d7d7d7);
+        box-shadow: var(--print-preview-active_-_box-shadow); text-shadow: var(--print-preview-active_-_text-shadow);
+}
+
+button.default:not(:focus):not(:disabled) {
+  border-color: #808080;
+}
+
+button.default {
+  font-kerning: none;
+        font-weight: bold;
+}
+
+</style>
+  </template>
+</dom-module>
+<dom-module id="print-preview-header" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared button" scope="print-preview-header">:host {
+  -webkit-padding-end: 19px;
+        -webkit-padding-start: 20px;
+        background-color: #f6f6f6;
+        border-bottom: 1px solid #d2d2d2;
+        display: block;
+        padding-bottom: 20px;
+        padding-top: 6px;
+}
+
+.title {
+  color: black;
+        font-size: 1.25em;
+        font-weight: normal;
+        margin: 0;
+        padding-bottom: 12px;
+        padding-top: 10px;
+}
+
+.summary {
+  display: block;
+        min-height: 34px;
+}
+
+#button-strip {
+  display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+}
+
+#button-strip button {
+  -webkit-margin-start: 9px;
+        display: block;
+}
+
+#button-strip button.loading {
+  cursor: progress;
+}
+
+#button-strip button.default {
+  font-kerning: none;
+        font-weight: bold;
+}
+
+#button-strip button.default:not(:focus):not(:disabled) {
+  border-color: #808080;
+}
+
+#button-strip button.print:enabled {
+  background-color: rgb(77, 144, 254);
+        background-image:
+            linear-gradient(to bottom, rgb(77, 144, 254), rgb(71, 135, 237));
+        border: 1px solid rgb(48, 121, 237);
+        color: #fff;
+        text-shadow: 0 1px rgba(0,0,0,0.1);
+}
+
+</style>
+    <h1 class="title">$i18n{title}</h1>
+    <span class="summary" aria-label$="[[summaryLabel_]]" inner-h-t-m-l="[[summary_]]">
+    </span>
+    <div id="button-strip">
+      <button class="cancel" on-click="onCancelClick_">$i18n{cancel}</button>
+      <button class="print default" on-click="onPrintClick_" disabled$="[[!printButtonEnabled_]]">
+        [[getPrintButton_(destination.id)]]
+      </button>
+    </div>
+  </template>
+  </dom-module>
+<dom-module id="cr-hidden-style" assetpath="chrome://resources/cr_elements/" css-build="shadow">
+  <template>
+    <style scope="cr-hidden-style">[hidden] {
+  display: none !important;
+}
+
+</style>
+  </template>
+</dom-module>
+<custom-style>
+  <style is="custom-style" css-build="shadow">html {
+  --google-red-100: #f4c7c3;
+      --google-red-300: #e67c73;
+      --google-red-500: #db4437;
+      --google-red-700: #c53929;
+
+      --google-blue-100: #c6dafc;
+      --google-blue-300: #7baaf7;
+      --google-blue-500: #4285f4;
+      --google-blue-700: #3367d6;
+
+      --google-green-100: #b7e1cd;
+      --google-green-300: #57bb8a;
+      --google-green-500: #0f9d58;
+      --google-green-700: #0b8043;
+
+      --google-yellow-100: #fce8b2;
+      --google-yellow-300: #f7cb4d;
+      --google-yellow-500: #f4b400;
+      --google-yellow-700: #f09300;
+
+      --google-grey-100: #f5f5f5;
+      --google-grey-300: #e0e0e0;
+      --google-grey-500: #9e9e9e;
+      --google-grey-700: #616161;
+
+      
+
+      --paper-red-50: #ffebee;
+      --paper-red-100: #ffcdd2;
+      --paper-red-200: #ef9a9a;
+      --paper-red-300: #e57373;
+      --paper-red-400: #ef5350;
+      --paper-red-500: #f44336;
+      --paper-red-600: #e53935;
+      --paper-red-700: #d32f2f;
+      --paper-red-800: #c62828;
+      --paper-red-900: #b71c1c;
+      --paper-red-a100: #ff8a80;
+      --paper-red-a200: #ff5252;
+      --paper-red-a400: #ff1744;
+      --paper-red-a700: #d50000;
+
+      --paper-pink-50: #fce4ec;
+      --paper-pink-100: #f8bbd0;
+      --paper-pink-200: #f48fb1;
+      --paper-pink-300: #f06292;
+      --paper-pink-400: #ec407a;
+      --paper-pink-500: #e91e63;
+      --paper-pink-600: #d81b60;
+      --paper-pink-700: #c2185b;
+      --paper-pink-800: #ad1457;
+      --paper-pink-900: #880e4f;
+      --paper-pink-a100: #ff80ab;
+      --paper-pink-a200: #ff4081;
+      --paper-pink-a400: #f50057;
+      --paper-pink-a700: #c51162;
+
+      --paper-purple-50: #f3e5f5;
+      --paper-purple-100: #e1bee7;
+      --paper-purple-200: #ce93d8;
+      --paper-purple-300: #ba68c8;
+      --paper-purple-400: #ab47bc;
+      --paper-purple-500: #9c27b0;
+      --paper-purple-600: #8e24aa;
+      --paper-purple-700: #7b1fa2;
+      --paper-purple-800: #6a1b9a;
+      --paper-purple-900: #4a148c;
+      --paper-purple-a100: #ea80fc;
+      --paper-purple-a200: #e040fb;
+      --paper-purple-a400: #d500f9;
+      --paper-purple-a700: #aa00ff;
+
+      --paper-deep-purple-50: #ede7f6;
+      --paper-deep-purple-100: #d1c4e9;
+      --paper-deep-purple-200: #b39ddb;
+      --paper-deep-purple-300: #9575cd;
+      --paper-deep-purple-400: #7e57c2;
+      --paper-deep-purple-500: #673ab7;
+      --paper-deep-purple-600: #5e35b1;
+      --paper-deep-purple-700: #512da8;
+      --paper-deep-purple-800: #4527a0;
+      --paper-deep-purple-900: #311b92;
+      --paper-deep-purple-a100: #b388ff;
+      --paper-deep-purple-a200: #7c4dff;
+      --paper-deep-purple-a400: #651fff;
+      --paper-deep-purple-a700: #6200ea;
+
+      --paper-indigo-50: #e8eaf6;
+      --paper-indigo-100: #c5cae9;
+      --paper-indigo-200: #9fa8da;
+      --paper-indigo-300: #7986cb;
+      --paper-indigo-400: #5c6bc0;
+      --paper-indigo-500: #3f51b5;
+      --paper-indigo-600: #3949ab;
+      --paper-indigo-700: #303f9f;
+      --paper-indigo-800: #283593;
+      --paper-indigo-900: #1a237e;
+      --paper-indigo-a100: #8c9eff;
+      --paper-indigo-a200: #536dfe;
+      --paper-indigo-a400: #3d5afe;
+      --paper-indigo-a700: #304ffe;
+
+      --paper-blue-50: #e3f2fd;
+      --paper-blue-100: #bbdefb;
+      --paper-blue-200: #90caf9;
+      --paper-blue-300: #64b5f6;
+      --paper-blue-400: #42a5f5;
+      --paper-blue-500: #2196f3;
+      --paper-blue-600: #1e88e5;
+      --paper-blue-700: #1976d2;
+      --paper-blue-800: #1565c0;
+      --paper-blue-900: #0d47a1;
+      --paper-blue-a100: #82b1ff;
+      --paper-blue-a200: #448aff;
+      --paper-blue-a400: #2979ff;
+      --paper-blue-a700: #2962ff;
+
+      --paper-light-blue-50: #e1f5fe;
+      --paper-light-blue-100: #b3e5fc;
+      --paper-light-blue-200: #81d4fa;
+      --paper-light-blue-300: #4fc3f7;
+      --paper-light-blue-400: #29b6f6;
+      --paper-light-blue-500: #03a9f4;
+      --paper-light-blue-600: #039be5;
+      --paper-light-blue-700: #0288d1;
+      --paper-light-blue-800: #0277bd;
+      --paper-light-blue-900: #01579b;
+      --paper-light-blue-a100: #80d8ff;
+      --paper-light-blue-a200: #40c4ff;
+      --paper-light-blue-a400: #00b0ff;
+      --paper-light-blue-a700: #0091ea;
+
+      --paper-cyan-50: #e0f7fa;
+      --paper-cyan-100: #b2ebf2;
+      --paper-cyan-200: #80deea;
+      --paper-cyan-300: #4dd0e1;
+      --paper-cyan-400: #26c6da;
+      --paper-cyan-500: #00bcd4;
+      --paper-cyan-600: #00acc1;
+      --paper-cyan-700: #0097a7;
+      --paper-cyan-800: #00838f;
+      --paper-cyan-900: #006064;
+      --paper-cyan-a100: #84ffff;
+      --paper-cyan-a200: #18ffff;
+      --paper-cyan-a400: #00e5ff;
+      --paper-cyan-a700: #00b8d4;
+
+      --paper-teal-50: #e0f2f1;
+      --paper-teal-100: #b2dfdb;
+      --paper-teal-200: #80cbc4;
+      --paper-teal-300: #4db6ac;
+      --paper-teal-400: #26a69a;
+      --paper-teal-500: #009688;
+      --paper-teal-600: #00897b;
+      --paper-teal-700: #00796b;
+      --paper-teal-800: #00695c;
+      --paper-teal-900: #004d40;
+      --paper-teal-a100: #a7ffeb;
+      --paper-teal-a200: #64ffda;
+      --paper-teal-a400: #1de9b6;
+      --paper-teal-a700: #00bfa5;
+
+      --paper-green-50: #e8f5e9;
+      --paper-green-100: #c8e6c9;
+      --paper-green-200: #a5d6a7;
+      --paper-green-300: #81c784;
+      --paper-green-400: #66bb6a;
+      --paper-green-500: #4caf50;
+      --paper-green-600: #43a047;
+      --paper-green-700: #388e3c;
+      --paper-green-800: #2e7d32;
+      --paper-green-900: #1b5e20;
+      --paper-green-a100: #b9f6ca;
+      --paper-green-a200: #69f0ae;
+      --paper-green-a400: #00e676;
+      --paper-green-a700: #00c853;
+
+      --paper-light-green-50: #f1f8e9;
+      --paper-light-green-100: #dcedc8;
+      --paper-light-green-200: #c5e1a5;
+      --paper-light-green-300: #aed581;
+      --paper-light-green-400: #9ccc65;
+      --paper-light-green-500: #8bc34a;
+      --paper-light-green-600: #7cb342;
+      --paper-light-green-700: #689f38;
+      --paper-light-green-800: #558b2f;
+      --paper-light-green-900: #33691e;
+      --paper-light-green-a100: #ccff90;
+      --paper-light-green-a200: #b2ff59;
+      --paper-light-green-a400: #76ff03;
+      --paper-light-green-a700: #64dd17;
+
+      --paper-lime-50: #f9fbe7;
+      --paper-lime-100: #f0f4c3;
+      --paper-lime-200: #e6ee9c;
+      --paper-lime-300: #dce775;
+      --paper-lime-400: #d4e157;
+      --paper-lime-500: #cddc39;
+      --paper-lime-600: #c0ca33;
+      --paper-lime-700: #afb42b;
+      --paper-lime-800: #9e9d24;
+      --paper-lime-900: #827717;
+      --paper-lime-a100: #f4ff81;
+      --paper-lime-a200: #eeff41;
+      --paper-lime-a400: #c6ff00;
+      --paper-lime-a700: #aeea00;
+
+      --paper-yellow-50: #fffde7;
+      --paper-yellow-100: #fff9c4;
+      --paper-yellow-200: #fff59d;
+      --paper-yellow-300: #fff176;
+      --paper-yellow-400: #ffee58;
+      --paper-yellow-500: #ffeb3b;
+      --paper-yellow-600: #fdd835;
+      --paper-yellow-700: #fbc02d;
+      --paper-yellow-800: #f9a825;
+      --paper-yellow-900: #f57f17;
+      --paper-yellow-a100: #ffff8d;
+      --paper-yellow-a200: #ffff00;
+      --paper-yellow-a400: #ffea00;
+      --paper-yellow-a700: #ffd600;
+
+      --paper-amber-50: #fff8e1;
+      --paper-amber-100: #ffecb3;
+      --paper-amber-200: #ffe082;
+      --paper-amber-300: #ffd54f;
+      --paper-amber-400: #ffca28;
+      --paper-amber-500: #ffc107;
+      --paper-amber-600: #ffb300;
+      --paper-amber-700: #ffa000;
+      --paper-amber-800: #ff8f00;
+      --paper-amber-900: #ff6f00;
+      --paper-amber-a100: #ffe57f;
+      --paper-amber-a200: #ffd740;
+      --paper-amber-a400: #ffc400;
+      --paper-amber-a700: #ffab00;
+
+      --paper-orange-50: #fff3e0;
+      --paper-orange-100: #ffe0b2;
+      --paper-orange-200: #ffcc80;
+      --paper-orange-300: #ffb74d;
+      --paper-orange-400: #ffa726;
+      --paper-orange-500: #ff9800;
+      --paper-orange-600: #fb8c00;
+      --paper-orange-700: #f57c00;
+      --paper-orange-800: #ef6c00;
+      --paper-orange-900: #e65100;
+      --paper-orange-a100: #ffd180;
+      --paper-orange-a200: #ffab40;
+      --paper-orange-a400: #ff9100;
+      --paper-orange-a700: #ff6500;
+
+      --paper-deep-orange-50: #fbe9e7;
+      --paper-deep-orange-100: #ffccbc;
+      --paper-deep-orange-200: #ffab91;
+      --paper-deep-orange-300: #ff8a65;
+      --paper-deep-orange-400: #ff7043;
+      --paper-deep-orange-500: #ff5722;
+      --paper-deep-orange-600: #f4511e;
+      --paper-deep-orange-700: #e64a19;
+      --paper-deep-orange-800: #d84315;
+      --paper-deep-orange-900: #bf360c;
+      --paper-deep-orange-a100: #ff9e80;
+      --paper-deep-orange-a200: #ff6e40;
+      --paper-deep-orange-a400: #ff3d00;
+      --paper-deep-orange-a700: #dd2c00;
+
+      --paper-brown-50: #efebe9;
+      --paper-brown-100: #d7ccc8;
+      --paper-brown-200: #bcaaa4;
+      --paper-brown-300: #a1887f;
+      --paper-brown-400: #8d6e63;
+      --paper-brown-500: #795548;
+      --paper-brown-600: #6d4c41;
+      --paper-brown-700: #5d4037;
+      --paper-brown-800: #4e342e;
+      --paper-brown-900: #3e2723;
+
+      --paper-grey-50: #fafafa;
+      --paper-grey-100: #f5f5f5;
+      --paper-grey-200: #eeeeee;
+      --paper-grey-300: #e0e0e0;
+      --paper-grey-400: #bdbdbd;
+      --paper-grey-500: #9e9e9e;
+      --paper-grey-600: #757575;
+      --paper-grey-700: #616161;
+      --paper-grey-800: #424242;
+      --paper-grey-900: #212121;
+
+      --paper-blue-grey-50: #eceff1;
+      --paper-blue-grey-100: #cfd8dc;
+      --paper-blue-grey-200: #b0bec5;
+      --paper-blue-grey-300: #90a4ae;
+      --paper-blue-grey-400: #78909c;
+      --paper-blue-grey-500: #607d8b;
+      --paper-blue-grey-600: #546e7a;
+      --paper-blue-grey-700: #455a64;
+      --paper-blue-grey-800: #37474f;
+      --paper-blue-grey-900: #263238;
+
+      
+      --dark-divider-opacity: 0.12;
+      --dark-disabled-opacity: 0.38; 
+      --dark-secondary-opacity: 0.54;
+      --dark-primary-opacity: 0.87;
+
+      
+      --light-divider-opacity: 0.12;
+      --light-disabled-opacity: 0.3; 
+      --light-secondary-opacity: 0.7;
+      --light-primary-opacity: 1.0;
+}
+
+</style>
+</custom-style>
+<style is="custom-style" css-build="shadow">html {
+  --cr-actionable_-_cursor:  pointer;;
+
+    --cr-button-edge-spacing: 12px;
+
+    
+    --cr-controlled-by-spacing: 24px;
+
+    --cr-focused-item-color: var(--google-grey-300);
+
+    
+    --cr-icon-ripple-size: 36px;
+    --cr-icon-ripple-padding: 8px;
+
+    --cr-icon-size: 20px;
+
+    --cr-icon-height-width_-_height:  var(--cr-icon-size); --cr-icon-height-width_-_width:  var(--cr-icon-size);
+
+    --cr-icon-button-margin-start: 16px;
+
+    --cr-icon-ripple-margin: calc(var(--cr-icon-ripple-padding) * -1);
+
+    
+    --cr-page-host_-_color:  var(--primary-text-color); --cr-page-host_-_line-height:  154%; --cr-page-host_-_overflow:  hidden; --cr-page-host_-_user-select:  text;;
+
+    --cr-paper-icon-button-margin_-_-webkit-margin-end:  var(--cr-icon-ripple-margin); --cr-paper-icon-button-margin_-_-webkit-margin-start:  var(--cr-icon-button-margin-start);
+
+    --cr-primary-text_-_color:  var(--paper-grey-900); --cr-primary-text_-_line-height:  154%;
+
+    --cr-secondary-text_-_color:  var(--paper-grey-600); --cr-secondary-text_-_font-weight:  400;
+
+    
+    
+    --cr-section-min-height: 48px;
+    --cr-section-two-line-min-height: 64px;
+    --cr-section-three-line-min-height: 84px;
+
+    --cr-section-padding: 20px;
+    --cr-section-indent-width: 40px;
+    --cr-section-indent-padding: calc(
+        var(--cr-section-padding) + var(--cr-section-indent-width));
+
+    --cr-section_-_align-items:  center; --cr-section_-_border-top:  var(--cr-separator-line); --cr-section_-_display:  flex; --cr-section_-_min-height:  var(--cr-section-min-height); --cr-section_-_padding:  0 var(--cr-section-padding);;
+
+    --cr-text-elide_-_overflow:  hidden; --cr-text-elide_-_text-overflow:  ellipsis; --cr-text-elide_-_white-space:  nowrap;;
+
+    --cr-title-text_-_color:  rgb(90, 90, 90); --cr-title-text_-_font-size:  107.6923%; --cr-title-text_-_font-weight:  500;;
+
+    --cr-section-text_-_color:  var(--paper-grey-700); --cr-section-text_-_font-size:  100%; --cr-section-text_-_font-weight:  500;;
+
+    --cr-toggle-color: var(--google-blue-500);
+
+    --cr-tooltip_-_font-size:  92.31%; --cr-tooltip_-_font-weight:  500; --cr-tooltip_-_max-width:  330px; --cr-tooltip_-_min-width:  200px; --cr-tooltip_-_padding:  10px 8px;
+
+    --cr-selectable-focus_-_background-color:  var(--cr-focused-item-color); --cr-selectable-focus_-_outline:  none;
+    --cr-separator-height: 1px;
+    --cr-separator-line: var(--cr-separator-height) solid rgba(0, 0, 0, 0.06);
+
+    --cr-container-shadow_-_box-shadow:  inset 0 5px 6px -3px rgba(0, 0, 0, 0.4); --cr-container-shadow_-_height:  6px; --cr-container-shadow_-_left:  0; --cr-container-shadow_-_margin-bottom:  -6px; --cr-container-shadow_-_opacity:  0; --cr-container-shadow_-_pointer-events:  none; --cr-container-shadow_-_position:  relative; --cr-container-shadow_-_right:  0; --cr-container-shadow_-_top:  0px; --cr-container-shadow_-_transition:  opacity 500ms; --cr-container-shadow_-_z-index:  1;
+
+    --cr-container-shadow-max-opacity: 1;
+
+    
+    --cr-card-border-radius: 4px;
+    --cr-disabled-opacity: 0.38;
+    --google-blue-600: #1A73E8;
+    --google-grey-200: #E8EAED;
+    --google-grey-400: #BDC1C6;
+    --google-grey-900: #202124;
+}
+
+</style>
+<dom-module id="action-link" assetpath="chrome://resources/html/" css-build="shadow">
+  <template>
+    <style scope="action-link">[is='action-link'] {
+  cursor: var(--cr-actionable_-_cursor);
+        display: inline-block;
+        text-decoration: none;
+}
+
+[is='action-link'], [is='action-link']:active, [is='action-link']:hover, [is='action-link']:visited {
+  color: var(--google-blue-700);
+}
+
+[is='action-link'][disabled] {
+  color: var(--paper-grey-600);
+        cursor: default;
+        opacity: 0.65;
+        pointer-events: none;
+}
+
+[is='action-link'].no-outline {
+  outline: none;
+}
+
+</style>
+  </template>
+</dom-module>
+<dom-module id="print-preview-margin-control" assetpath="new/" css-build="shadow">
+  <template>
+    <style scope="print-preview-margin-control">:host {
+  display: block;
+        position: absolute;
+        transition: opacity 150ms linear;
+}
+
+:host([invisible]) {
+  opacity: 0;
+        pointer-events: none;
+}
+
+:host([side=top]), :host([side=bottom]) {
+  cursor: ns-resize;
+        padding: 8px 0;
+        width: 100%;
+}
+
+:host([side=left]), :host([side=right]) {
+  cursor: ew-resize;
+        height: 100%;
+        padding: 0 8px;
+}
+
+#line {
+  border: 1px dashed rgb(64, 128, 250);
+}
+
+:host([side=top]) #line, :host([side=bottom]) #line {
+  width: 100%;
+}
+
+:host([side=left]) #line, :host([side=right]) #line {
+  height: 100%;
+}
+
+#textbox {
+  background-color: #2a2a2a;
+        border: 1px solid #888;
+        box-sizing: border-box;
+        color: white;
+        cursor: auto;
+        font-size: 0.8rem;
+        height: 25px;
+        padding: 5px 0;
+        position: absolute;
+        text-align: center;
+        width: 60px;
+}
+
+:host([invalid]) #textbox {
+  background-color: rgb(193, 27, 23);
+}
+
+:host([side=top]) #textbox {
+  left: 50%;
+        top: 8px;
+}
+
+:host([side=right]) #textbox {
+  right: 8px;
+        top: 50%;
+}
+
+:host([side=bottom]) #textbox {
+  bottom: 8px;
+        right: 50%;
+}
+
+:host([side=left]) #textbox {
+  bottom: 50%;
+        left: 8px;
+}
+
+</style>
+    <div id="line"></div>
+    <input id="textbox" aria-hidden$="[[getAriaHidden_(invisible)]]" type="text" disabled="[[invisible]]" on-blur="onBlur_" data-timeout-delay="1000">
+  </template>
+  </dom-module>
+<dom-module id="print-preview-margin-control-container" assetpath="new/" css-build="shadow">
+  <template>
+    <style scope="print-preview-margin-control-container">:host {
+  display: block;
+}
+
+:host([dragging_=dragging-vertical]) {
+  cursor: ns-resize;
+}
+
+:host([dragging_=dragging-horizontal]) {
+  cursor: ew-resize;
+}
+
+</style>
+    <template is="dom-repeat" items="[[marginSides_]]">
+      <print-preview-margin-control side="[[item]]" invisible="[[invisible_]]" translate-transform="[[translateTransform_]]" clip-size="[[clipSize_]]" scale-transform="[[scaleTransform_]]" page-size="[[pageSize]]" on-pointerdown="onPointerDown_" on-text-change="onTextChange_" on-text-blur="onTextBlur_" on-transition-end="onTransitionEnd_">
+      </print-preview-margin-control>
+    </template>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-preview-area" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="action-link cr-hidden-style" scope="print-preview-preview-area">@keyframes dancing-dots-jump {
+0% {
+  top: 0;
+}
+
+55% {
+  top: 0;
+}
+
+60% {
+  top: -10px;
+}
+
+80% {
+  top: 3px;
+}
+
+90% {
+  top: -2px;
+}
+
+95% {
+  top: 1px;
+}
+
+100% {
+  top: 0;
+}
+
+}
+
+:host span.jumping-dots > span {
+  animation: dancing-dots-jump 1800ms infinite;
+        padding: 1px;
+        position: relative;
+}
+
+:host span.jumping-dots > span:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+:host span.jumping-dots > span:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+:host {
+  display: block;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        user-select: none;
+}
+
+.preview-area-plugin-wrapper {
+  height: 100%;
+}
+
+:host .preview-area-plugin {
+  border: none;
+        cursor: inherit;
+        height: 100%;
+        opacity: 1;
+        
+        transition: opacity 200ms linear;
+        
+        transition-delay: 100ms;
+        width: 100%;
+}
+
+:host .preview-area-overlay-layer {
+  background: #e6e6e6;
+        height: 100%;
+        margin: 0;
+        opacity: 1;
+        position: absolute;
+        transition: opacity 200ms linear;
+        
+        transition-delay: 350ms;
+        user-select: none;
+        width: 100%;
+        z-index: 1;
+}
+
+:host .preview-area-overlay-layer.invisible {
+  opacity: 0;
+        pointer-events: none;
+        
+        transition: opacity 100ms linear;
+}
+
+:host .preview-area-messages {
+  height: 100%;
+}
+
+:host .preview-area-message {
+  color: #404040;
+        font-size: 1.1em;
+        position: relative;
+        text-align: center;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+        top: 50%;
+}
+
+:host .preview-area-no-plugin-action-area {
+  margin-top: 12px;
+}
+
+:host .preview-area-open-system-dialog-button-throbber {
+  vertical-align: middle;
+}
+
+</style>
+    <div class$="preview-area-overlay-layer [[getInvisible_(previewState)]]" aria-hidden$="[[getAriaHidden_(previewState)]]">
+      <div class="preview-area-messages">
+        <div class="preview-area-message">
+          <div>
+            <span>[[currentMessage_(previewState)]]</span>
+            <span class$="preview-area-loading-message-jumping-dots
+                          [[getJumpingDots_(previewState)]]" hidden$="[[!isPreviewLoading_(previewState)]]">
+                <span>.</span><span>.</span><span>.</span>
+            </span>
+            <a is="action-link" class="learn-more-link" hidden$="[[!shouldShowLearnMoreLink_(previewState)]]" on-click="onGcpErrorLearnMoreClick_">
+              $i18n{learnMore}
+            </a>
+          </div>
+          <div class="preview-area-action-area" hidden$="[[!displaySystemDialogButton_(previewState)]]">
+            <button class="preview-area-open-system-dialog-button">
+              $i18n{launchNativeDialog}
+            </button>
+            <div class="preview-area-open-system-dialog-button-throbber throbber" hidden=""></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="preview-area-plugin-wrapper">
+      <object class="preview-area-compatibility-object-out-of-process" type="application/x-google-chrome-pdf" data="chrome://print/dummy.pdf"></object>
+    </div>
+    <print-preview-margin-control-container id="marginControlContainer" page-size="[[documentInfo.pageSize]]" settings="{{settings}}" document-margins="[[documentInfo.margins]]" measurement-system="[[measurementSystem]]" preview-loaded="[[previewLoaded_]]" on-margin-drag-changed="onMarginDragChanged_">
+    </print-preview-margin-control-container>
+  </template>
+  <script src="pdf/pdf_scripting_api.js"></script>
+</dom-module>
+<dom-module id="cr-lazy-render" assetpath="chrome://resources/cr_elements/cr_lazy_render/" css-build="shadow">
+  <template>
+    <slot></slot>
+  </template>
+  </dom-module>
+<dom-module id="cr-icons" assetpath="chrome://resources/cr_elements/" css-build="shadow">
+  <template>
+    <style scope="cr-icons">:host-context([dir=rtl]) :-webkit-any(paper-icon-button-light, .cr-icon) {
+  transform: scaleX(-1);
+}
+
+paper-icon-button-light paper-ripple {
+  color: currentColor;
+        opacity: 0.6;
+}
+
+paper-icon-button-light, .cr-icon {
+  -webkit-margin-end: var(--cr-paper-icon-button-margin_-_-webkit-margin-end); -webkit-margin-start: var(--cr-paper-icon-button-margin_-_-webkit-margin-start);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: var(--cr-icon-size);
+        flex-shrink: 0;
+        height: var(--cr-icon-ripple-size);
+        user-select: none;
+        width: var(--cr-icon-ripple-size);
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).no-overlap {
+  margin-left: 0;
+        margin-right: 0;
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-arrow-back {
+  background-image: url("chrome://resources/images/icon_arrow_back.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-cancel {
+  background-image: url("chrome://resources/images/icon_cancel.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-cancel-toolbar {
+  background-image: url("chrome://resources/images/icon_cancel_toolbar.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-clear {
+  background-image: url("chrome://resources/images/icon_clear.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-delete-gray {
+  background-image: url("chrome://resources/images/icon_delete_gray.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-delete-white {
+  background-image: url("chrome://resources/images/icon_delete_white.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-expand-less {
+  background-image: url("chrome://resources/images/icon_expand_less.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-expand-more {
+  background-image: url("chrome://resources/images/icon_expand_more.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-external {
+  background-image: url("chrome://resources/images/open_in_new.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-menu-white {
+  background-image: url("chrome://resources/images/icon_menu_white.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-more-vert {
+  background-image: url("chrome://resources/images/icon_more_vert.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-refresh {
+  background-image: url("chrome://resources/images/icon_refresh.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-settings {
+  background-image: url("chrome://resources/images/icon_settings.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-search {
+  background-image: url("chrome://resources/images/icon_search.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-arrow-dropdown {
+  background-image: url("chrome://resources/images/icon_arrow_dropdown.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).subpage-arrow {
+  background-image: url("chrome://resources/images/arrow_right.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-visibility {
+  background-image: url("chrome://resources/images/icon_visibility.svg");
+}
+
+:-webkit-any(paper-icon-button-light, .cr-icon).icon-visibility-off {
+  background-image: url("chrome://resources/images/icon_visibility_off.svg");
+}
+
+</style>
+  </template>
+</dom-module>
+<dom-module id="paper-ripple" assetpath="chrome://resources/polymer/v1_0/paper-ripple/" css-build="shadow">
+
+  <template>
+    <style scope="paper-ripple">:host {
+  border-radius: inherit;
+        bottom: 0;
+        display: block;
+        left: 0;
+        overflow: hidden;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        
+        transform: translate3d(0, 0, 0);
+}
+
+.ripple {
+  background-color: currentcolor;
+        left: 0;
+        opacity: var(--paper-ripple-opacity, 0.25);
+        pointer-events: none;
+        position: absolute;
+        will-change: height, transform, width;
+}
+
+.ripple, :host(.circle) {
+  border-radius: 50%;
+}
+
+</style>
+  </template>
+</dom-module>
+<dom-module id="paper-icon-button-light" assetpath="chrome://resources/polymer/v1_0/paper-icon-button/" css-build="shadow">
+  <template strip-whitespace="">
+    <style scope="paper-icon-button-light">:host {
+  display: inline-block;
+        position: relative;
+        width: 24px;
+        height: 24px;
+}
+
+paper-ripple {
+  opacity: 0.6;
+        color: currentColor;
+        ;
+}
+
+:host > ::content> button {
+  position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: none;
+        border: none;
+        outline: none;
+        vertical-align: middle;
+        color: inherit;
+        cursor: pointer;
+        
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: transparent;
+}
+
+:host > ::content> button[disabled] {
+  color: #9b9b9b;
+        pointer-events: none;
+        cursor: auto;
+}
+
+</style>
+    <slot></slot>
+  </template>
+
+  </dom-module>
+<custom-style>
+  <style is="custom-style" css-build="shadow">html {
+  --primary-text-color: var(--light-theme-text-color);
+      --primary-background-color: var(--light-theme-background-color);
+      --secondary-text-color: var(--light-theme-secondary-color);
+      --disabled-text-color: var(--light-theme-disabled-color);
+      --divider-color: var(--light-theme-divider-color);
+      --error-color: var(--paper-deep-orange-a700);
+
+      
+      --primary-color: var(--paper-indigo-500);
+      --light-primary-color: var(--paper-indigo-100);
+      --dark-primary-color: var(--paper-indigo-700);
+
+      --accent-color: var(--paper-pink-a200);
+      --light-accent-color: var(--paper-pink-a100);
+      --dark-accent-color: var(--paper-pink-a400);
+
+
+      
+      --light-theme-background-color: #ffffff;
+      --light-theme-base-color: #000000;
+      --light-theme-text-color: var(--paper-grey-900);
+      --light-theme-secondary-color: #737373;  
+      --light-theme-disabled-color: #9b9b9b;  
+      --light-theme-divider-color: #dbdbdb;
+
+      
+      --dark-theme-background-color: var(--paper-grey-900);
+      --dark-theme-base-color: #ffffff;
+      --dark-theme-text-color: #ffffff;
+      --dark-theme-secondary-color: #bcbcbc;  
+      --dark-theme-disabled-color: #646464;  
+      --dark-theme-divider-color: #3c3c3c;
+
+      
+      --text-primary-color: var(--dark-theme-text-color);
+      --default-primary-color: var(--primary-color);
+}
+
+</style>
+</custom-style>
+<dom-module id="cr-dialog" assetpath="chrome://resources/cr_elements/cr_dialog/" css-build="shadow">
+  <template>
+    <style include="cr-hidden-style cr-icons" scope="cr-dialog">dialog {
+  --scroll-border: 1px solid var(--paper-grey-300);
+        border: 0;
+        border-radius: 8px;
+        bottom: 50%;
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.12),
+                    0 16px 16px rgba(0, 0, 0, 0.24);
+        color: inherit;
+        overflow-y: hidden;
+        padding: 0;
+        top: 50%;
+        width: 512px;
+        border-radius: var(--cr-dialog-native_-_border-radius, 8px); box-shadow: var(--cr-dialog-native_-_box-shadow, 0 0 16px rgba(0, 0, 0, 0.12),
+                    0 16px 16px rgba(0, 0, 0, 0.24)); min-height: var(--cr-dialog-native_-_min-height); width: var(--cr-dialog-native_-_width, 512px);
+}
+
+dialog[open] #content-wrapper {
+  display: flex;
+        flex-direction: column;
+        max-height: 100vh;
+        overflow: auto;
+        height: var(--cr-dialog-wrapper_-_height); max-height: var(--cr-dialog-wrapper_-_max-height, 100vh);
+}
+
+.top-container, :host ::content> [slot=button-container], :host ::content> [slot=footer] {
+  flex-shrink: 0;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+}
+
+:host ::content> [slot=body] {
+  -webkit-padding-end: 20px;
+        -webkit-padding-start: 20px;
+        padding-bottom: 0;
+        padding-top: 0;
+        -webkit-padding-end: var(--cr-dialog-body_-_-webkit-padding-end, 20px); -webkit-padding-start: var(--cr-dialog-body_-_-webkit-padding-start, 20px); padding-bottom: var(--cr-dialog-body_-_padding-bottom, 0); padding-top: var(--cr-dialog-body_-_padding-top, 0); box-sizing: var(--cr-dialog-body_-_box-sizing);
+}
+
+:host ::content> [slot=title] {
+  -webkit-padding-end: 20px;
+        -webkit-padding-start: 20px;
+        flex: 1;
+        font-size: calc(15 / 13 * 100%);
+        line-height: 1;
+        padding-bottom: 16px;
+        padding-top: 16px;
+        -webkit-padding-end: var(--cr-dialog-title_-_-webkit-padding-end, 20px); -webkit-padding-start: var(--cr-dialog-title_-_-webkit-padding-start, 20px); padding-bottom: var(--cr-dialog-title_-_padding-bottom, 16px); padding-top: var(--cr-dialog-title_-_padding-top, 16px);
+}
+
+:host ::content> [slot=button-container] {
+  display: flex;
+        justify-content: flex-end;
+        padding: 16px;
+        ;
+}
+
+:host ::content> [slot=footer] {
+  border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+        border-top: 1px solid var(--divider-color);
+        margin: 0;
+        padding: 16px 20px;
+}
+
+.body-container {
+  border-bottom: 1px solid transparent;
+        border-top: 1px solid transparent;
+
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        min-height: 60px; 
+        overflow: auto;
+
+        flex: var(--cr-dialog-body-container_-_flex);
+}
+
+.body-container.bottom-scrollable {
+  border-bottom: var(--scroll-border);
+}
+
+.body-container.top-scrollable {
+  border-top: var(--scroll-border);
+}
+
+.top-container {
+  align-items: flex-start;
+        display: flex;
+        min-height: var(--cr-dialog-top-container-min-height, 31px);
+}
+
+.title-container {
+  display: flex;
+        flex: 1;
+        outline: none;
+}
+
+#closeContainer {
+  --layout-inline_-_display:  flex;;
+
+        -webkit-margin-end: 4px;
+        align-self: flex-start;
+        margin-top: 4px;
+
+        -webkit-margin-end: var(--cr-dialog-close-image_-_-webkit-margin-end, 4px); background-image: var(--cr-dialog-close-image_-_background-image); margin-top: var(--cr-dialog-close-image_-_margin-top, 4px);
+}
+
+#closeContainer:hover {
+  background-image: var(--cr-dialog-close-image-hover_-_background-image);
+}
+
+#closeContainer:active {
+  background-image: var(--cr-dialog-close-image-active_-_background-image);
+}
+
+#closeContainer paper-ripple {
+  display: var(--cr-dialog-close-ripple_-_display);
+}
+
+</style>
+    <dialog id="dialog">
+      <div id="content-wrapper">
+        <div class="top-container">
+          <div class="title-container" tabindex="-1">
+            <slot name="title"></slot>
+          </div>
+          <paper-icon-button-light id="closeContainer" class="icon-clear" hidden$="[[!showCloseButton]]">
+            <button id="close" aria-label$="[[closeText]]" on-tap="cancel" on-keypress="onCloseKeypress_">
+            </button>
+          </paper-icon-button-light>
+        </div>
+        <slot name="header"></slot>
+        <div class="body-container">
+          <span id="bodyTopMarker"></span>
+          <slot name="body"></slot>
+          <span id="bodyBottomMarker"></span>
+        </div>
+        <slot name="button-container"></slot>
+        <slot name="footer"></slot>
+      </div>
+    </dialog>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-destination-list-item" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared action-link cr-hidden-style" scope="print-preview-destination-list-item">:host .icon {
+  -webkit-margin-end: 8px;
+        display: inline-block;
+        flex: 0 0 auto;
+        height: 24px;
+        transition: opacity 150ms;
+        vertical-align: middle;
+        width: 24px;
+}
+
+:host .name, :host .search-hint {
+  flex: 0 1 auto;
+        line-height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+        white-space: nowrap;
+}
+
+:host .search-hint {
+  -webkit-margin-start: 1em;
+        color: #999;
+        font-size: 75%;
+}
+
+:host .connection-status, :host .learn-more-link {
+  -webkit-margin-start: 1em;
+        flex: 0 0 auto;
+        font-size: 75%;
+        line-height: 24px;
+        vertical-align: middle;
+}
+
+:host .learn-more-link {
+  color: rgb(51, 103, 214);
+}
+
+:host .extension-controlled-indicator {
+  display: flex;
+        flex: 1;
+        justify-content: flex-end;
+        min-width: 150px;
+}
+
+:host .extension-name {
+  -webkit-margin-start: 1em;
+        color: #777;
+        line-height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+}
+
+:host .extension-icon {
+  background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        flex: 0 0 auto;
+        height: 24px;
+        margin: 0 3px;
+        width: 24px;
+}
+
+:host .configuring-in-progress-text, :host .configuring-failed-text {
+  -webkit-margin-start: 1em;
+        flex: 0 1 auto;
+        line-height: 24px;
+        vertical-align: middle;
+}
+
+:host .configuring-failed-text {
+  color: red;
+        font-style: italic;
+}
+
+:host([stale_]) :-webkit-any(.icon, .name, .connection-status) {
+  opacity: 0.4;
+}
+
+</style>
+    <img class="icon" src="[[destination.iconUrl]]" srcset="[[destination.srcSet]]">
+    <span class="name searchable">[[destination.displayName]]</span>
+    <span class="search-hint searchable">[[searchHint_]]</span>
+    <span class="connection-status" hidden$="[[!destination.isOfflineOrInvalid]]">
+      [[destination.connectionStatusText]]
+    </span>
+    <a is="action-link" class="learn-more-link" hidden$="[[!destination.shouldShowInvalidCertificateError]]" on-click="onLearnMoreLinkClick_">
+      $i18n{learnMore}
+    </a>
+    <span class="extension-controlled-indicator" hidden$="[[!destination.isExtension]]">
+      <span class="extension-name searchable">
+        [[destination.extensionName]]
+      </span>
+      <span class="extension-icon" role="button" tabindex="0"></span>
+    </span>
+
+  </template>
+  </dom-module>
+<dom-module id="throbber" assetpath="new/" css-build="shadow">
+  <template>
+    <style scope="throbber">.throbber {
+  background: url("chrome://resources/images/throbber_small.svg") no-repeat;
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+}
+
+</style>
+  </template>
+</dom-module>
+<dom-module id="print-preview-destination-list" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared action-link cr-hidden-style throbber" scope="print-preview-destination-list">:host {
+  display: block;
+        user-select: none;
+}
+
+:host > header {
+  -webkit-padding-end: 19px;
+        -webkit-padding-start: 0;
+        background-color: transparent;
+        border-bottom: 1px solid #d2d2d2;
+        padding-bottom: 8px;
+}
+
+:host :-webkit-any(.title, .action-link, .total) {
+  -webkit-padding-end: 8px;
+        -webkit-padding-start: 4px;
+        display: inline;
+        vertical-align: middle;
+}
+
+:host .throbber-container {
+  -webkit-padding-end: 16px;
+        -webkit-padding-start: 8px;
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+}
+
+:host .throbber {
+  vertical-align: middle;
+}
+
+:host .no-destinations-message {
+  -webkit-padding-start: 18px;
+        color: #999;
+        padding-bottom: 8px;
+        padding-top: 8px;
+}
+
+:host .list-item {
+  -webkit-padding-end: 2px;
+        -webkit-padding-start: 18px;
+        cursor: default;
+        display: flex;
+        padding-bottom: 3px;
+        padding-top: 3px;
+}
+
+:not(.moving).list-item {
+  transition: background-color 150ms;
+}
+
+.list-item:hover, .list-item:focus {
+  background-color: rgb(228, 236, 247);
+}
+
+.list-item:focus {
+  outline: none;
+}
+
+</style>
+    <header>
+      <h4 class="title">[[title]]</h4>
+      <span class="total" hidden$="[[!showDestinationsTotal_]]">
+        [[i18n('destinationCount', matchingDestinationsCount_)]]
+      </span>
+      <a is="action-link" class="action-link" hidden$="[[!hasActionLink]]" on-click="onActionLinkClick_">
+        $i18n{manage}
+      </a>
+      <div class="throbber-container" hidden$="[[!loadingDestinations]]">
+        <div class="throbber"></div>
+      </div>
+    </header>
+    <template is="dom-repeat" items="[[destinations]]" notify-dom-change="" on-dom-change="updateIfNeeded_">
+      <print-preview-destination-list-item class="list-item" search-query="[[searchQuery]]" destination="[[item]]" on-click="onDestinationSelected_">
+      </print-preview-destination-list-item>
+    </template>
+    <div class="no-destinations-message" hidden$="[[hasDestinations_]]">
+      $i18n{noDestinationsMessage}
+    </div>
+  </template>
+  </dom-module>
+
+<dom-module id="print-preview-search-box" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared" scope="print-preview-search-box">:host {
+  display: flex;
+        position: relative;
+        user-select: none;
+}
+
+.search-box-icon {
+  display: inline-block;
+        height: 1em;
+        left: 8px;
+        position: absolute;
+        right: 8px;
+        top: 6px;
+        user-select: none;
+        width: 1em;
+}
+
+.search-box-input {
+  text-indent: 2em;
+        width: 100%;
+}
+
+.search-box-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+</style>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAQAAACRZI9xAAABBElEQVQoFXXBPUsUABwH4P9QZGd4gzQIIc3a4JLVx6hJ0NDp6QPkIrTnoDQ5XFMhDQZCU5OI4MuWm0pCS9DocogEyf0K8bor9Hmq/jBiwVfnzn23aLT+Z8y+iFNtET88qn6G7Iq2dXOmrToR39yvHs/FmVd1yZSfolU9Postd+ovq2Jbo7rsidfVx4w4NlFdtsWb6mNWHHpQXdbErmZdcsuG2DRQXZ7q6HhnyE03NCzp+OVl9bjtg4gjK5Z9EXFiVrN63LOuLSLizLGO+ORh9TPjo0071rww7kDEocf1Lw3DdcG8iDgwWVfT1BIRR0braga1RMSzuo5Bb8V7d+t6BjwxXPUbpgyZUOsKz6kAAAAASUVORK5CYII=" class="search-box-icon" alt="">
+    <input type="search" id="searchInput" class="search-box-input" on-search="onSearchTermSearch" on-input="onSearchTermInput" incremental="" aria-label$="[[label]]" placeholder="[[label]]">
+  </template>
+  </dom-module>
+<dom-module id="search-dialog" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared button" scope="search-dialog">#dialog {
+  --cr-dialog-close-image_-_-webkit-margin-end:  7px; --cr-dialog-close-image_-_background-image:  url("chrome://theme/IDR_CLOSE_DIALOG"); --cr-dialog-close-image_-_margin-top:  10px;;
+        --cr-dialog-close-image-active_-_background-image:  url("chrome://theme/IDR_CLOSE_DIALOG_P");;
+        --cr-dialog-close-image-hover_-_background-image:  url("chrome://theme/IDR_CLOSE_DIALOG_H");;
+        --cr-dialog-native_-_border-radius:  2px; --cr-dialog-native_-_box-shadow:  0 4px 23px 5px rgba(0, 0, 0, 0.2),
+            0 2px 6px rgba(0, 0, 0, 0.15); --cr-dialog-native_-_min-height: initial; --cr-dialog-native_-_width: initial;;
+        --cr-icon-ripple-size: 14px;
+        --cr-icon-size: 14px;
+        --cr-dialog-title_-_-webkit-padding-end:  16px; --cr-dialog-title_-_-webkit-padding-start:  16px; --cr-dialog-title_-_padding-bottom:  16px; --cr-dialog-title_-_padding-top:  16px;;
+        --cr-dialog-body_-_-webkit-padding-end:  16px; --cr-dialog-body_-_-webkit-padding-start:  16px; --cr-dialog-body_-_box-sizing:  border-box; --cr-dialog-body_-_padding-bottom:  12px; --cr-dialog-body_-_padding-top:  0;;
+        --cr-dialog-wrapper_-_max-height:  calc(100vh - 40px); --cr-dialog-wrapper_-_height: initial;;
+        --cr-dialog-close-ripple_-_display:  none;;
+}
+
+#searchBox {
+  font-size: calc(13/15 * 1em);
+        margin-top: 14px;
+}
+
+#body {
+  height: 100vh;
+}
+
+#dialog button {
+  -webkit-margin-start: 10px;
+}
+
+</style>
+  </template>
+</dom-module>
+<dom-module id="print-preview-provisional-destination-resolver" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared search-dialog button cr-hidden-style throbber" scope="print-preview-provisional-destination-resolver">:host #dialog {
+  --cr-dialog-native_-_border-radius:  2px; --cr-dialog-native_-_box-shadow:  0 4px 23px 5px rgba(0, 0, 0, 0.2),
+            0 2px 6px rgba(0, 0, 0, 0.15); --cr-dialog-native_-_width:  360px; --cr-dialog-native_-_min-height: initial;;
+        --cr-dialog-top-container-min-height: 35px;
+}
+
+:host .throbber-placeholder {
+  height: 16px;
+        margin: 4px;
+        width: 16px;
+}
+
+.message {
+  line-height: 1.4rem;
+        margin: 0;
+        padding-bottom: 35px;
+}
+
+.extension-desc {
+  display: flex;
+}
+
+.extension-icon {
+  background-position: center;
+        background-repeat: none;
+        height: 24px;
+        width: 24px;
+}
+
+.extension-name {
+  flex: 1;
+        line-height: 24px;
+        overflow-wrap: break-word;
+}
+
+div[slot='button-container'] {
+  margin: 0 3px 10px;
+}
+
+</style>
+    <cr-dialog id="dialog" on-close="onCancel_" show-close-button="">
+      <div slot="body">
+        <p class="message">
+          [[getPermissionMessage_(state_, destination_.extensionName)]]
+        </p>
+        <div class="extension-desc" hidden="[[isInErrorState_(state_)]]">
+          <div class$="throbber-placeholder [[getThrobberClass_(state_)]]" role="img" alt=""></div>
+          <div class="extension-icon" role="img" alt=""></div>
+          <div class="extension-name">
+            [[destination_.extensionName]]
+          </div>
+        </div>
+      </div>
+      <div slot="button-container">
+        <button class="cancel" on-click="onCancel_">$i18n{goBackButton}</button>
+        <button class="default" hidden="[[isInErrorState_(state_)]]" disabled="[[!isInActiveState_(state_)]]" on-click="startResolveDestination_">
+          $i18n{selectButton}
+        </button>
+      </div>
+    </cr-dialog>
+  </template>
+  </dom-module>
+<dom-module id="select" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared" scope="select">select {
+  -webkit-appearance: none;
+        -webkit-padding-end: 24px;
+        -webkit-padding-start: 10px;
+        
+        background-image: url("chrome://resources/images/select.png"),
+            linear-gradient(#ededed, #ededed 38%, #dedede);
+        background-position: right center;
+        background-repeat: no-repeat;
+        height: 28px;
+        width: 100%;
+}
+
+select:enabled:hover {
+  background-image: url("chrome://resources/images/select.png"),
+            linear-gradient(#f0f0f0, #f0f0f0 38%, #e0e0e0);
+        border-color: var(--print-preview-hover_-_border-color); box-shadow: var(--print-preview-hover_-_box-shadow); color: var(--print-preview-hover_-_color);
+}
+
+select:enabled:active {
+  background-image: url("chrome://resources/images/select.png"),
+            linear-gradient(#e7e7e7, #e7e7e7 38%, #d7d7d7);
+        box-shadow: var(--print-preview-active_-_box-shadow); text-shadow: var(--print-preview-active_-_text-shadow);
+}
+
+select:disabled {
+  background-image: url("chrome://resources/images/disabled_select.png"),
+            linear-gradient(#f1f1f1, #f1f1f1 38%, #e6e6e6);
+}
+
+</style>
+  </template>
+</dom-module>
+<dom-module id="print-preview-destination-dialog" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared button action-link select cr-hidden-style search-dialog throbber" scope="print-preview-destination-dialog">:host #dialog {
+  --cr-dialog-native_-_border-radius:  2px; --cr-dialog-native_-_box-shadow:  0 4px 23px 5px rgba(0, 0, 0, 0.2),
+            0 2px 6px rgba(0, 0, 0, 0.15); --cr-dialog-native_-_min-height:  calc(100vh - 40px); --cr-dialog-native_-_width:  640px;;
+        --cr-dialog-wrapper_-_height:  100%; --cr-dialog-wrapper_-_max-height: initial;;
+        --cr-dialog-body_-_-webkit-padding-end:  16px; --cr-dialog-body_-_-webkit-padding-start:  16px; --cr-dialog-body_-_padding-bottom:  0; --cr-dialog-body_-_padding-top:  0; --cr-dialog-body_-_box-sizing: initial;;
+        --cr-dialog-body-container_-_flex:  1;;
+}
+
+:host .user-info {
+  font-size: calc(13/15 * 1em);
+        margin-top: 14px;
+}
+
+:host .user-info .account-select-label {
+  -webkit-padding-end: 18px;
+}
+
+:host .user-info .account-select {
+  width: auto
+}
+
+:host #dialog #promos {
+  padding: 0;
+}
+
+:host #dialog .promo {
+  align-items: center;
+        background-color: #f5f5f5;
+        border-top: 1px solid #e7e7e7;
+        color: #888;
+        display: flex;
+        padding: 14px 17px;
+}
+
+:host #cloudprintPromo .promo-text {
+  flex: 1;
+}
+
+:host #cloudprintPromo .icon {
+  -webkit-margin-end: 12px;
+        display: block;
+        height: 24px;
+        width: 24px;
+}
+
+:host #cloudprintPromo .close-button {
+  -webkit-margin-start: 12px;
+        background-image: -webkit-image-set(
+          url("chrome://theme/IDR_CLOSE_DIALOG") 1x);
+        background-repeat: no-repeat;
+        background-size: 14px;
+        height: 14px;
+        width: 14px;
+}
+
+:host #cloudprintPromo .close-button:hover {
+  background-image: -webkit-image-set(
+          url("chrome://theme/IDR_CLOSE_DIALOG_H") 1x);
+}
+
+:host #cloudprintPromo .close-button:active {
+  background-image: -webkit-image-set(
+          url("chrome://theme/IDR_CLOSE_DIALOG_P") 1x);
+}
+
+:host #invitationPromo {
+  flex-direction: column;
+}
+
+:host #invitationPromo .invitation-buttons {
+  padding: 12px 0;
+}
+
+print-preview-destination-list {
+  padding-bottom: 18px;
+}
+
+print-preview-destination-list:last-child {
+  padding-bottom: 0;
+}
+
+</style>
+    <cr-dialog id="dialog" on-close="onCloseOrCancel_" show-close-button="">
+      <div slot="title">
+        <div>$i18n{destinationSearchTitle}</div>
+        <div class="user-info" hidden$="[[!userInfo.loggedIn]]">
+          <label class="account-select-label" id="accountSelectLabel">
+            $i18n{accountSelectTitle}
+          </label>
+          <select class="account-select" aria-labelledby="accountSelectLabel" on-change="onUserChange_">
+            <template is="dom-repeat" items="[[userInfo.users]]">
+              <option selected="[[isSelected_(item, userInfo.activeUser)]]" value="[[item]]">
+                [[item]]
+              </option>
+            </template>
+            <option value="">$i18n{addAccountTitle}</option>
+          </select>
+        </div>
+        <print-preview-search-box id="searchBox" label="$i18n{searchBoxPlaceholder}" search-query="{{searchQuery_}}">
+        </print-preview-search-box>
+      </div>
+      <div slot="body" scrollable="">
+        <div>
+          <print-preview-destination-list destinations="[[recentDestinationList_]]" search-query="[[searchQuery_]]" title="$i18n{recentDestinationsTitle}" on-destination-selected="onDestinationSelected_">
+          </print-preview-destination-list>
+          <print-preview-destination-list destinations="[[destinations_]]" has-action-link="" loading-destinations="[[loadingDestinations_]]" search-query="[[searchQuery_]]" title="$i18n{printDestinationsTitle}" on-destination-selected="onDestinationSelected_">
+          </print-preview-destination-list>
+        </div>
+        <print-preview-provisional-destination-resolver id="provisionalResolver" destination-store="[[destinationStore]]">
+        </print-preview-provisional-destination-resolver>
+      </div>
+      <div slot="button-container">
+        <button class="cancel-button" on-click="onCancelButtonClick_">
+          $i18n{cancel}
+        </button>
+      </div>
+      <div id="promos" slot="footer">
+        <div class="promo" id="cloudprintPromo" hidden$="[[!showCloudPrintPromo]]">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABjklEQVR4Xu3Wu0oDQRQG4IAgyN6vhewDiCAItpY2VgGx8xm0CthJtLUT7ARBsLKxSGURECuxE9nSJvgYOv4/zIElRveOzRR/sbCZ883kzEkGSql/TS2AARiAAcRxvOq67oXnebnv+0qC5xdk1CsABc51Qcme4zhDYPaDIFASPncOwK7v9U5vbdtOfgFuERCGIRGjzgAofIYoIA6rYAG4i6KIiJ3WgCzLVnTxiYAqIj6A+GoNQOEDAizL2qgDAHqYJEmlfihrvBxRAqp5CjMg2JheG8AU+WwCCMLgnQCNmDT9Cp5wnGAOluoC8Dm5oo8asVsZgPu9huLXKE69ajPpcG3XMcB4Pa9KAex6qB8KE+4ViGkbANckgKfASfonALs+0dfuBse+TFTbsAmx5nOhH7YXAvg9y86J6TjcXEgA5kO+ECANJ8I+gvWPiCDmB4DFdTb7AmBzxzIbFp3AqXQ9EOOy4P1K4W+JzhjHz9vwVkTND55LAviidG6apoySJtKLENoks/l5YP6SGYABGMA3SwujVUnmp10AAAAASUVORK5CYII=" class="icon" alt="">
+          <div class="promo-text"></div>
+          <div class="close-button"></div>
+        </div>
+        <div class="promo" id="invitationPromo" hidden="[[!invitation_]]">
+          <div inner-h-t-m-l="[[getInvitationText_(invitation_)]]"></div>
+          <div class="invitation-buttons">
+            <button on-click="onInvitationAcceptClick_">
+              [[getAcceptButtonText_(invitation_)]]
+            </button>
+            <button on-click="onInvitationRejectClick_">$i18n{reject}</button>
+            <div id="invitation-process-throbber" class="throbber" hidden=""></div>
+          </div>
+          <div>$i18nRaw{registerPrinterInformationMessage}</div>
+        </div>
+      </div>
+    </cr-dialog>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-settings-section" assetpath="new/" css-build="shadow">
+  <template>
+    <style scope="print-preview-settings-section">:host {
+  align-items: center;
+        display: flex;
+        margin-top: 10px;
+        padding: 5px 20px;
+}
+
+::content> [slot=controls] {
+  flex: 1;
+        overflow: hidden;
+}
+
+::content> [slot=title] {
+  -webkit-padding-end: 20px;
+        color: #646464;
+        font-size: 1em;
+        max-width: 70px;
+        min-width: 70px;
+        word-break: break-word;
+}
+
+:host(.multirow-controls) ::content> [slot=title] {
+  align-self: flex-start;
+        padding-top: 7px;
+}
+
+</style>
+    <slot name="title"></slot>
+    <slot name="controls"></slot>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-destination-settings" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared button throbber cr-hidden-style" scope="print-preview-destination-settings">:host button {
+  margin-top: 10px;
+}
+
+.throbber {
+  margin-top: 6px;
+}
+
+.destination-settings-box, .throbber-container {
+  align-items: center;
+        display: flex;
+        min-height: 28px;
+        overflow: hidden;
+}
+
+.destination-icon {
+  -webkit-margin-end: 8px;
+        height: 24px;
+        vertical-align: middle;
+        width: 24px;
+}
+
+.destination-info-wrapper {
+  display: flex;
+        flex: 1;
+        flex-direction: column;
+        overflow: hidden;
+        width: 100%;
+}
+
+.destination-info-wrapper > div, .destination-throbber-name {
+  flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+}
+
+.destination-throbber-name, .destination-name {
+  font-size: 110%;
+}
+
+.destination-location, :host([stale_]) .destination-info-wrapper {
+  opacity: 0.4;
+}
+
+</style>
+    <print-preview-settings-section class="multirow-controls">
+      <span slot="title">$i18n{destinationLabel}</span>
+      <div slot="controls">
+        <div class="throbber-container" hidden="[[!loadingDestination_]]">
+          <div class="throbber"></div>
+          <div class="destination-throbber-name"></div>
+        </div>
+        <div class="destination-settings-box" hidden="[[loadingDestination_]]">
+          <img class="destination-icon" src="[[destination.iconUrl]]" alt="">
+          <div class="destination-info-wrapper">
+            <div class="destination-name">[[destination.displayName]]</div>
+            <div class="destination-location">[[destination.hint]]</div>
+            <div class="destination-connection-status">
+              [[getStatusText_(destination.connectionStatusText,
+                  destination.shouldShowInvalidCertificateError)]]
+            </div>
+          </div>
+        </div>
+        <button disabled$="[[shouldDisableButton_(destinationStore, disabled,
+                                            state)]]" on-click="onChangeButtonClick_">
+          $i18n{changeDestination}
+        </button>
+      </div>
+    </print-preview-settings-section>
+    <cr-lazy-render id="destinationDialog">
+      <template>
+        <print-preview-destination-dialog destination-store="[[destinationStore]]" invitation-store="[[invitationStore]]" recent-destinations="[[recentDestinations]]" user-info="{{userInfo}}" show-cloud-print-promo="{{showCloudPrintPromo_}}">
+        </print-preview-destination-dialog>
+      </template>
+    </cr-lazy-render>
+  </template>
+  </dom-module>
+<dom-module id="checkbox-radio" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared" scope="checkbox-radio">input[type='checkbox'] {
+  height: 13px;
+        position: relative;
+        vertical-align: middle;
+        width: 13px;
+}
+
+input[type='radio'] {
+  border-radius: 100%;
+        height: 15px;
+        position: relative;
+        vertical-align: middle;
+        width: 15px;
+}
+
+input[type='checkbox']:checked::before {
+  background-image: url("chrome://resources/images/check.png");
+        background-size: 100% 100%;
+        content: '';
+        display: block;
+        height: 100%;
+        user-select: none;
+        width: 100%;
+}
+
+input[type='radio']:checked::before {
+  background-color: #666;
+        border-radius: 100%;
+        bottom: 3px;
+        content: '';
+        display: block;
+        left: 3px;
+        position: absolute;
+        right: 3px;
+        top: 3px;
+}
+
+input:enabled:hover:-webkit-any([type='checkbox'], [type='radio']) {
+  background-image:
+            linear-gradient(#f0f0f0, #f0f0f0 38%, #e0e0e0);
+        border-color: var(--print-preview-hover_-_border-color); box-shadow: var(--print-preview-hover_-_box-shadow); color: var(--print-preview-hover_-_color);
+}
+
+input:enabled:active:-webkit-any([type='checkbox'], [type='radio']) {
+  background-image: linear-gradient(#e7e7e7, #e7e7e7 38%, #d7d7d7);
+        box-shadow: var(--print-preview-active_-_box-shadow); text-shadow: var(--print-preview-active_-_text-shadow);
+}
+
+input:disabled:-webkit-any([type='checkbox'], [type='radio']) {
+  opacity: .75;
+}
+
+:-webkit-any(.checkbox, .radio) label {
+  align-items: center;
+        display: flex;
+        user-select: none;
+}
+
+.radio label {
+  padding-bottom: 5px;
+        padding-top: 10px;
+}
+
+.checkbox label {
+  padding-bottom: 7px;
+        padding-top: 7px;
+}
+
+:-webkit-any(.checkbox, .radio) label input {
+  flex-shrink: 0;
+}
+
+:-webkit-any(.checkbox, .radio) label input ~ span {
+  -webkit-margin-start: 0.6em;
+        
+        display: block;
+}
+
+:-webkit-any(.checkbox, .radio) label:hover {
+  color: black;
+}
+
+:host .radio input[type='radio'], :host label input[type='checkbox'] {
+  --min-size: 13.19px;
+        --size: 1.1em;
+        height: var(--size);
+        min-height: var(--min-size);
+        min-width: var(--min-size);
+        width: var(--size);
+}
+
+</style>
+  </template>
+</dom-module>
+<dom-module id="input" assetpath="new/" css-build="shadow">
+  <template>
+    <style scope="input">.input-settings-section {
+  --error-text-color: rgb(140, 20, 20);
+
+        --invalid-input-style_-_background:  rgb(255, 240, 240); --invalid-input-style_-_color:  var(--error-text-color);
+}
+
+input:invalid, :host .input-settings-section input.invalid {
+  background: var(--invalid-input-style_-_background); color: var(--invalid-input-style_-_color);
+}
+
+span.hint {
+  background: white;
+        color: var(--error-text-color);
+        font-size: 0.9em;
+        font-weight: bold;
+        height: auto;
+        margin-bottom: -5px;
+        margin-top: 5px;
+        padding-bottom: 5px;
+        user-select: text;
+}
+
+</style>
+  </template>
+</dom-module>
+<dom-module id="print-preview-pages-settings" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared checkbox-radio input" scope="print-preview-pages-settings">:host .radio .user-value {
+  -webkit-margin-start: 0.6em;
+        flex: 1;
+        width: 100%;
+}
+
+[slot='title'] {
+  --settings-section-title-style_-_padding-top:  7px; --settings-section-title-style_-_align-self:  flex-start;
+}
+
+</style>
+    <print-preview-settings-section class="input-settings-section multirow-controls">
+      <span slot="title">$i18n{pagesLabel}</span>
+      <div slot="controls">
+        <div class="radio">
+          <label><input type="radio" name="pages" id="all-radio-button" checked="{{allSelected_::change}}" disabled$="[[getDisabled_(disabled)]]">
+            <span>$i18n{optionAllPages}</span>
+          </label>
+          <label class="custom-input-wrapper" for="pageSettingsCustomInput" tabindex="-1">
+            <input type="radio" name="pages" id="custom-radio-button" disabled$="[[getDisabled_(disabled, settings.pages.valid)]]" on-click="onCustomRadioClick_">
+            <input id="pageSettingsCustomInput" class="user-value" type="text" checked="{{customSelected_::change}}" data-timeout-delay="500" disabled$="[[getDisabled_(disabled, settings.pages.valid)]]" pattern="[[inputPattern_]]" on-focus="onCustomInputFocus_" on-blur="onCustomInputBlur_" placeholder="$i18n{examplePageRangeText}" aria-label="$i18n{examplePageRangeText}">
+          </label>
+        </div>
+        <span class="hint" aria-live="polite" inner-h-t-m-l="[[getHintMessage_(errorState_,
+                                             documentInfo.pageCount)]]" hidden$="[[hintHidden_(inputString_, errorState_)]]">
+        </span>
+      </div>
+    </print-preview-settings-section>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-number-settings-section" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared input" scope="print-preview-number-settings-section">input[type='number'] {
+  -webkit-margin-end: 16px;
+        margin-bottom: 2.5px;
+        margin-top: 2.5px;
+}
+
+:host(.multirow-controls) [slot='title'] {
+  --settings-section-title-style_-_padding-top:  7px; --settings-section-title-style_-_align-self:  flex-start;
+}
+
+:host .input-wrapper {
+  align-items: center;
+        display: flex;
+        width: 100%;
+}
+
+</style>
+    <print-preview-settings-section class="input-settings-section multirow-controls">
+      <span slot="title" id="section-title">[[inputLabel]]</span>
+      <div slot="controls">
+        <slot name="opt-outside-content"></slot>
+        <span class="input-wrapper">
+          <input id="userValue" class="user-value" type="number" max="[[maxValue]]" min="[[minValue]]" data-timeout-delay="250" disabled$="[[getDisabled_(inputValid, disabled)]]" on-blur="onBlur_" aria-labelled-by="section-title">
+          <slot name="opt-inside-content"></slot>
+        </span>
+        <span class="hint" aria-live="polite" hidden$="[[hintHidden_(inputString_, inputValid)]]">
+          [[hintMessage]]
+        </span>
+      </div>
+    </print-preview-settings-section>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-copies-settings" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared checkbox-radio input" scope="print-preview-copies-settings"></style>
+    <print-preview-number-settings-section max-value="999" min-value="1" default-value="1" input-label="$i18n{copiesLabel}" disabled="[[disabled]]" current-value="{{currentValue_}}" input-valid="{{inputValid_}}" hint-message="$i18n{copiesInstruction}">
+      <div slot="opt-inside-content" class="checkbox" aria-live="polite" hidden$="[[collateHidden_(currentValue_, inputValid_)]]">
+        <label>
+          <input id="collate" type="checkbox" on-change="onCollateChange_" disabled$="[[getDisabled(state)]]" aria-labelledby="copies-collate-label">
+          <span id="copies-collate-label">$i18n{optionCollate}</span>
+        </label>
+      </div>
+    </print-preview-number-settings-section>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-layout-settings" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared select" scope="print-preview-layout-settings"></style>
+    <print-preview-settings-section>
+      <span id="layout-label" slot="title">$i18n{layoutLabel}</span>
+      <div slot="controls">
+        <select aria-labelledby="layout-label" disabled$="[[disabled]]">
+          <option value="portrait" selected="">$i18n{optionPortrait}</option>
+          <option value="landscape">$i18n{optionLandscape}</option>
+        </select>
+      </div>
+    </print-preview-settings-section>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-color-settings" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared select" scope="print-preview-color-settings"></style>
+    <print-preview-settings-section>
+      <span id="color-label" slot="title">$i18n{optionColor}</span>
+      <div slot="controls">
+        <select aria-labelledby="color-label" disabled$="[[disabled]]">
+          <option value="bw" selected="">$i18n{optionBw}</option>
+          <option value="color">$i18n{optionColor}</option>
+        </select>
+      </div>
+    </print-preview-settings-section>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-settings-select" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared select" scope="print-preview-settings-select"></style>
+    <select disabled$="[[disabled]]">
+      <template is="dom-repeat" items="[[capability.option]]">
+        <option selected="[[isSelected_(item, selectedValue_)]]" value="[[getValue_(item)]]">
+          [[getDisplayName_(item)]]
+        </option>
+      </template>
+    </select>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-media-size-settings" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared" scope="print-preview-media-size-settings"></style>
+    <print-preview-settings-section>
+      <span id="media-size-label" slot="title">$i18n{mediaSizeLabel}</span>
+      <div slot="controls">
+        <print-preview-settings-select aria-labelledby="media-size-label" capability="[[capability]]" setting-name="mediaSize" settings="{{settings}}" disabled="[[disabled]]">
+        </print-preview-settings-select>
+      </div>
+    </print-preview-settings-section>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-margins-settings" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared select" scope="print-preview-margins-settings"></style>
+    <print-preview-settings-section>
+      <span id="margins-label" slot="title">$i18n{marginsLabel}</span>
+      <div slot="controls">
+        <select aria-labelledby="margins-label" disabled$="[[disabled]]">
+          <option value="0" selected="">$i18n{defaultMargins}</option>
+          <option value="1">$i18n{noMargins}</option>
+          <option value="2">$i18n{minimumMargins}</option>
+          <option value="3">$i18n{customMargins}</option>
+        </select>
+      </div>
+    </print-preview-settings-section>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-dpi-settings" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared" scope="print-preview-dpi-settings"></style>
+    <print-preview-settings-section>
+      <span id="dpi-label" slot="title">$i18n{dpiLabel}</span>
+      <div slot="controls">
+        <print-preview-settings-select aria-labelled-by="dpi-label" capability="[[capabilityWithLabels_]]" setting-name="dpi" settings="{{settings}}" disabled="[[disabled]]">
+        </print-preview-settings-select>
+      </div>
+    </print-preview-settings-section>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-pages-per-sheet-settings" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared select" scope="print-preview-pages-per-sheet-settings"></style>
+    <print-preview-settings-section>
+      <span id="pages-per-sheet-label" slot="title">$i18n{pagesPerSheetLabel}
+      </span>
+      <div slot="controls">
+        <select aria-labelledby="pages-per-sheet-label" disabled$="[[disabled]]">
+          <option value="1" selected="">1</option>
+          <option value="2">2</option>
+          <option value="4">4</option>
+          <option value="6">6</option>
+          <option value="9">9</option>
+          <option value="16">16</option>
+        </select>
+      </div>
+    </print-preview-settings-section>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-scaling-settings" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared checkbox-radio" scope="print-preview-scaling-settings"></style>
+    <print-preview-number-settings-section max-value="200" min-value="10" default-value="100" input-label="$i18n{scalingLabel}" disabled="[[disabled]]" current-value="{{currentValue_}}" input-valid="{{inputValid_}}" hint-message="$i18n{scalingInstruction}" class="multirow-controls">
+      <div slot="opt-outside-content" class="checkbox" hidden$="[[!settings.fitToPage.available]]">
+        <label aria-live="polite">
+          <input type="checkbox" id="fit-to-page-checkbox" disabled$="[[getDisabled_(disabled, inputValid_)]]" on-change="onFitToPageChange_">
+          <span>$i18n{optionFitToPage}</span>
+        </label>
+      </div>
+    </print-preview-number-settings-section>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-other-options-settings" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared checkbox-radio cr-hidden-style" scope="print-preview-other-options-settings">label {
+  display: block;
+}
+
+</style>
+    <print-preview-settings-section class="multirow-controls">
+      <span slot="title" id="options-label">$i18n{optionsLabel}</span>
+      <div slot="controls" class="checkbox">
+        <label hidden$="[[!settings.headerFooter.available]]" aria-live="polite">
+          <input type="checkbox" id="headerFooter" disabled$="[[disabled]]" on-change="onHeaderFooterChange_" checked$="[[settings.headerFooter.value]]">
+          <span>$i18n{optionHeaderFooter}</span>
+        </label>
+        <label hidden$="[[!settings.duplex.available]]" aria-live="polite">
+          <input type="checkbox" id="duplex" on-change="onDuplexChange_" disabled$="[[disabled]]" checked$="[[settings.duplex.value]]">
+          <span>$i18n{optionTwoSided}</span>
+        </label>
+        <label hidden$="[[!settings.cssBackground.available]]" aria-live="polite">
+          <input type="checkbox" id="cssBackground" on-change="onCssBackgroundChange_" disabled$="[[disabled]]" checked$="[[settings.cssBackground.value]]">
+          <span>$i18n{optionBackgroundColorsAndImages}</span>
+        </label>
+        <label hidden$="[[!settings.rasterize.available]]" aria-live="polite">
+          <input type="checkbox" id="rasterize" disabled$="[[disabled]]" on-change="onRasterizeChange_" checked$="[[settings.rasterize.value]]">
+          <span>$i18n{optionRasterize}</span>
+        </label>
+        <label hidden$="[[!settings.selectionOnly.available]]" aria-live="polite">
+          <input type="checkbox" id="selectionOnly" disabled$="[[disabled]]" on-change="onSelectionOnlyChange_" checked$="[[settings.selectionOnly.value]]">
+          <span>$i18n{optionSelectionOnly}</span>
+        </label>
+      </div>
+    </print-preview-settings-section>
+  </template>
+  </dom-module>
+<dom-module id="search-highlight-style" assetpath="chrome://resources/cr_elements/" css-build="shadow">
+  <template>
+    <style scope="search-highlight-style">.search-bubble {
+  --search-bubble-color: rgba(255, 235, 59, 0.9);
+        position: absolute;
+        z-index: 1;
+}
+
+.search-bubble-innards {
+  align-items: center;
+        background-color: var(--search-bubble-color);
+        border-radius: 2px;
+        max-width: 100px;
+        min-width: 64px;
+        padding: 4px 10px;
+        text-align: center;
+        overflow: var(--cr-text-elide_-_overflow); text-overflow: var(--cr-text-elide_-_text-overflow); white-space: var(--cr-text-elide_-_white-space);
+}
+
+.search-bubble-innards::after {
+  background-color: var(--search-bubble-color);
+        content: '';
+        height: 10px;
+        left: calc(50% - 5px);
+        position: absolute;
+        top: -5px;
+        transform: rotate(-45deg);
+        width: 10px;
+        z-index: -1;
+}
+
+.search-bubble-innards.above::after {
+  bottom: -5px;
+        top: auto;
+        transform: rotate(-135deg);
+}
+
+</style>
+  </template>
+</dom-module>
+<dom-module id="print-preview-advanced-settings-item" assetpath="new/" css-build="shadow">
+  
+  <template><style include="print-preview-shared select search-highlight-style" scope="print-preview-advanced-settings-item">:host {
+  display: flex;
+      position: relative;
+}
+
+:host > * {
+  overflow: hidden;
+      padding-bottom: 15px;
+      padding-top: 10px;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+      white-space: nowrap;
+}
+
+:host .label {
+  -webkit-padding-end: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 250px;
+}
+
+:host .value {
+  width: 175px;
+}
+
+:host input {
+  height: 28px;
+      line-height: 24px;
+      width: 175px;
+}
+
+</style>
+    <label class="label searchable">[[getDisplayName_(capability)]]</label>
+    <div class="value">
+      <template is="dom-if" if="[[isCapabilityTypeSelect_(capability)]]" restamp="">
+        <div>
+          <select on-change="onUserInput_">
+            <template is="dom-repeat" items="[[capability.select_cap.option]]">
+              <option class="searchable" text="[[getDisplayName_(item)]]" value="[[item.value]]" selected="[[isOptionSelected_(item, currentValue_)]]">
+              </option>
+            </template>
+          </select>
+        </div>
+      </template>
+      <span hidden$="[[isCapabilityTypeSelect_(capability)]]">
+        <input type="text" on-input="onUserInput_" placeholder="[[getCapabilityPlaceholder_(capability)]]">
+      </span>
+    </div>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-advanced-dialog" assetpath="new/" css-build="shadow">
+  
+  <template><style include="print-preview-shared search-dialog button cr-hidden-style" scope="print-preview-advanced-dialog"></style>
+    <cr-dialog id="dialog" on-close="onCloseOrCancel_" show-close-button="">
+      <div slot="title">
+        <div>[[i18n('advancedSettingsDialogTitle', destination.displayName)]]
+        </div>
+        <print-preview-search-box id="searchBox" hidden$="[[!hasMultipleItems_(
+                destination.capabilities.printer.vendor_capability)]]" label="$i18n{advancedSettingsSearchBoxPlaceholder}" search-query="{{searchQuery_}}">
+        </print-preview-search-box>
+      </div>
+      <div slot="body">
+        <template is="dom-repeat" items="[[destination.capabilities.printer.vendor_capability]]">
+          <print-preview-advanced-settings-item capability="[[item]]" settings="[[settings]]">
+          </print-preview-advanced-settings-item>
+        </template>
+        <div class="no-settings-match-hint" hidden$="[[!shouldShowHint_(hasMatching_)]]">
+          $i18n{noAdvancedSettingsMatchSearchHint}
+        </div>
+      </div>
+      <div slot="button-container">
+        <button on-click="onCancelButtonClick_">$i18n{cancel}</button>
+        <button on-click="onApplyButtonClick_">
+          $i18n{advancedSettingsDialogConfirm}
+        </button>
+      </div>
+    </cr-dialog>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-advanced-options-settings" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared button" scope="print-preview-advanced-options-settings">:host button {
+  min-height: 28px;
+        width: 100%;
+}
+
+</style>
+    <print-preview-settings-section>
+      <span slot="title">$i18n{advancedOptionsLabel}</span>
+      <div slot="controls">
+        <button disabled$="[[disabled]]" on-click="onButtonClick_">
+          $i18n{showAdvancedOptions}
+        </button>
+      </div>
+    </print-preview-settings-section>
+    <cr-lazy-render id="advancedDialog">
+      <template>
+        <print-preview-advanced-dialog settings="{{settings}}" destination="[[destination]]">
+        </print-preview-advanced-dialog>
+      </template>
+    </cr-lazy-render>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-more-settings" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="action-link cr-hidden-style" scope="print-preview-more-settings">:host {
+  align-items: center;
+        background-color: #f6f6f6;
+        --border: 1px solid #e1e1e1;
+        border-bottom: var(--border);
+        border-top: var(--border);
+        cursor: pointer;
+        display: flex;
+        margin-top: 4px;
+        min-height: 38px;
+        padding: 5px 20px;
+}
+
+:host([hidden]) {
+  display: none;
+}
+
+:host #label {
+  flex: 1;
+}
+
+:host #icon {
+  height: 25px;
+        width: 25px;
+}
+
+:host .minus-icon {
+  background-image: url("chrome://resources/images/icon_expand_less.svg");
+}
+
+:host .plus-icon {
+  background-image: url("chrome://resources/images/icon_expand_more.svg");
+}
+
+</style>
+    <a id="label" is="action-link" disabled="[[disabled]]">
+      [[getLabelText_(settingsExpandedByUser)]]
+    </a>
+    <div id="icon" class$="[[getIconClass_(settingsExpandedByUser)]]"></div>
+  </template>
+  </dom-module>
+<dom-module id="print-preview-link-container" assetpath="new/" css-build="shadow">
+  <template>
+    <style include="print-preview-shared throbber action-link cr-hidden-style" scope="print-preview-link-container">:host {
+  margin: 7px 0;
+}
+
+:host > div {
+  display: flex;
+}
+
+:host > div > .throbber {
+  margin: 8px;
+        min-height: 16px;
+        min-width: 16px;
+}
+
+:host > div > a {
+  margin: 8px 20px;
+}
+
+:host #systemDialogLink {
+  margin-top: 14px;
+}
+
+</style>
+    <div>
+      <a is="action-link" id="systemDialogLink" disabled="[[disabled]]" hidden$="[[!shouldShowSystemDialogLink_]]" on-click="onSystemDialogClick_">
+        $i18n{systemDialogOption}
+      </a>
+      <div id="systemDialogThrobber" hidden="" class="throbber"></div>
+    </div>
+
+  </template>
+  </dom-module>
+<dom-module id="print-preview-app" assetpath="new/" css-build="shadow">
+  <template>
+    <style scope="print-preview-app">:host {
+  display: flex;
+        height: 100%;
+}
+
+#sidebar {
+  -webkit-border-end: 1px solid #c8c8c8;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        max-width: 310px;
+        min-width: 310px;
+}
+
+#settingsSections {
+  background: #fbfbfb;
+        border-top: 1px solid #f3f3f3;
+        flex: 1;
+        overflow: auto;
+}
+
+#preview-area-container {
+  -webkit-border-start: 1px solid #dcdcdc;
+        align-items: center;
+        background-color: #e6e6e6;
+        flex: 1;
+}
+
+</style>
+    <print-preview-state id="state" state="{{state}}"></print-preview-state>
+    <print-preview-model id="model" settings="{{settings}}" destination="{{destination_}}" document-info="{{documentInfo_}}" recent-destinations="{{recentDestinations_}}" on-save-sticky-settings="onSaveStickySettings_">
+    </print-preview-model>
+    <div id="sidebar" on-setting-valid-changed="onSettingValidChanged_">
+      <print-preview-header destination="[[destination_]]" state="[[state]]" error-message="[[errorMessage_]]" settings="[[settings]]" on-print-requested="onPrintRequested_" on-cancel-requested="onCancelRequested_">
+      </print-preview-header>
+      <div id="settingsSections">
+        <print-preview-destination-settings id="destinationSettings" destination="[[destination_]]" destination-store="[[destinationStore_]]" invitation-store="[[invitationStore_]]" disabled="[[controlsDisabled_]]" state="[[state]]" recent-destinations="[[recentDestinations_]]" user-info="{{userInfo_}}" available="">
+        </print-preview-destination-settings>
+        <print-preview-pages-settings settings="{{settings}}" document-info="[[documentInfo_]]" disabled="[[controlsDisabled_]]" hidden$="[[!settings.pages.available]]">
+        </print-preview-pages-settings>
+        <print-preview-copies-settings settings="{{settings}}" disabled="[[controlsDisabled_]]" hidden$="[[!settings.copies.available]]">
+        </print-preview-copies-settings>
+        <print-preview-layout-settings settings="{{settings}}" disabled="[[controlsDisabled_]]" hidden$="[[!settings.layout.available]]">
+        </print-preview-layout-settings>
+        <print-preview-color-settings settings="{{settings}}" disabled="[[controlsDisabled_]]" hidden$="[[!settings.color.available]]">
+        </print-preview-color-settings>
+        <print-preview-more-settings settings-expanded-by-user="{{settingsExpandedByUser_}}" disabled="[[controlsDisabled_]]" hidden$="[[!shouldShowMoreSettings_]]">
+        </print-preview-more-settings>
+        <iron-collapse id="moreSettings" opened="[[shouldExpandSettings_(
+                settingsExpandedByUser_, shouldShowMoreSettings_)]]">
+          <print-preview-media-size-settings settings="{{settings}}" capability="[[destination_.capabilities.printer.media_size]]" disabled="[[controlsDisabled_]]" hidden$="[[!settings.mediaSize.available]]">
+          </print-preview-media-size-settings>
+          <print-preview-margins-settings settings="{{settings}}" disabled="[[controlsDisabled_]]" hidden$="[[!settings.margins.available]]">
+          </print-preview-margins-settings>
+          <print-preview-dpi-settings settings="{{settings}}" capability="[[destination_.capabilities.printer.dpi]]" disabled="[[controlsDisabled_]]" hidden$="[[!settings.dpi.available]]">
+          </print-preview-dpi-settings>
+          <template is="dom-if" if="[[showPagesPerSheet_]]">
+            <print-preview-pages-per-sheet-settings settings="{{settings}}" disabled="[[controlsDisabled_]]" hidden$="[[!settings.pagesPerSheet.available]]">
+            </print-preview-pages-per-sheet-settings>
+          </template>
+          <print-preview-scaling-settings settings="{{settings}}" document-info="[[documentInfo_]]" disabled="[[controlsDisabled_]]" hidden$="[[!settings.scaling.available]]">
+          </print-preview-scaling-settings>
+          <print-preview-other-options-settings settings="{{settings}}" disabled="[[controlsDisabled_]]" hidden$="[[!settings.otherOptions.available]]">
+          </print-preview-other-options-settings>
+          <print-preview-advanced-options-settings settings="{{settings}}" destination="[[destination_]]" disabled="[[controlsDisabled_]]" hidden$="[[!settings.vendorItems.available]]">
+          </print-preview-advanced-options-settings>
+        </iron-collapse>
+
+        <print-preview-link-container destination="[[destination_]]" app-kiosk-mode="[[isInAppKioskMode_]]" disabled="[[controlsDisabled_]]" on-print-with-system-dialog="onPrintWithSystemDialog_">
+        </print-preview-link-container>
+
+      </div>
+    </div>
+    <div id="preview-area-container">
+      <print-preview-preview-area id="previewArea" settings="{{settings}}" destination="[[destination_]]" document-info="{{documentInfo_}}" state="[[state]]" measurement-system="[[measurementSystem_]]" preview-state="{{previewState_}}">
+      </print-preview-preview-area>
+    </div>
+  </template>
+  </dom-module>
+</div>
+  <print-preview-app></print-preview-app>
+  <link rel="stylesheet" href="chrome://resources/css/text_defaults.css">
+  
+<script src="crisper.js"></script></body></html>

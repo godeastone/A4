@@ -1,0 +1,220 @@
+<link rel="import" href="chrome://resources/html/polymer.html">
+
+<link rel="import" href="chrome://resources/cr_elements/cr_action_menu/cr_action_menu.html">
+<link rel="import" href="chrome://resources/html/web_ui_listener_behavior.html">
+<link rel="import" href="chrome://resources/polymer/v1_0/iron-icon/iron-icon.html">
+<link rel="import" href="chrome://resources/polymer/v1_0/paper-button/paper-button.html">
+<link rel="import" href="chrome://resources/polymer/v1_0/paper-icon-button/paper-icon-button-light.html">
+<link rel="import" href="profile_info_browser_proxy.html">
+<link rel="import" href="sync_browser_proxy.html">
+<link rel="import" href="../i18n_setup.html">
+<link rel="import" href="../icons.html">
+<link rel="import" href="../route.html">
+<link rel="import" href="../settings_shared_css.html">
+
+<dom-module id="settings-sync-account-control">
+  <template>
+    <style include="settings-shared">
+      :host {
+        --sync-icon-size: 16px;
+        --sync-icon-border-size: 2px;
+        --shown-avatar-size: 40px;
+      }
+
+      setting-box.middle {
+        /* Per spec, middle text is indented 20px in this section. */
+        -webkit-margin-start: 20px;
+      }
+
+      .account-icon {
+        border-radius: 20px;
+        flex-shrink: 0;
+        height: var(--shown-avatar-size);
+        width: var(--shown-avatar-size);
+      }
+
+      .account-icon.small {
+        height: 20px;
+        width: 20px;
+      }
+
+      #menu .dropdown-item {
+        padding: 12px;
+      }
+
+      #menu .dropdown-item span {
+        -webkit-margin-start: 8px;
+      }
+
+      .flex {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+
+      #avatar-container {
+        position: relative;
+      }
+
+      #sync-icon-container {
+        align-items: center;
+        background: var(--google-green-700);
+        border: var(--sync-icon-border-size) solid white;
+        border-radius: 50%;
+        display: flex;
+        height: var(--sync-icon-size);
+        position: absolute;
+        right: -6px;
+        top: calc(var(--shown-avatar-size) - var(--sync-icon-size) -
+            var(--sync-icon-border-size));
+        width: var(--sync-icon-size);
+      }
+
+      :host-context([dir='rtl']) #sync-icon-container {
+        left: -6px;
+        right: initial;
+      }
+
+      #sync-icon-container.sync-problem {
+        background: var(--settings-error-color);
+      }
+
+      #sync-icon-container.sync-disabled {
+        background: var(--google-blue-500);
+      }
+
+      #sync-icon-container iron-icon {
+        fill: white;
+        height: 12px;
+        margin: auto;
+        width: 12px;
+      }
+
+      #sign-in {
+        min-width: 100px;
+      }
+
+      #banner {
+        background-color: rgb(248, 249, 250);
+        background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjgwIDEyMCI+CiAgPHN0eWxlPgogICAgLnN0MHtmaWxsOiNiZGMwYzV9LnN0MXtmaWxsOiNlOGU5ZWJ9LnN0N3tmaWxsOiNmZmZ9CiAgPC9zdHlsZT4KICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjI5LjMgNjEuM2gtLjdWMjYuMWMwLTQuNCAzLjYtOCA4LThIMjYwdi43aC0yMy40Yy00LjEgMC03LjQgMy4zLTcuNCA3LjR2MzUuMXoiLz4KICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTg4LjUgNzkuMmM4LjEgMCAxNC43IDYuNCAxNS4xIDE0LjRIMTYzYy4zLTUuMSA0LjYtOS4yIDkuOC05LjIgMS4xIDAgMi4yLjIgMy4zLjZsLjQuMi4zLS40YzIuOS0zLjYgNy4yLTUuNiAxMS43LTUuNm0wLS43Yy00LjkgMC05LjMgMi4zLTEyLjIgNS44YTEwLjUgMTAuNSAwIDAgMC0xNCA5LjloNDJjMC04LjctNy4xLTE1LjctMTUuOC0xNS43eiIvPgogIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yNDguMiAxMDMuOGgtMTEuNmMtNC4xIDAtNy40LTMuMy03LjQtNy40VjYxLjNoLS43djM1LjJjMCA0LjQgMy42IDggOCA4aDExLjZ2LS43em0yMS43LTg1LjN2LjdjMi45IDEgNC45IDMuNyA0LjkgNi45djM1LjdoLjdWMjYuMWMtLjEtMy41LTIuNC02LjYtNS42LTcuNnoiLz4KICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjY1LjkgMTAwLjFoLTI4LjJjLTIuOSAwLTUuMi0yLjMtNS4yLTUuMlYyNy40YzAtMi45IDIuMy01LjIgNS4yLTUuMmgyOC4yYzIuOSAwIDUuMiAyLjMgNS4yIDUuMnY2Ny41YTUuMSA1LjEgMCAwIDEtNS4yIDUuMnptLTI4LjItNzcuM2MtMi41IDAtNC42IDItNC42IDQuNnY2Ny41YzAgMi41IDIgNC42IDQuNiA0LjZoMjguMmMyLjUgMCA0LjYtMiA0LjYtNC42VjI3LjRjMC0yLjUtMi00LjYtNC42LTQuNmgtMjguMnoiLz4KICA8cGF0aCBkPSJNMjc0LjggODkuNnY2LjhjMCA0LjEtMy4zIDcuNC03LjQgNy40aC0xMS42di43aDExLjZjNC40IDAgOC0zLjYgOC04di02LjhjMC0uMS0uNi0uMS0uNi0uMXoiIGZpbGw9IiNlNTQ0NDAiLz4KICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMzE0LjUgNDUuNmMxMC44IDAgMTkuNyA4LjggMTkuNyAxOS43UzMyNS40IDg1IDMxNC41IDg1cy0xOS43LTguOC0xOS43LTE5LjcgOC45LTE5LjcgMTkuNy0xOS43bTAtMS4zYTIxIDIxIDAgMSAwIDAgNDIgMjEgMjEgMCAwIDAgMC00MnoiLz4KICA8Y2lyY2xlIGN4PSIzMjUuMiIgY3k9IjczLjIiIHI9IjIuNiIgZmlsbD0iIzRiODdmMSIvPgogIDxjaXJjbGUgY3g9IjI4MS42IiBjeT0iNjUuMyIgcj0iMjEiIGZpbGw9IiMzNGE3NTEiLz4KICA8cGF0aCBkPSJNMjkzLjYgNjUuM2MwIDQuOSAxLjcgOS40IDQuNSAxMyAyLjgtMy42IDQuNS04LjEgNC41LTEzcy0xLjctOS40LTQuNS0xM2MtMi45IDMuNi00LjUgOC4xLTQuNSAxM3oiIG9wYWNpdHk9Ii4xMiIvPgogIDxwYXRoIGQ9Ik0yMjguNiAzNy45di01LjJjMTAuNyAwIDE5LjItMyAyNS4xLTlDMjYzIDE0LjQgMjYzIC43IDI2MyAuNmg1LjJjMCAuNiAwIDE1LjktMTAuOCAyNi44LTYuOSA2LjktMTYuNiAxMC41LTI4LjggMTAuNXoiIGZpbGw9IiNmN2JiMmEiLz4KICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTkzLjkgNjguN2gtNS4yYzAtLjQuMS05LjEgNS0xOCA0LjYtOC4yIDE0LjQtMTggMzUtMTh2NS4yYy0xNC41IDAtMjQuNyA1LjItMzAuNCAxNS40LTQuNCA3LjYtNC40IDE1LjMtNC40IDE1LjR6Ii8+CiAgPHBhdGggY2xhc3M9InN0NyIgZD0iTTI4MS40IDczLjVWNzFoLjN2MS43bDIuNS0yLjUtMi41LTIuNXYxLjdoLS4zVjY3bDMuMyAzLjMtMy4zIDMuMnptLjMtMTBsLTMuMy0zLjMgMy4zLTMuM3YyLjVoLS4zdi0xLjdsLTIuNSAyLjUgMi41IDIuNVY2MWguM3YyLjV6Ii8+CiAgPHBhdGggY2xhc3M9InN0NyIgZD0iTTI4Ni4xIDY3LjlsLS4zLS4yYTQuOSA0LjkgMCAwIDAtNC4yLTcuNFY2MGMyLjkgMCA1LjIgMi4zIDUuMiA1LjJhNiA2IDAgMCAxLS43IDIuN3ptLTQuNSAyLjZjLTIuOSAwLTUuMi0yLjMtNS4yLTUuMiAwLS45LjItMS44LjctMi42bC4zLjJhNC45IDQuOSAwIDAgMCA0LjIgNy40di4yeiIvPgogIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01NiA1Ny42SDM4LjJ2LS4zYzAtNC45IDQtOC45IDguOS04LjlzOC45IDQgOC45IDguOXYuM3ptLTE3LjMtLjVoMTYuN2MtLjEtNC41LTMuOC04LjEtOC40LTguMXMtOC4xIDMuNi04LjMgOC4xeiIvPgogIDxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yMTYuOCA2OC42aC0xNy4zYzAtNC44IDMuOS04LjYgOC42LTguNmE4LjUgOC41IDAgMCAxIDguNyA4LjZ6Ii8+CiAgPHBhdGggZD0iTTE2OS42IDEwMC4ySDc4LjlWNDAuNmMwLTIuOSAyLjQtNS4zIDUuMy01LjNoODAuMmMyLjkgMCA1LjMgMi40IDUuMyA1LjN2NTkuNnoiIGZpbGw9IiNmNGY0ZjQiLz4KICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTY1LjMgMzUuOWMyLjEgMCAzLjggMS43IDMuOCAzLjh2NTkuOUg3OS40VjM5LjdjMC0yLjEgMS43LTMuOCAzLjgtMy44aDgyLjFtMC0uNUg4My4yYy0yLjQgMC00LjMgMS45LTQuMyA0LjN2NjAuNWg5MC43VjM5LjdjMC0yLjQtMS45LTQuMy00LjMtNC4zem0tOTkuNCA2OC41aDExNi42di41SDY1Ljl6Ii8+CiAgPHBhdGggY2xhc3M9InN0NyIgZD0iTTg0LjYgNTguMWMtNC4xIDAtNy43IDEuOS0xMC4xIDQuOEE4LjYgOC42IDAgMCAwIDYzIDcxaDM0LjVjLjEtNy4xLTUuNy0xMi45LTEyLjktMTIuOXoiLz4KICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNOTcuOCA3MS4zSDYyLjdWNzFjMC00LjkgNC04LjkgOC45LTguOS45IDAgMS45LjIgMi44LjUgMi41LTMgNi4yLTQuOCAxMC4yLTQuOCA3LjMgMCAxMy4yIDUuOSAxMy4yIDEzLjJ2LjN6bS0zNC41LS41aDM0Yy0uMS02LjktNS44LTEyLjQtMTIuNy0xMi40LTMuOCAwLTcuNCAxLjctOS45IDQuN2wtLjEuMS0uMi0uMWMtLjktLjMtMS44LS41LTIuOC0uNS00LjUuMS04LjIgMy43LTguMyA4LjJ6Ii8+CiAgPHBhdGggZD0iTTM4LjEgODJsMy43LTMuN2M3LjYgNy42IDE1LjcgMTEuNCAyNC4xIDExLjQgMTMuMiAwIDIyLjktOS43IDIzLTkuOGwzLjcgMy43Yy0uNS41LTExLjMgMTEuMy0yNi42IDExLjQtOS45IDAtMTkuMy00LjMtMjcuOS0xM3oiIGZpbGw9IiM0Mjg1ZjQiLz4KICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNC4zIDY2LjRjLTEuNS40LTMgMS00LjMgMS41djUuOGMxLjctLjggMy42LTEuNiA1LjgtMi4yIDExLjItMy4zIDIyLjEuMyAzMi4zIDEwLjVsMy43LTMuN0MyNy4zIDYzLjggMTMuNCA2My44IDQuMyA2Ni40eiIvPgogIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik02MzYuNiAzOS40Yy0xLjUgMC0zLS4zLTQuNC0uOS0yLjctMS4yLTQuOS0zLjQtNi02LjFzLTEuMS01LjguMS04LjZjMS4yLTIuNyAzLjQtNC45IDYuMS02IDIuOC0xLjEgNS44LTEuMSA4LjYuMSAyLjcgMS4yIDQuOSAzLjQgNiA2LjFzMS4xIDUuOC0uMSA4LjZjLTEuMiAyLjctMy40IDQuOS02LjEgNi0xLjQuNS0yLjguOC00LjIuOHptMC0yMS43Yy0xLjMgMC0yLjcuMy0zLjkuOC0yLjYgMS00LjcgMy4xLTUuOCA1LjctMS4xIDIuNi0xLjEgNS41LS4xIDguMSAxIDIuNiAzLjEgNC43IDUuNyA1LjhzNS41IDEuMSA4LjEuMSA0LjctMy4xIDUuOC01LjdjMS4xLTIuNiAxLjEtNS41LjEtOC4xcy0zLjEtNC43LTUuNy01LjhjLTEuMy0uNy0yLjgtLjktNC4yLS45em0tMTA0LjQgOTUuMmguNnY3LjFoLS42em05My42LTMzLjZjMC0zLjctMy02LjgtNi44LTYuOGgtMTJ2LjZoMTJjMy40IDAgNi4yIDIuOCA2LjIgNi4yVjEyMGguNlY3OS4zek02MDcgNzMuMmgtNDZsMy0uNmg0M3oiLz4KICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTMyLjggOTkuOWgtLjZWNzkuM2MwLTMuNyAzLTYuOCA2LjgtNi44aDI5LjV2LjZINTM5Yy0zLjQgMC02LjIgMi44LTYuMiA2LjJ2MjAuNnoiLz4KICA8cGF0aCBjbGFzcz0ic3Q3IiBkPSJNNTQwIDkzYy00LjUgMC04LjYgMi4xLTExLjIgNS40LTEtLjQtMi4xLS42LTMuMi0uNmE5LjYgOS42IDAgMCAwLTkuNiA5LjZoMzguNGMwLTgtNi40LTE0LjQtMTQuNC0xNC40eiIvPgogIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01NTQuNyAxMDcuN2gtMzl2LS4zYTkuODYgOS44NiAwIDAgMSAxMy05LjRjMi44LTMuNCA2LjktNS4zIDExLjMtNS4zIDguMSAwIDE0LjcgNi42IDE0LjcgMTQuN3YuM3ptLTM4LjQtLjZoMzcuOGExNC4xNSAxNC4xNSAwIDAgMC0yNS4xLTguNmwtLjEuMi0uMi0uMWMtMS0uNC0yLjEtLjUtMy4xLS41LTUgMC05LjEgNC05LjMgOXoiLz4KICA8cGF0aCBmaWxsPSJub25lIiBkPSJNNDk4LjcgMjkuNkw1MzQuMy0uOCIvPgogIDxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik00OTguNCAyOS4ybC42LjdMNTM0LjIgMGgtMS42em0xNDMgMjYuNmgtNS44YzAgLjQuMSAxMC4yIDUuNiAyMCA1LjEgOS4xIDE2IDIwLjEgMzguOCAyMC4xVjkwYy0xNi4xIDAtMjcuNC01LjctMzMuOC0xNy4xLTQuNy04LjUtNC44LTE3LjEtNC44LTE3LjF6Ii8+Cjwvc3ZnPgo=);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        display: none;
+        padding-top: calc(120 / 680 * 100%); /* Keep background ratio. */
+      }
+
+      :host([showing-promo]) #banner {
+        display: block;
+      }
+
+      :host([showing-promo]) #promo-header {
+        padding-bottom: 10px;
+        padding-top: 10px;
+      }
+
+      :host([showing-promo]) #promo-title {
+        @apply --promo-title;
+      }
+
+      :host([showing-promo]) #promo-description {
+        @apply --promo-description;
+      }
+
+      :host([showing-promo]) #promo-separator {
+        @apply --promo-separator;
+      }
+
+      :host([always-show-promo]) #turn-off {
+        display: none;
+      }
+    </style>
+    <div id="banner" hidden="[[syncStatus.signedIn]]"></div>
+    <div class="settings-box first two-line" id="promo-header"
+        hidden="[[syncStatus.signedIn]]">
+      <div class="start">
+        <div id="promo-title">
+          [[getLabel_(promoLabelWithAccount,
+              promoLabelWithNoAccount, shownAccount_)]]
+        </div>
+        <div class="secondary">
+          [[getLabel_(promoSecondaryLabelWithAccount,
+              promoSecondaryLabelWithNoAccount, shownAccount_)]]
+        </div>
+      </div>
+      <div id="promo-separator" class="separator"
+          hidden="[[shouldShowAvatarRow_]]"></div>
+      <paper-button class="action-button" on-click="onSigninTap_"
+          disabled="[[syncStatus.setupInProgress]]" id="sign-in"
+          hidden="[[shouldShowAvatarRow_]]">
+        $i18n{peopleSignIn}
+      </paper-button>
+    </div>
+    <template is="dom-if" if="[[shouldShowAvatarRow_]]">
+      <div class="settings-box first two-line" id="avatar-row">
+        <div id="avatar-container">
+          <img class="account-icon" alt=""
+              src="[[getAccountImageSrc_(shownAccount_.avatarImage)]]">
+          <div id="sync-icon-container" hidden="[[!syncStatus.signedIn]]"
+              class$="[[getSyncIcon_(
+                  syncStatus.hasError, syncStatus.statusAction)]]">
+            <iron-icon icon$="settings:[[getSyncIcon_(
+                syncStatus.hasError, syncStatus.statusAction)]]"></iron-icon>
+          </div>
+        </div>
+        <div class="middle two-line no-min-width">
+          <div class="flex text-elide" id="user-info">
+            <span hidden="[[syncStatus.hasError]]">
+              [[shownAccount_.fullName]]
+            </span>
+            <span hidden="[[!syncStatus.hasError]]">
+              [[getErrorLabel_('$i18nPolymer{syncNotWorking}',
+                  '$i18nPolymer{syncPaused}', syncStatus.hasError,
+                  syncStatus.statusAction)]]
+            </span>
+            <div class="secondary">
+              [[getAccountLabel_(
+                  '$i18nPolymer{syncingTo}', shownAccount_.email,
+                  syncStatus.hasError, syncStatus.signedIn)]]
+            </div>
+          </div>
+        </div>
+        <paper-icon-button-light class="icon-arrow-dropdown"
+            hidden="[[syncStatus.signedIn]]">
+          <button on-click="onMenuButtonTap_" id="dropdown-arrow"
+              aria-label="$i18n{useAnotherAccount}">
+          </button>
+        </paper-icon-button-light>
+        <div class="separator" hidden="[[syncStatus.signedIn]]"></div>
+        <paper-button class="action-button" on-click="onSyncButtonTap_"
+            hidden="[[syncStatus.signedIn]]"
+            disabled="[[syncStatus.setupInProgress]]">
+          [[getSubstituteLabel_(
+              '$i18nPolymer{syncAsName}', shownAccount_.givenName)]]
+        </paper-button>
+        <paper-button class="secondary-button" on-click="onTurnOffButtonTap_"
+            hidden="[[!syncStatus.signedIn]]" id="turn-off"
+            disabled="[[syncStatus.setupInProgress]]">
+          $i18n{turnOffSync}
+        </paper-button>
+      </div>
+      <template is="dom-if" if="[[!syncStatus.signedIn]]" restamp>
+        <cr-action-menu id="menu" auto-reposition>
+          <template is="dom-repeat" items="[[storedAccounts_]]">
+            <button class="dropdown-item" on-click="onAccountTap_" slot="item">
+              <img class="account-icon small" alt=""
+                  src="[[getAccountImageSrc_(item.avatarImage)]]">
+              <span>[[item.email]]</span>
+            </button>
+          </template>
+          <button class="dropdown-item" on-click="onSigninTap_" slot="item"
+              disabled="[[syncStatus.setupInProgress]]" id="sign-in-item">
+            <img class="account-icon small" alt=""
+                src="chrome://theme/IDR_PROFILE_AVATAR_PLACEHOLDER_LARGE">
+            <span>$i18n{useAnotherAccount}</span>
+          </button>
+        </cr-action-menu>
+      </template>
+    </template>
+  </template>
+  <script src="sync_account_control.js"></script>
+</dom-module>

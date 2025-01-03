@@ -1,0 +1,10 @@
+defines = -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND
+include_dirs = -I../.. -Iirt_x64/gen
+label_name = surface_handle_type
+root_out_dir = irt_x64
+target_out_dir = irt_x64/obj/gpu/ipc/common
+target_output_name = surface_handle_type
+
+build irt_x64/obj/gpu/ipc/common/surface_handle_type.inputdeps.stamp: irt_x64_stamp irt_x64/obj/base/anchor_functions_buildflags.stamp irt_x64/obj/base/build_date.stamp irt_x64/obj/base/cfi_buildflags.stamp irt_x64/obj/base/debugging_buildflags.stamp irt_x64/obj/base/partition_alloc_buildflags.stamp irt_x64/obj/base/protected_memory_buildflags.stamp irt_x64/obj/base/synchronization_buildflags.stamp irt_x64/obj/base/allocator/buildflags.stamp ./tls_edit
+
+build irt_x64/obj/gpu/ipc/common/surface_handle_type.stamp: irt_x64_stamp || irt_x64/obj/ui/gfx/native_widget_types.stamp irt_x64/obj/base/libbase.a irt_x64/obj/base/libbase_static.a irt_x64/obj/base/numerics/base_numerics.stamp irt_x64/obj/base/third_party/dynamic_annotations/dynamic_annotations.stamp irt_x64/obj/third_party/modp_b64/libmodp_b64.a

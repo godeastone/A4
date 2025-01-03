@@ -1,0 +1,26 @@
+/* This is a Jumbo file. Don't edit. */
+
+/* Generated with merge_for_jumbo.py. */
+
+#include "gen/services/device/public/mojom/battery_monitor.mojom-blink.cc"
+#include "gen/services/device/public/mojom/battery_status.mojom-blink.cc"
+#include "gen/services/device/public/mojom/fingerprint.mojom-blink.cc"
+#include "gen/services/device/public/mojom/geolocation.mojom-blink.cc"
+#include "gen/services/device/public/mojom/geolocation_config.mojom-blink.cc"
+#include "gen/services/device/public/mojom/geolocation_context.mojom-blink.cc"
+#include "gen/services/device/public/mojom/geolocation_control.mojom-blink.cc"
+#include "gen/services/device/public/mojom/geoposition.mojom-blink.cc"
+#include "gen/services/device/public/mojom/hid.mojom-blink.cc"
+#include "gen/services/device/public/mojom/input_service.mojom-blink.cc"
+#include "gen/services/device/public/mojom/nfc.mojom-blink.cc"
+#include "gen/services/device/public/mojom/nfc_provider.mojom-blink.cc"
+#include "gen/services/device/public/mojom/power_monitor.mojom-blink.cc"
+#include "gen/services/device/public/mojom/public_ip_address_geolocation_provider.mojom-blink.cc"
+#include "gen/services/device/public/mojom/screen_orientation.mojom-blink.cc"
+#include "gen/services/device/public/mojom/screen_orientation_lock_types.mojom-blink.cc"
+#include "gen/services/device/public/mojom/serial.mojom-blink.cc"
+#include "gen/services/device/public/mojom/time_zone_monitor.mojom-blink.cc"
+#include "gen/services/device/public/mojom/vibration_manager.mojom-blink.cc"
+#include "gen/services/device/public/mojom/wake_lock.mojom-blink.cc"
+#include "gen/services/device/public/mojom/wake_lock_context.mojom-blink.cc"
+#include "gen/services/device/public/mojom/wake_lock_provider.mojom-blink.cc"

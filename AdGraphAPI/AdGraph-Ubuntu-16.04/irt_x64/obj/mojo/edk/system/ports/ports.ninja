@@ -1,0 +1,23 @@
+defines = -DIS_MOJO_EDK_PORTS_IMPL -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND
+include_dirs = -I../.. -Iirt_x64/gen
+cflags = -fno-strict-aliasing -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -fcolor-diagnostics -fmerge-all-constants -integrated-as -m64 -march=x86-64 -fasynchronous-unwind-tables -fomit-frame-pointer -Wall -Werror -Wextra -Wimplicit-fallthrough -Wthread-safety -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -Os -ffunction-sections -fdata-sections -fomit-frame-pointer -g0 -fvisibility=hidden
+cflags_cc = -std=gnu++14 -fno-exceptions -fno-rtti -fvisibility-inlines-hidden
+label_name = ports
+root_out_dir = irt_x64
+target_out_dir = irt_x64/obj/mojo/edk/system/ports
+target_output_name = libmojo_edk_ports
+
+build irt_x64/obj/mojo/edk/system/ports/ports.inputdeps.stamp: irt_x64_stamp irt_x64/obj/base/anchor_functions_buildflags.stamp irt_x64/obj/base/build_date.stamp irt_x64/obj/base/cfi_buildflags.stamp irt_x64/obj/base/debugging_buildflags.stamp irt_x64/obj/base/partition_alloc_buildflags.stamp irt_x64/obj/base/protected_memory_buildflags.stamp irt_x64/obj/base/synchronization_buildflags.stamp irt_x64/obj/base/allocator/buildflags.stamp ./tls_edit
+build irt_x64/obj/mojo/edk/system/ports/ports/event.o: irt_x64_cxx ../../mojo/edk/system/ports/event.cc || irt_x64/obj/mojo/edk/system/ports/ports.inputdeps.stamp
+build irt_x64/obj/mojo/edk/system/ports/ports/message_queue.o: irt_x64_cxx ../../mojo/edk/system/ports/message_queue.cc || irt_x64/obj/mojo/edk/system/ports/ports.inputdeps.stamp
+build irt_x64/obj/mojo/edk/system/ports/ports/name.o: irt_x64_cxx ../../mojo/edk/system/ports/name.cc || irt_x64/obj/mojo/edk/system/ports/ports.inputdeps.stamp
+build irt_x64/obj/mojo/edk/system/ports/ports/node.o: irt_x64_cxx ../../mojo/edk/system/ports/node.cc || irt_x64/obj/mojo/edk/system/ports/ports.inputdeps.stamp
+build irt_x64/obj/mojo/edk/system/ports/ports/port.o: irt_x64_cxx ../../mojo/edk/system/ports/port.cc || irt_x64/obj/mojo/edk/system/ports/ports.inputdeps.stamp
+build irt_x64/obj/mojo/edk/system/ports/ports/port_locker.o: irt_x64_cxx ../../mojo/edk/system/ports/port_locker.cc || irt_x64/obj/mojo/edk/system/ports/ports.inputdeps.stamp
+build irt_x64/obj/mojo/edk/system/ports/ports/port_ref.o: irt_x64_cxx ../../mojo/edk/system/ports/port_ref.cc || irt_x64/obj/mojo/edk/system/ports/ports.inputdeps.stamp
+build irt_x64/obj/mojo/edk/system/ports/ports/user_message.o: irt_x64_cxx ../../mojo/edk/system/ports/user_message.cc || irt_x64/obj/mojo/edk/system/ports/ports.inputdeps.stamp
+
+build irt_x64/obj/mojo/edk/system/ports/libmojo_edk_ports.a: irt_x64_alink irt_x64/obj/mojo/edk/system/ports/ports/event.o irt_x64/obj/mojo/edk/system/ports/ports/message_queue.o irt_x64/obj/mojo/edk/system/ports/ports/name.o irt_x64/obj/mojo/edk/system/ports/ports/node.o irt_x64/obj/mojo/edk/system/ports/ports/port.o irt_x64/obj/mojo/edk/system/ports/ports/port_locker.o irt_x64/obj/mojo/edk/system/ports/ports/port_ref.o irt_x64/obj/mojo/edk/system/ports/ports/user_message.o || irt_x64/obj/base/libbase.a irt_x64/obj/base/libbase_static.a irt_x64/obj/base/numerics/base_numerics.stamp irt_x64/obj/base/third_party/dynamic_annotations/dynamic_annotations.stamp irt_x64/obj/third_party/modp_b64/libmodp_b64.a
+  arflags =
+  output_extension = .a
+  output_dir = irt_x64/obj/mojo/edk/system/ports

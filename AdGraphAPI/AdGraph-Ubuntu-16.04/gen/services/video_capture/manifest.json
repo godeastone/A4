@@ -1,0 +1,23 @@
+{
+"sandbox_type": "none", 
+"display_name": "Video Capture", 
+"name": "video_capture", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"capture": [
+"video_capture.mojom.DeviceFactoryProvider"
+], 
+"tests": [
+"video_capture.mojom.DeviceFactoryProvider", 
+"video_capture.mojom.TestingControls"
+]
+}
+}
+}
+}

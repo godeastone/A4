@@ -1,0 +1,22 @@
+{
+"sandbox_type": "utility", 
+"display_name": "Chrome File Utilities", 
+"name": "file_util", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"zip_file": [
+"chrome.mojom.ZipFileCreator"
+], 
+"analyze_archive": [
+"chrome.mojom.SafeArchiveAnalyzer"
+]
+}
+}
+}
+}

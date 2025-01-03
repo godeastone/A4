@@ -1,0 +1,3044 @@
+// Copyright 2019 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// GENERATED FROM THE SCHEMA DEFINITION AND DESCRIPTION IN
+//   field_trial_testing_config_schema.json
+//   fieldtrial_testing_config.json
+// DO NOT EDIT.
+
+#include "fieldtrial_testing_config.h"
+
+namespace variations {
+
+
+const char* const array_kFieldTrialConfig_enable_features_98[] = {
+      "use-new-media-cache",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_120[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_98,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_97[] = {
+      "V8BackgroundCompile",
+      "WorkStealingInScriptRunner",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_119[] = {
+    {
+      "WorkStealingAndBackgroundCompile",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_97,
+      2,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_96[] = {
+      "AsyncWheelEvents",
+      "TouchpadAndWheelScrollLatching",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_118[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_96,
+      2,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_95[] = {
+      "WebRtcUseEchoCanceller3",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_117[] = {
+    {
+      "WebRtcUseEchoCanceller3",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_95,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_116[] = {
+    {
+      "1.0,2875,80,40,-60,3",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_94[] = {
+      "NewEncodeCpuLoadEstimator",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_115[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_94,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_114[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_113[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_93[] = {
+      "WebRTC-H264WithOpenH264FFmpeg",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_112[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_93,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_92[] = {
+      "WebRTC-EnableWebRtcEcdsa",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_111[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_92,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_110[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_39[] = {
+      {
+        "blocklist_additions",
+        "00060000:e,fffd:e,ed5f25a4:e",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_109[] = {
+    {
+      "TestGroup",
+      array_kFieldTrialConfig_params_39,
+      1,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_91[] = {
+      "RequestUnbufferedDispatch",
+      "VsyncAlignedInput",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_108[] = {
+    {
+      "Enable",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_91,
+      2,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_90[] = {
+      "VizHitTestDrawQuad",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_107[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_90,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_89[] = {
+      "UseSurfaceLayerForVideo",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_106[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_89,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_88[] = {
+      "MojoVideoCapture",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_105[] = {
+    {
+      "Enabled2",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_88,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_disable_features_6[] = {
+      "VariationsHttpRetry",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_104[] = {
+    {
+      "VariationsHttpDisabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      array_kFieldTrialConfig_disable_features_6,
+      1,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_87[] = {
+      "WebAssemblyTrapHandler",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_103[] = {
+    {
+      "WasmTrapHandlerActive",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_87,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_86[] = {
+      "V8Future",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_102[] = {
+    {
+      "Future",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_86,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_disable_features_5[] = {
+      "V8ContextSnapshot",
+};
+const char* const array_kFieldTrialConfig_enable_features_85[] = {
+      "V8ContextSnapshot",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_101[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_85,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "Disabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      array_kFieldTrialConfig_disable_features_5,
+      1,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_84[] = {
+      "CacheInlineScriptCode",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_100[] = {
+    {
+      "CacheInlineScriptCode",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_84,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_83[] = {
+      "AsmJsToWebAssembly",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_99[] = {
+    {
+      "AsmJsToWebAssembly",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_83,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_82[] = {
+      "UsePdfCompositorServiceForPrint",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_98[] = {
+    {
+      "UsePdfCompositorServiceForPrint",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_82,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_81[] = {
+      "UseHeuristicLanguageModel",
+};
+const char* const array_kFieldTrialConfig_enable_features_80[] = {
+      "UseHeuristicLanguageModel",
+};
+const char* const array_kFieldTrialConfig_enable_features_79[] = {
+      "UseHeuristicLanguageModel",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_97[] = {
+    {
+      "Experiment",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_79,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "Beta_Experiment",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_80,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "Stable_Experiment",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_81,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_78[] = {
+      "UkmSamplingRate",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_38[] = {
+      {
+        "_default_sampling",
+        "1",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_96[] = {
+    {
+      "Sampled",
+      array_kFieldTrialConfig_params_38,
+      1,
+      array_kFieldTrialConfig_enable_features_78,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_77[] = {
+      "Ukm",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_37[] = {
+      {
+        "RecordSessionId",
+        "true",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_95[] = {
+    {
+      "Enabled",
+      array_kFieldTrialConfig_params_37,
+      1,
+      array_kFieldTrialConfig_enable_features_77,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_76[] = {
+      "TurnOffCompositorAnimation",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_94[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_76,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_75[] = {
+      "SyncUserLanguageDetectionEvents",
+      "SyncUserTranslationEvents",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_93[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_75,
+      2,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_36[] = {
+      {
+        "server_params",
+        "smrd",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_92[] = {
+    {
+      "SmartRendering",
+      array_kFieldTrialConfig_params_36,
+      1,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_74[] = {
+      "TranslateRankerAutoBlacklistOverride",
+      "TranslateRankerEnforcement",
+      "TranslateRankerQuery",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_35[] = {
+      {
+        "translate-ranker-model-url",
+        "https://www.gstatic.com/chrome/intelligence/assist/ranker/models/translate/translate_ranker_20180123.model",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_91[] = {
+    {
+      "20180123_launch",
+      array_kFieldTrialConfig_params_35,
+      1,
+      array_kFieldTrialConfig_enable_features_74,
+      3,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_73[] = {
+      "token-binding",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_90[] = {
+    {
+      "TokenBinding",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_73,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_72[] = {
+      "ThrottleDelayable",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_34[] = {
+      {
+        "EffectiveConnectionType1",
+        "3G",
+      },
+      {
+        "EffectiveConnectionType2",
+        "4G",
+      },
+      {
+        "MaxDelayableRequests1",
+        "14",
+      },
+      {
+        "MaxDelayableRequests2",
+        "18",
+      },
+      {
+        "NonDelayableWeight1",
+        "3.0",
+      },
+      {
+        "NonDelayableWeight2",
+        "3.0",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_89[] = {
+    {
+      "Enabled",
+      array_kFieldTrialConfig_params_34,
+      6,
+      array_kFieldTrialConfig_enable_features_72,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_33[] = {
+      {
+        "variant",
+        "draft23",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_88[] = {
+    {
+      "Draft23V4",
+      array_kFieldTrialConfig_params_33,
+      1,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_71[] = {
+      "SupervisedUserCommittedInterstitials",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_87[] = {
+    {
+      "SupervisedUserCommittedInterstitialsEnabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_71,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_70[] = {
+      "SpeculativeLaunchServiceWorker",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_86[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_70,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "Disabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_69[] = {
+      "SpdyProxiesRequestsDelayable",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_85[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_69,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_68[] = {
+      "SocketReadIfReady",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_84[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_68,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_67[] = {
+      "site-per-process",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_83[] = {
+    {
+      "SitePerProcess_Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_67,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_66[] = {
+      "SimplifyHttpsIndicator",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_32[] = {
+      {
+        "treatment",
+        "ev-to-secure",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_82[] = {
+    {
+      "EvToSecure",
+      array_kFieldTrialConfig_params_32,
+      1,
+      array_kFieldTrialConfig_enable_features_66,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_81[] = {
+    {
+      "ExperimentYes",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_65[] = {
+      "SimpleCachePrefetchExperiment",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_31[] = {
+      {
+        "Bytes",
+        "32768",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_80[] = {
+    {
+      "Prefetch32K",
+      array_kFieldTrialConfig_params_31,
+      1,
+      array_kFieldTrialConfig_enable_features_65,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_64[] = {
+      "sign-in-process-isolation",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_79[] = {
+    {
+      "Enabled_50_20171026",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_64,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_30[] = {
+      {
+        "dismissal_threshold",
+        "3",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_78[] = {
+    {
+      "Enable3",
+      array_kFieldTrialConfig_params_30,
+      1,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_disable_features_4[] = {
+      "ServiceWorkerScriptStreaming",
+};
+const char* const array_kFieldTrialConfig_enable_features_63[] = {
+      "ServiceWorkerScriptStreaming",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_77[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_63,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "Disabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      array_kFieldTrialConfig_disable_features_4,
+      1,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_disable_features_3[] = {
+      "ServiceWorkerScriptFullCodeCache",
+};
+const char* const array_kFieldTrialConfig_enable_features_62[] = {
+      "ServiceWorkerScriptFullCodeCache",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_76[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_62,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "Disabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      array_kFieldTrialConfig_disable_features_3,
+      1,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_61[] = {
+      "ServiceWorkerPaymentApps",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_75[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_61,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_disable_features_2[] = {
+      "ServiceWorkerNavigationPreload",
+};
+const char* const array_kFieldTrialConfig_enable_features_60[] = {
+      "ServiceWorkerNavigationPreload",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_74[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_60,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "Disabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      array_kFieldTrialConfig_disable_features_2,
+      1,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_59[] = {
+      "SecurityChip",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_29[] = {
+      {
+        "animation",
+        "animate-nonsecure-only",
+      },
+      {
+        "visibility",
+        "show-all",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_73[] = {
+    {
+      "Enabled",
+      array_kFieldTrialConfig_params_29,
+      2,
+      array_kFieldTrialConfig_enable_features_59,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_58[] = {
+      "ScrollAnchorSerialization",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_72[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_58,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_57[] = {
+      "SavePreviousDocumentResources",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_28[] = {
+      {
+        "until",
+        "onload",
+      },
+};
+const char* const array_kFieldTrialConfig_enable_features_56[] = {
+      "SavePreviousDocumentResources",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_27[] = {
+      {
+        "until",
+        "onDOMContentLoaded",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_71[] = {
+    {
+      "until-dcl",
+      array_kFieldTrialConfig_params_27,
+      1,
+      array_kFieldTrialConfig_enable_features_56,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "until-onload",
+      array_kFieldTrialConfig_params_28,
+      1,
+      array_kFieldTrialConfig_enable_features_57,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_55[] = {
+      "ThreatDomDetailsTagAttributes",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_26[] = {
+      {
+        "tag_attribute_csv",
+        "div,data-google-query-id,div,id,iframe,id",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_70[] = {
+    {
+      "AdIdentifiers",
+      array_kFieldTrialConfig_params_26,
+      1,
+      array_kFieldTrialConfig_enable_features_55,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "Default",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_disable_features_1[] = {
+      "SafeBrowsingSuspiciousSiteTriggerQuota",
+};
+const char* const array_kFieldTrialConfig_enable_features_54[] = {
+      "SafeBrowsingSuspiciousSiteTriggerQuota",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_25[] = {
+      {
+        "suspicious_site_trigger_quota",
+        "10",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_69[] = {
+    {
+      "Enabled",
+      array_kFieldTrialConfig_params_25,
+      1,
+      array_kFieldTrialConfig_enable_features_54,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "Control",
+      NULL,
+      0,
+      NULL,
+      0,
+      array_kFieldTrialConfig_disable_features_1,
+      1,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_disable_features_0[] = {
+      "CanShowScoutOptIn",
+      "OnlyShowScoutOptIn",
+};
+const char* const array_kFieldTrialConfig_enable_features_53[] = {
+      "CanShowScoutOptIn",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_68[] = {
+    {
+      "CanShowScoutOptInGroup2",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_53,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "Control2",
+      NULL,
+      0,
+      NULL,
+      0,
+      array_kFieldTrialConfig_disable_features_0,
+      2,
+      NULL,
+    },
+    {
+      "Default",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_disable_features[] = {
+      "SafeBrowsingAdSamplerTrigger",
+      "SafeBrowsingTriggerThrottlerDailyQuota",
+};
+const char* const array_kFieldTrialConfig_enable_features_52[] = {
+      "SafeBrowsingAdSamplerTrigger",
+      "SafeBrowsingTriggerThrottlerDailyQuota",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_24[] = {
+      {
+        "safe_browsing_ad_sampler_frequency_denominator",
+        "1000",
+      },
+      {
+        "trigger_type_and_quota_csv",
+        "2,10",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_67[] = {
+    {
+      "AdSampler_NormalRate",
+      array_kFieldTrialConfig_params_24,
+      2,
+      array_kFieldTrialConfig_enable_features_52,
+      2,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "Control",
+      NULL,
+      0,
+      NULL,
+      0,
+      array_kFieldTrialConfig_disable_features,
+      2,
+      NULL,
+    },
+    {
+      "Default",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_66[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_51[] = {
+      "ResourceLoadScheduler",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_23[] = {
+      {
+        "bg_limit",
+        "3",
+      },
+      {
+        "bg_sub_limit",
+        "2",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_65[] = {
+    {
+      "Enabled_bg_limit_3_2",
+      array_kFieldTrialConfig_params_23,
+      2,
+      array_kFieldTrialConfig_enable_features_51,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_50[] = {
+      "NetworkErrorLogging",
+      "Reporting",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_64[] = {
+    {
+      "ReportingAndNELEnabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_50,
+      2,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_22[] = {
+      {
+        "sendingThreshold",
+        "1.0",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_63[] = {
+    {
+      "ShowAndPossiblySend",
+      array_kFieldTrialConfig_params_22,
+      1,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "DontShowAndDontSend",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_49[] = {
+      "RendererSideResourceScheduler",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_21[] = {
+      {
+        "limit",
+        "1024",
+      },
+      {
+        "tight_limit",
+        "2",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_62[] = {
+    {
+      "Enabled",
+      array_kFieldTrialConfig_params_21,
+      2,
+      array_kFieldTrialConfig_enable_features_49,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_20[] = {
+      {
+        "wake_up_duration_ms",
+        "5",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_61[] = {
+    {
+      "RendererSchedulerWakeUpThrottling",
+      array_kFieldTrialConfig_params_20,
+      1,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_48[] = {
+      "RemoveNavigationHistory",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_60[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_48,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_59[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_47[] = {
+      "PrintScaling",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_58[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_47,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_46[] = {
+      "PrintPdfAsImage",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_57[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_46,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_45[] = {
+      "PersistentHistograms",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_19[] = {
+      {
+        "send_unreported_metrics",
+        "yes",
+      },
+      {
+        "storage",
+        "MappedFile",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_56[] = {
+    {
+      "EnabledOnDisk5",
+      array_kFieldTrialConfig_params_19,
+      2,
+      array_kFieldTrialConfig_enable_features_45,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_44[] = {
+      "BlockPromptsIfDismissedOften",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_55[] = {
+    {
+      "BlockPromptsEnabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_44,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_18[] = {
+      {
+        "dismissal_count",
+        "3",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_54[] = {
+    {
+      "3-Times",
+      array_kFieldTrialConfig_params_18,
+      1,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_43[] = {
+      "UsePasswordSeparatedSigninFlow",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_53[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_43,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_42[] = {
+      "EnterprisePasswordProtectionV1",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_52[] = {
+    {
+      "V1Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_42,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_41[] = {
+      "PassiveEventListenersDueToFling",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_51[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_41,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_40[] = {
+      "PassiveDocumentEventListeners",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_50[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_40,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_39[] = {
+      "PWAFullCodeCache",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_49[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_39,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_38[] = {
+      "ClickToOpenPDFPlaceholder",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_48[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_38,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_37[] = {
+      "OverflowIconsForMediaControls",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_47[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_37,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_36[] = {
+      "OmniboxBreakWordsAtUnderscores",
+      "OmniboxDisplayTitleForCurrentUrl",
+      "OmniboxTailSuggestions",
+      "OmniboxUIExperimentShowSuggestionFavicons",
+      "OmniboxUIExperimentSwapTitleAndUrl",
+      "OmniboxUIExperimentVerticalMargin",
+      "ZeroSuggestRedirectToChrome",
+      "ZeroSuggestSwapTitleAndUrl",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_17[] = {
+      {
+        "UIVerticalMargin",
+        "8",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_46[] = {
+    {
+      "DesktopExperiments",
+      array_kFieldTrialConfig_params_17,
+      1,
+      array_kFieldTrialConfig_enable_features_36,
+      8,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_35[] = {
+      "AutofillUpstream",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_45[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_35,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_34[] = {
+      "NoStatePrefetch",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_16[] = {
+      {
+        "instant_mode",
+        "simple_load",
+      },
+      {
+        "mode",
+        "no_state_prefetch",
+      },
+      {
+        "omnibox_mode",
+        "no_state_prefetch",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_44[] = {
+    {
+      "NoStatePrefetchEnabled",
+      array_kFieldTrialConfig_params_16,
+      3,
+      array_kFieldTrialConfig_enable_features_34,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_33[] = {
+      "IPH_NewTab",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_15[] = {
+      {
+        "availability",
+        "any",
+      },
+      {
+        "event_new_tab_session_time_met",
+        "name:new_tab_session_time_met;comparator:>=1;window:3650;storage:3650",
+      },
+      {
+        "event_omnibox_used",
+        "name:omnibox_used;comparator:>=1;window:3650;storage:3650",
+      },
+      {
+        "event_trigger",
+        "name:new_tab_trigger;comparator:==0;window:3650;storage:3650",
+      },
+      {
+        "event_used",
+        "name:new_tab_opened;comparator:==0;window:3650;storage:3650",
+      },
+      {
+        "session_rate",
+        "<0",
+      },
+      {
+        "x_promo_string",
+        "0",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_43[] = {
+    {
+      "Enabled_1",
+      array_kFieldTrialConfig_params_15,
+      7,
+      array_kFieldTrialConfig_enable_features_33,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_14[] = {
+      {
+        "hanging_request_http_rtt_upper_bound_http_rtt_multiplier",
+        "6",
+      },
+      {
+        "hanging_request_http_rtt_upper_bound_transport_rtt_multiplier",
+        "8",
+      },
+      {
+        "hanging_request_upper_bound_min_http_rtt_msec",
+        "500",
+      },
+      {
+        "lower_bound_http_rtt_transport_rtt_multiplier",
+        "1",
+      },
+      {
+        "rssi_weight_per_signal_strength_level",
+        "0.9",
+      },
+      {
+        "throughput_hanging_requests_cwnd_size_multiplier",
+        "1",
+      },
+      {
+        "upper_bound_http_rtt_transport_rtt_multiplier",
+        "5",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_42[] = {
+    {
+      "Enabled",
+      array_kFieldTrialConfig_params_14,
+      7,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_13[] = {
+      {
+        "non_ssl_http_rtt_multiplier",
+        "6",
+      },
+      {
+        "ssl_http_rtt_multiplier",
+        "8",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_41[] = {
+    {
+      "Enabled_Forced",
+      array_kFieldTrialConfig_params_13,
+      2,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_32[] = {
+      "DoodlesOnLocalNtp",
+      "UseGoogleLocalNtp",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_12[] = {
+      {
+        "local_ntp_interactive_doodles",
+        "false",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_40[] = {
+    {
+      "Enabled",
+      array_kFieldTrialConfig_params_12,
+      1,
+      array_kFieldTrialConfig_enable_features_32,
+      2,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_31[] = {
+      "MseBufferByPts",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_39[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_31,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_38[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_30[] = {
+      "UseModernMediaControls",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_37[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_30,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_29[] = {
+      "LowPriorityIframes",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_11[] = {
+      {
+        "max_effective_connection_type_threshold",
+        "4G",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_36[] = {
+    {
+      "Enabled",
+      array_kFieldTrialConfig_params_11,
+      1,
+      array_kFieldTrialConfig_enable_features_29,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_28[] = {
+      "LocalScreenCasting",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_35[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_28,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_34[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_27[] = {
+      "IPH_IncognitoWindow",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_10[] = {
+      {
+        "availability",
+        "any",
+      },
+      {
+        "event_incognito_window_session_time_met",
+        "name:incognito_window_session_time_met;comparator:>=1;window:3650;storage:3650",
+      },
+      {
+        "event_trigger",
+        "name:incognito_window_trigger;comparator:==0;window:3650;storage:3650",
+      },
+      {
+        "event_used",
+        "name:incognito_window_opened;comparator:==0;window:3650;storage:3650",
+      },
+      {
+        "session_rate",
+        "<0",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_33[] = {
+    {
+      "Enabled",
+      array_kFieldTrialConfig_params_10,
+      5,
+      array_kFieldTrialConfig_enable_features_27,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_26[] = {
+      "IncludeBetaForumMenuItem",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_32[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_26,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_25[] = {
+      "IDBTombstoneStatistics",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_31[] = {
+    {
+      "TombstoneMetrics",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_25,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_24[] = {
+      "HttpFormWarning",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_30[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_24,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_23[] = {
+      "PreferHtmlOverPlugins",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_29[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_23,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_22[] = {
+      "MarkHttpAs",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_9[] = {
+      {
+        "treatment",
+        "warning",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_28[] = {
+    {
+      "NotSecureWarning",
+      array_kFieldTrialConfig_params_9,
+      1,
+      array_kFieldTrialConfig_enable_features_22,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_21[] = {
+      "GuestViewCrossProcessFrames",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_27[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_21,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_20[] = {
+      "GpuScheduler",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_26[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_20,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_25[] = {
+    {
+      "branded",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_19[] = {
+      "ExpectCTReporting",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_24[] = {
+    {
+      "ExpectCTReportingEnabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_19,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_18[] = {
+      "MediaRouterUIRouteController",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_23[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_18,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_22[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_17[] = {
+      "EnableDialLocalDiscovery",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_21[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_17,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_16[] = {
+      "EnableCastDiscovery",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_20[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_16,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_15[] = {
+      "DynamicExpectCT",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_19[] = {
+    {
+      "DynamicExpectCTEnabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_15,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_14[] = {
+      "DecoupleTranslateLanguageFeature",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_18[] = {
+    {
+      "Experiment",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_14,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_13[] = {
+      "DataReductionProxyRobustConnection",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_8[] = {
+      {
+        "bypass_missing_via_disabled",
+        "true",
+      },
+      {
+        "warmup_fetch_callback_enabled",
+        "true",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_17[] = {
+    {
+      "Enabled",
+      array_kFieldTrialConfig_params_8,
+      2,
+      array_kFieldTrialConfig_enable_features_13,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_12[] = {
+      "CompositorImageAnimation",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_16[] = {
+    {
+      "CompositorImageAnimation",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_12,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_15[] = {
+    {
+      "Disabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_11[] = {
+      "CertificateTransparencyLogAuditing",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_14[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_11,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_7[] = {
+      {
+        "cssExternalScannerNoPreload",
+        "false",
+      },
+      {
+        "cssExternalScannerPreload",
+        "true",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_13[] = {
+    {
+      "Enabled_ScanAndPreload",
+      array_kFieldTrialConfig_params_7,
+      2,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_10[] = {
+      "BundledConnectionHelp",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_12[] = {
+    {
+      "HTTPHelpCenterEnabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_10,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_6[] = {
+      {
+        "RedirectHistoryService",
+        "true",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_11[] = {
+    {
+      "RedirectWithDefaultInitParams",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "EnableViaFlag",
+      array_kFieldTrialConfig_params_6,
+      1,
+      NULL,
+      0,
+      NULL,
+      0,
+      "enable-browser-task-scheduler",
+    },
+    {
+      "DisableViaFlag",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      "disable-browser-task-scheduler",
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_9[] = {
+      "IPH_Bookmark",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_5[] = {
+      {
+        "availability",
+        "any",
+      },
+      {
+        "event_bookmark_added",
+        "name:bookmark_added;comparator:==0;window:3650;storage:3650",
+      },
+      {
+        "event_bookmark_session_time_met",
+        "name:bookmark_session_time_met;comparator:>=1;window:3650;storage:3650",
+      },
+      {
+        "event_trigger",
+        "name:bookmark_trigger;comparator:==0;window:3650;storage:3650",
+      },
+      {
+        "event_used",
+        "name:bookmark_clicked;comparator:any;window:3650;storage:3650",
+      },
+      {
+        "session_rate",
+        "<=3",
+      },
+      {
+        "x_promo_string",
+        "IDS_BOOKMARK_PROMO_1",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_10[] = {
+    {
+      "Enabled_1",
+      array_kFieldTrialConfig_params_5,
+      7,
+      array_kFieldTrialConfig_enable_features_9,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_8[] = {
+      "BlockTabUnders",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_9[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_8,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_7[] = {
+      "BlinkSchedulerHighPriorityInput",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_8[] = {
+    {
+      "BlinkSchedulerHighPriorityInput",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_7,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_6[] = {
+      "BackgroundVideoTrackOptimization",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_4[] = {
+      {
+        "max_keyframe_distance_media_source_ms",
+        "5000",
+      },
+      {
+        "max_keyframe_distance_ms",
+        "0",
+      },
+};
+const char* const array_kFieldTrialConfig_enable_features_5[] = {
+      "BackgroundVideoTrackOptimization",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_3[] = {
+      {
+        "max_keyframe_distance_media_source_ms",
+        "3000",
+      },
+      {
+        "max_keyframe_distance_ms",
+        "0",
+      },
+};
+const char* const array_kFieldTrialConfig_enable_features_4[] = {
+      "BackgroundVideoTrackOptimization",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_2[] = {
+      {
+        "max_keyframe_distance_media_source_ms",
+        "1000",
+      },
+      {
+        "max_keyframe_distance_ms",
+        "0",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_7[] = {
+    {
+      "BackgroundOptimizationEnabled1sOrLessMediaSource",
+      array_kFieldTrialConfig_params_2,
+      2,
+      array_kFieldTrialConfig_enable_features_4,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "BackgroundOptimizationEnabled3sOrLessMediaSource",
+      array_kFieldTrialConfig_params_3,
+      2,
+      array_kFieldTrialConfig_enable_features_5,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "BackgroundOptimizationEnabled5sOrLessMediaSource",
+      array_kFieldTrialConfig_params_4,
+      2,
+      array_kFieldTrialConfig_enable_features_6,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_3[] = {
+      "AutofillUpstreamUpdatePromptExplanation",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_6[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_3,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_2[] = {
+      "AutofillUpstreamRequestCvcIfMissing",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_5[] = {
+    {
+      "EnabledWithGoogleBranding_Launched",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_2,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_4[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_1[] = {
+      {
+        "limit",
+        "3",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_3[] = {
+    {
+      "EnabledLimitTo3",
+      array_kFieldTrialConfig_params_1,
+      1,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+    {
+      "Enabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_2[] = {
+    {
+      "Enabled",
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_1[] = {
+      "AutofillCreditCardSigninPromo",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params_0[] = {
+      {
+        "impression_limit",
+        "3",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_1[] = {
+    {
+      "EnabledThree",
+      array_kFieldTrialConfig_params_0,
+      1,
+      array_kFieldTrialConfig_enable_features_1,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features_0[] = {
+      "AutofillCreditCardBankNameDisplay",
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments_0[] = {
+    {
+      "BankName_Experiment",
+      NULL,
+      0,
+      array_kFieldTrialConfig_enable_features_0,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const char* const array_kFieldTrialConfig_enable_features[] = {
+      "AccountConsistency",
+};
+const FieldTrialTestingExperimentParams array_kFieldTrialConfig_params[] = {
+      {
+        "method",
+        "dice_prepare_migration_new_endpoint",
+      },
+};
+const FieldTrialTestingExperiment array_kFieldTrialConfig_experiments[] = {
+    {
+      "DicePrepareMigration",
+      array_kFieldTrialConfig_params,
+      1,
+      array_kFieldTrialConfig_enable_features,
+      1,
+      NULL,
+      0,
+      NULL,
+    },
+};
+const FieldTrialTestingStudy array_kFieldTrialConfig_studies[] = {
+  {
+    "AccountConsistencyVariations",
+    array_kFieldTrialConfig_experiments,
+    1,
+  },
+  {
+    "AutofillCreditCardBankNameDisplay",
+    array_kFieldTrialConfig_experiments_0,
+    1,
+  },
+  {
+    "AutofillCreditCardSigninPromo",
+    array_kFieldTrialConfig_experiments_1,
+    1,
+  },
+  {
+    "AutofillFieldMetadata",
+    array_kFieldTrialConfig_experiments_2,
+    1,
+  },
+  {
+    "AutofillProfileOrderByFrecency",
+    array_kFieldTrialConfig_experiments_3,
+    2,
+  },
+  {
+    "AutofillSingleClick",
+    array_kFieldTrialConfig_experiments_4,
+    1,
+  },
+  {
+    "AutofillUpstreamRequestCvcIfMissing",
+    array_kFieldTrialConfig_experiments_5,
+    1,
+  },
+  {
+    "AutofillUpstreamUpdatePromptExplanation",
+    array_kFieldTrialConfig_experiments_6,
+    1,
+  },
+  {
+    "BackgroundVideoOptimizations",
+    array_kFieldTrialConfig_experiments_7,
+    3,
+  },
+  {
+    "BlinkSchedulerHighPriorityInput",
+    array_kFieldTrialConfig_experiments_8,
+    1,
+  },
+  {
+    "BlockTabUnders",
+    array_kFieldTrialConfig_experiments_9,
+    1,
+  },
+  {
+    "BookmarkInProductHelp",
+    array_kFieldTrialConfig_experiments_10,
+    1,
+  },
+  {
+    "BrowserScheduler",
+    array_kFieldTrialConfig_experiments_11,
+    3,
+  },
+  {
+    "BundledConnectionHelp",
+    array_kFieldTrialConfig_experiments_12,
+    1,
+  },
+  {
+    "CSSExternalScanner",
+    array_kFieldTrialConfig_experiments_13,
+    1,
+  },
+  {
+    "CertificateTransparencyLogAuditing",
+    array_kFieldTrialConfig_experiments_14,
+    1,
+  },
+  {
+    "ChromeSuggestionsTuningForceTopSites",
+    array_kFieldTrialConfig_experiments_15,
+    1,
+  },
+  {
+    "CompositorImageAnimation",
+    array_kFieldTrialConfig_experiments_16,
+    1,
+  },
+  {
+    "DataReductionProxyRobustConnection",
+    array_kFieldTrialConfig_experiments_17,
+    1,
+  },
+  {
+    "DecoupleTranslateLanguage",
+    array_kFieldTrialConfig_experiments_18,
+    1,
+  },
+  {
+    "DynamicExpectCT",
+    array_kFieldTrialConfig_experiments_19,
+    1,
+  },
+  {
+    "EnableCastDiscovery",
+    array_kFieldTrialConfig_experiments_20,
+    1,
+  },
+  {
+    "EnableDialLocalDiscovery",
+    array_kFieldTrialConfig_experiments_21,
+    1,
+  },
+  {
+    "EnableMediaRouter",
+    array_kFieldTrialConfig_experiments_22,
+    1,
+  },
+  {
+    "EnableNewMediaRouterRouteController",
+    array_kFieldTrialConfig_experiments_23,
+    1,
+  },
+  {
+    "ExpectCTReporting",
+    array_kFieldTrialConfig_experiments_24,
+    1,
+  },
+  {
+    "GoogleBrandedContextMenu",
+    array_kFieldTrialConfig_experiments_25,
+    1,
+  },
+  {
+    "GpuScheduler",
+    array_kFieldTrialConfig_experiments_26,
+    1,
+  },
+  {
+    "GuestViewCrossProcessFrames",
+    array_kFieldTrialConfig_experiments_27,
+    1,
+  },
+  {
+    "HTTPBadPhase3",
+    array_kFieldTrialConfig_experiments_28,
+    1,
+  },
+  {
+    "Html5ByDefault",
+    array_kFieldTrialConfig_experiments_29,
+    1,
+  },
+  {
+    "HttpFormWarning",
+    array_kFieldTrialConfig_experiments_30,
+    1,
+  },
+  {
+    "IDBTombstoneSweeper",
+    array_kFieldTrialConfig_experiments_31,
+    1,
+  },
+  {
+    "IncludeBetaForumMenuItem",
+    array_kFieldTrialConfig_experiments_32,
+    1,
+  },
+  {
+    "IncognitoWindowInProductHelp",
+    array_kFieldTrialConfig_experiments_33,
+    1,
+  },
+  {
+    "InstanceID",
+    array_kFieldTrialConfig_experiments_34,
+    1,
+  },
+  {
+    "LocalScreenCasting",
+    array_kFieldTrialConfig_experiments_35,
+    1,
+  },
+  {
+    "LowPriorityIframes2",
+    array_kFieldTrialConfig_experiments_36,
+    1,
+  },
+  {
+    "ModernMediaControls",
+    array_kFieldTrialConfig_experiments_37,
+    1,
+  },
+  {
+    "MojoChannel",
+    array_kFieldTrialConfig_experiments_38,
+    1,
+  },
+  {
+    "MseBufferByPts",
+    array_kFieldTrialConfig_experiments_39,
+    1,
+  },
+  {
+    "NTPUseGoogleLocalNtp",
+    array_kFieldTrialConfig_experiments_40,
+    1,
+  },
+  {
+    "NetAdaptiveProxyConnectionTimeout",
+    array_kFieldTrialConfig_experiments_41,
+    1,
+  },
+  {
+    "NetworkQualityEstimator",
+    array_kFieldTrialConfig_experiments_42,
+    1,
+  },
+  {
+    "NewTabInProductHelp",
+    array_kFieldTrialConfig_experiments_43,
+    1,
+  },
+  {
+    "NoStatePrefetchRollout",
+    array_kFieldTrialConfig_experiments_44,
+    1,
+  },
+  {
+    "OfferUploadCreditCards",
+    array_kFieldTrialConfig_experiments_45,
+    1,
+  },
+  {
+    "OmniboxBundledExperimentV1",
+    array_kFieldTrialConfig_experiments_46,
+    1,
+  },
+  {
+    "OverflowIconsForMediaControls",
+    array_kFieldTrialConfig_experiments_47,
+    1,
+  },
+  {
+    "PDFClickToOpen",
+    array_kFieldTrialConfig_experiments_48,
+    1,
+  },
+  {
+    "PWAFullCodeCache",
+    array_kFieldTrialConfig_experiments_49,
+    1,
+  },
+  {
+    "PassiveDocumentEventListeners",
+    array_kFieldTrialConfig_experiments_50,
+    1,
+  },
+  {
+    "PassiveEventListenersDueToFling",
+    array_kFieldTrialConfig_experiments_51,
+    1,
+  },
+  {
+    "PasswordProtectionForEnterprise",
+    array_kFieldTrialConfig_experiments_52,
+    1,
+  },
+  {
+    "PasswordSeparatedSigninFlow",
+    array_kFieldTrialConfig_experiments_53,
+    1,
+  },
+  {
+    "PasswordSmartBubble",
+    array_kFieldTrialConfig_experiments_54,
+    1,
+  },
+  {
+    "PermissionPromptUIViews",
+    array_kFieldTrialConfig_experiments_55,
+    1,
+  },
+  {
+    "PersistentHistograms",
+    array_kFieldTrialConfig_experiments_56,
+    1,
+  },
+  {
+    "PrintPdfAsImage",
+    array_kFieldTrialConfig_experiments_57,
+    1,
+  },
+  {
+    "PrintScaling",
+    array_kFieldTrialConfig_experiments_58,
+    1,
+  },
+  {
+    "QUIC",
+    array_kFieldTrialConfig_experiments_59,
+    1,
+  },
+  {
+    "RemoveNavigationHistory",
+    array_kFieldTrialConfig_experiments_60,
+    1,
+  },
+  {
+    "RendererSchedulerWakeUpThrottling",
+    array_kFieldTrialConfig_experiments_61,
+    1,
+  },
+  {
+    "RendererSideResourceScheduler",
+    array_kFieldTrialConfig_experiments_62,
+    1,
+  },
+  {
+    "ReportCertificateErrors",
+    array_kFieldTrialConfig_experiments_63,
+    2,
+  },
+  {
+    "ReportingAPIAndNetworkErrorLogging",
+    array_kFieldTrialConfig_experiments_64,
+    1,
+  },
+  {
+    "ResourceLoadScheduler",
+    array_kFieldTrialConfig_experiments_65,
+    1,
+  },
+  {
+    "SSLCommonNameMismatchHandling",
+    array_kFieldTrialConfig_experiments_66,
+    1,
+  },
+  {
+    "SafeBrowsingAdSamplerTrigger",
+    array_kFieldTrialConfig_experiments_67,
+    3,
+  },
+  {
+    "SafeBrowsingScoutTransitionStudy",
+    array_kFieldTrialConfig_experiments_68,
+    3,
+  },
+  {
+    "SafeBrowsingSuspiciousSiteTrigger",
+    array_kFieldTrialConfig_experiments_69,
+    2,
+  },
+  {
+    "SafeBrowsingThreatDomDetailsTagAttributes",
+    array_kFieldTrialConfig_experiments_70,
+    2,
+  },
+  {
+    "SavePreviousDocumentResources",
+    array_kFieldTrialConfig_experiments_71,
+    2,
+  },
+  {
+    "ScrollAnchorSerialization",
+    array_kFieldTrialConfig_experiments_72,
+    1,
+  },
+  {
+    "SecurityChip",
+    array_kFieldTrialConfig_experiments_73,
+    1,
+  },
+  {
+    "ServiceWorkerNavigationPreload",
+    array_kFieldTrialConfig_experiments_74,
+    2,
+  },
+  {
+    "ServiceWorkerPaymentApps",
+    array_kFieldTrialConfig_experiments_75,
+    1,
+  },
+  {
+    "ServiceWorkerScriptFullCodeCache",
+    array_kFieldTrialConfig_experiments_76,
+    2,
+  },
+  {
+    "ServiceWorkerScriptStreaming",
+    array_kFieldTrialConfig_experiments_77,
+    2,
+  },
+  {
+    "SignInPasswordPromo",
+    array_kFieldTrialConfig_experiments_78,
+    1,
+  },
+  {
+    "SignInProcessIsolation",
+    array_kFieldTrialConfig_experiments_79,
+    1,
+  },
+  {
+    "SimpleCachePrefetchExperiment",
+    array_kFieldTrialConfig_experiments_80,
+    1,
+  },
+  {
+    "SimpleCacheTrial",
+    array_kFieldTrialConfig_experiments_81,
+    1,
+  },
+  {
+    "SimplifyHttpsIndicator",
+    array_kFieldTrialConfig_experiments_82,
+    1,
+  },
+  {
+    "SitePerProcess",
+    array_kFieldTrialConfig_experiments_83,
+    1,
+  },
+  {
+    "SocketReadIfReady",
+    array_kFieldTrialConfig_experiments_84,
+    1,
+  },
+  {
+    "SpdyProxiesRequestsDelayable",
+    array_kFieldTrialConfig_experiments_85,
+    1,
+  },
+  {
+    "SpeculativeLaunchServiceWorker",
+    array_kFieldTrialConfig_experiments_86,
+    2,
+  },
+  {
+    "SupervisedUserCommittedInterstitials",
+    array_kFieldTrialConfig_experiments_87,
+    1,
+  },
+  {
+    "TLS13Variant",
+    array_kFieldTrialConfig_experiments_88,
+    1,
+  },
+  {
+    "ThrottleDelayable",
+    array_kFieldTrialConfig_experiments_89,
+    1,
+  },
+  {
+    "TokenBinding",
+    array_kFieldTrialConfig_experiments_90,
+    1,
+  },
+  {
+    "TranslateRankerModel",
+    array_kFieldTrialConfig_experiments_91,
+    1,
+  },
+  {
+    "TranslateServerStudy",
+    array_kFieldTrialConfig_experiments_92,
+    1,
+  },
+  {
+    "TranslateUserEvents",
+    array_kFieldTrialConfig_experiments_93,
+    1,
+  },
+  {
+    "TurnOffCompositorAnimation",
+    array_kFieldTrialConfig_experiments_94,
+    1,
+  },
+  {
+    "UKM",
+    array_kFieldTrialConfig_experiments_95,
+    1,
+  },
+  {
+    "UkmSamplingRate",
+    array_kFieldTrialConfig_experiments_96,
+    1,
+  },
+  {
+    "UseHeuristicLanguageModel",
+    array_kFieldTrialConfig_experiments_97,
+    3,
+  },
+  {
+    "UsePdfCompositorServiceForPrint",
+    array_kFieldTrialConfig_experiments_98,
+    1,
+  },
+  {
+    "V8AsmJSToWasm",
+    array_kFieldTrialConfig_experiments_99,
+    1,
+  },
+  {
+    "V8CacheInlineScriptCode",
+    array_kFieldTrialConfig_experiments_100,
+    1,
+  },
+  {
+    "V8ContextSnapshot",
+    array_kFieldTrialConfig_experiments_101,
+    2,
+  },
+  {
+    "V8Ignition",
+    array_kFieldTrialConfig_experiments_102,
+    1,
+  },
+  {
+    "V8WasmTrapHandler",
+    array_kFieldTrialConfig_experiments_103,
+    1,
+  },
+  {
+    "VariationsHttpDisabled",
+    array_kFieldTrialConfig_experiments_104,
+    1,
+  },
+  {
+    "VideoCaptureService",
+    array_kFieldTrialConfig_experiments_105,
+    1,
+  },
+  {
+    "VideoSurfaceLayer",
+    array_kFieldTrialConfig_experiments_106,
+    1,
+  },
+  {
+    "VizHitTestDrawQuad",
+    array_kFieldTrialConfig_experiments_107,
+    1,
+  },
+  {
+    "VsyncAlignedInput",
+    array_kFieldTrialConfig_experiments_108,
+    1,
+  },
+  {
+    "WebBluetoothBlocklist",
+    array_kFieldTrialConfig_experiments_109,
+    1,
+  },
+  {
+    "WebRTC-ApmGainController2Limiter",
+    array_kFieldTrialConfig_experiments_110,
+    1,
+  },
+  {
+    "WebRTC-EnableWebRtcEcdsa",
+    array_kFieldTrialConfig_experiments_111,
+    1,
+  },
+  {
+    "WebRTC-H264WithOpenH264FFmpeg",
+    array_kFieldTrialConfig_experiments_112,
+    1,
+  },
+  {
+    "WebRTC-LocalIPPermissionCheck",
+    array_kFieldTrialConfig_experiments_113,
+    1,
+  },
+  {
+    "WebRTC-NetEqOpusDtxDelayFix",
+    array_kFieldTrialConfig_experiments_114,
+    1,
+  },
+  {
+    "WebRTC-NewCpuLoadEstimator",
+    array_kFieldTrialConfig_experiments_115,
+    1,
+  },
+  {
+    "WebRTC-ProbingScreenshareBwe",
+    array_kFieldTrialConfig_experiments_116,
+    1,
+  },
+  {
+    "WebRtcUseEchoCanceller3",
+    array_kFieldTrialConfig_experiments_117,
+    1,
+  },
+  {
+    "WheelScrollLatchingAndAsyncWheelEvents",
+    array_kFieldTrialConfig_experiments_118,
+    1,
+  },
+  {
+    "WorkStealingInScriptRunner",
+    array_kFieldTrialConfig_experiments_119,
+    1,
+  },
+  {
+    "use-new-media-cache",
+    array_kFieldTrialConfig_experiments_120,
+    1,
+  },
+};
+const FieldTrialTestingConfig kFieldTrialConfig = {
+  array_kFieldTrialConfig_studies,
+  122,
+};
+
+}  // namespace variations

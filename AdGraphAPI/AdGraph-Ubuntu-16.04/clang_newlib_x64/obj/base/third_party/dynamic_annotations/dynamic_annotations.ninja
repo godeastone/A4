@@ -1,0 +1,9 @@
+defines = -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND
+include_dirs = -I../.. -Iclang_newlib_x64/gen
+label_name = dynamic_annotations
+root_out_dir = clang_newlib_x64
+target_out_dir = clang_newlib_x64/obj/base/third_party/dynamic_annotations
+target_output_name = dynamic_annotations
+
+
+build clang_newlib_x64/obj/base/third_party/dynamic_annotations/dynamic_annotations.stamp: clang_newlib_x64_stamp

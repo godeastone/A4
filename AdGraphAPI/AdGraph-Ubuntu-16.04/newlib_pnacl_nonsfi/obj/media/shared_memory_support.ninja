@@ -1,0 +1,22 @@
+defines = -DMEDIA_SHMEM_IMPLEMENTATION -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND -DUSE_PULSEAUDIO -DDLOPEN_PULSEAUDIO
+include_dirs = -I../../native_client/src/public/linux_syscalls -I../.. -Inewlib_pnacl_nonsfi/gen
+cflags = -fno-strict-aliasing -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -fcolor-diagnostics -fmerge-all-constants --pnacl-allow-translate -arch x86-32-nonsfi --pnacl-bias=x86-32-nonsfi --target=i686-unknown-nacl -Wall -Werror -Wextra -Wimplicit-fallthrough -Wthread-safety -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -fomit-frame-pointer -g0 -fvisibility=hidden -O2 -fno-ident -fdata-sections -ffunction-sections
+cflags_cc = -std=gnu++14 -fno-exceptions -fno-rtti -fvisibility-inlines-hidden
+label_name = shared_memory_support
+root_out_dir = newlib_pnacl_nonsfi
+target_out_dir = newlib_pnacl_nonsfi/obj/media
+target_output_name = libshared_memory_support
+
+build newlib_pnacl_nonsfi/obj/media/shared_memory_support.inputdeps.stamp: newlib_pnacl_nonsfi_stamp newlib_pnacl_nonsfi/obj/base/anchor_functions_buildflags.stamp newlib_pnacl_nonsfi/obj/base/build_date.stamp newlib_pnacl_nonsfi/obj/base/cfi_buildflags.stamp newlib_pnacl_nonsfi/obj/base/debugging_buildflags.stamp newlib_pnacl_nonsfi/obj/base/partition_alloc_buildflags.stamp newlib_pnacl_nonsfi/obj/base/protected_memory_buildflags.stamp newlib_pnacl_nonsfi/obj/base/synchronization_buildflags.stamp newlib_pnacl_nonsfi/obj/base/allocator/buildflags.stamp newlib_pnacl_nonsfi/obj/ui/gfx/geometry/geometry__jumbo_merge.stamp
+build newlib_pnacl_nonsfi/obj/media/shared_memory_support/audio_bus.o: newlib_pnacl_nonsfi_cxx ../../media/base/audio_bus.cc || newlib_pnacl_nonsfi/obj/media/shared_memory_support.inputdeps.stamp
+build newlib_pnacl_nonsfi/obj/media/shared_memory_support/audio_latency.o: newlib_pnacl_nonsfi_cxx ../../media/base/audio_latency.cc || newlib_pnacl_nonsfi/obj/media/shared_memory_support.inputdeps.stamp
+build newlib_pnacl_nonsfi/obj/media/shared_memory_support/audio_parameters.o: newlib_pnacl_nonsfi_cxx ../../media/base/audio_parameters.cc || newlib_pnacl_nonsfi/obj/media/shared_memory_support.inputdeps.stamp
+build newlib_pnacl_nonsfi/obj/media/shared_memory_support/audio_point.o: newlib_pnacl_nonsfi_cxx ../../media/base/audio_point.cc || newlib_pnacl_nonsfi/obj/media/shared_memory_support.inputdeps.stamp
+build newlib_pnacl_nonsfi/obj/media/shared_memory_support/channel_layout.o: newlib_pnacl_nonsfi_cxx ../../media/base/channel_layout.cc || newlib_pnacl_nonsfi/obj/media/shared_memory_support.inputdeps.stamp
+build newlib_pnacl_nonsfi/obj/media/shared_memory_support/sample_format.o: newlib_pnacl_nonsfi_cxx ../../media/base/sample_format.cc || newlib_pnacl_nonsfi/obj/media/shared_memory_support.inputdeps.stamp
+build newlib_pnacl_nonsfi/obj/media/shared_memory_support/vector_math.o: newlib_pnacl_nonsfi_cxx ../../media/base/vector_math.cc || newlib_pnacl_nonsfi/obj/media/shared_memory_support.inputdeps.stamp
+
+build newlib_pnacl_nonsfi/obj/media/libshared_memory_support.a: newlib_pnacl_nonsfi_alink newlib_pnacl_nonsfi/obj/media/shared_memory_support/audio_bus.o newlib_pnacl_nonsfi/obj/media/shared_memory_support/audio_latency.o newlib_pnacl_nonsfi/obj/media/shared_memory_support/audio_parameters.o newlib_pnacl_nonsfi/obj/media/shared_memory_support/audio_point.o newlib_pnacl_nonsfi/obj/media/shared_memory_support/channel_layout.o newlib_pnacl_nonsfi/obj/media/shared_memory_support/sample_format.o newlib_pnacl_nonsfi/obj/media/shared_memory_support/vector_math.o || newlib_pnacl_nonsfi/obj/base/base.stamp newlib_pnacl_nonsfi/obj/ui/gfx/geometry/libgeometry.a newlib_pnacl_nonsfi/obj/base/libbase_static.a newlib_pnacl_nonsfi/obj/base/numerics/base_numerics.stamp newlib_pnacl_nonsfi/obj/base/third_party/dynamic_annotations/dynamic_annotations.stamp newlib_pnacl_nonsfi/obj/third_party/modp_b64/libmodp_b64.a newlib_pnacl_nonsfi/obj/base/third_party/libevent/libevent.a newlib_pnacl_nonsfi/obj/ui/gfx/gfx_export.stamp
+  arflags =
+  output_extension = .a
+  output_dir = newlib_pnacl_nonsfi/obj/media

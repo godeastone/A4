@@ -1,0 +1,235 @@
+{
+"services": [
+{
+"display_name": "Chrome", 
+"name": "chrome", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users", 
+"service_manager:client_process", 
+"service_manager:instance_name"
+], 
+"chrome_renderer": [
+"browser"
+]
+}, 
+"provides": {
+"input_device_controller": [
+"ui.mojom.InputDeviceController"
+], 
+"renderer": [
+"spellcheck.mojom.SpellCheckHost", 
+"spellcheck.mojom.SpellCheckPanelHost", 
+"startup_metric_utils.mojom.StartupMetricHost"
+], 
+"mash:launchable": [
+"mash.mojom.Launchable"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Patch Service", 
+"sandbox_type": "utility", 
+"name": "patch_service", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"patch_file": [
+"patch.mojom.FilePatcher"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Unzip Service", 
+"sandbox_type": "utility", 
+"name": "unzip_service", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"unzip_file": [
+"unzip.mojom.Unzipper"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Chrome File Utilities", 
+"sandbox_type": "utility", 
+"name": "file_util", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"zip_file": [
+"chrome.mojom.ZipFileCreator"
+], 
+"analyze_archive": [
+"chrome.mojom.SafeArchiveAnalyzer"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Proxy resolver", 
+"name": "proxy_resolver", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"factory": [
+"proxy_resolver.mojom.ProxyResolverFactory"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Local state preferences", 
+"name": "local_state", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {}, 
+"provides": {
+"pref_client": [
+"prefs.mojom.PrefStoreConnector"
+]
+}
+}
+}
+}, 
+{
+"display_name": "PDF Compositor Service", 
+"sandbox_type": "pdf_compositor", 
+"name": "pdf_compositor", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"content_browser": [
+"font_loader"
+], 
+"*": [
+"app"
+], 
+"ui": [
+"discardable_memory"
+], 
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"compositor": [
+"printing.mojom.PdfCompositor"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Printing", 
+"sandbox_type": "utility", 
+"name": "chrome_printing", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"converter": [
+"printing.mojom.PdfToEmfConverterFactory", 
+"printing.mojom.PdfToPwgRasterConverter"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Removable Storage Writer", 
+"sandbox_type": "none_and_elevated", 
+"name": "removable_storage_writer", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"removable_storage_writer": [
+"chrome.mojom.RemovableStorageWriter"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Chrome Media Gallery Utilities", 
+"sandbox_type": "utility", 
+"name": "media_gallery_util", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"parse_media": [
+"chrome.mojom.MediaParserFactory"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Profile Import", 
+"sandbox_type": "none", 
+"name": "profile_import", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"import": [
+"chrome.mojom.ProfileImport"
+]
+}
+}
+}
+}
+], 
+"display_name": "Chrome Packaged Services", 
+"name": "content_packaged_services", 
+"interface_provider_specs": {}
+}

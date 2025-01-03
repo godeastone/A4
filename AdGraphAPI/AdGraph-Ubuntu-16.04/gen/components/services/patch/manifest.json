@@ -1,0 +1,19 @@
+{
+"sandbox_type": "utility", 
+"display_name": "Patch Service", 
+"name": "patch_service", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"patch_file": [
+"patch.mojom.FilePatcher"
+]
+}
+}
+}
+}

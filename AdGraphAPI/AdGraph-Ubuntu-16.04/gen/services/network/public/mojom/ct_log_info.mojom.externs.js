@@ -1,0 +1,18 @@
+// Copyright 2018 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+/** @const */
+let network = {};
+/** @const */
+network.mojom = {};
+network.mojom.CTLogInfo = class {
+  constructor() {
+    /** @type { !string } */
+    this.publicKey;
+    /** @type { !string } */
+    this.name;
+    /** @type { !string } */
+    this.dnsApiEndpoint;
+  }
+};

@@ -1,0 +1,34 @@
+{
+  "c++": {
+    "url.mojom.Origin": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "url::Origin", 
+      "traits_headers": [
+        "url/mojom/origin_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "url/origin.h"
+      ]
+    }, 
+    "url.mojom.Url": {
+      "hashable": false, 
+      "typename": "GURL", 
+      "non_copyable_non_movable": false, 
+      "force_serialize": false, 
+      "traits_headers": [
+        "url/mojom/url_gurl_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "url/gurl.h"
+      ]
+    }
+  }
+}

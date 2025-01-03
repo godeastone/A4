@@ -1,0 +1,24 @@
+{
+"display_name": "Data Decoder Service", 
+"name": "data_decoder", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"json_parser": [
+"data_decoder.mojom.JsonParser"
+], 
+"xml_parser": [
+"data_decoder.mojom.XmlParser"
+], 
+"image_decoder": [
+"data_decoder.mojom.ImageDecoder"
+]
+}
+}
+}
+}

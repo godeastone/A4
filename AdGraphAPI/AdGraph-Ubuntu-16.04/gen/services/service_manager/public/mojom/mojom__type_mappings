@@ -1,0 +1,79 @@
+{
+  "c++": {
+    "service_manager.mojom.InterfaceSet": {
+      "hashable": false, 
+      "typename": "::service_manager::InterfaceSet", 
+      "traits_headers": [
+        "services/service_manager/public/cpp/interface_provider_spec_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "services/service_manager/public/cpp/interface_provider_spec.h"
+      ]
+    }, 
+    "service_manager.mojom.BindSourceInfo": {
+      "hashable": false, 
+      "typename": "::service_manager::BindSourceInfo", 
+      "traits_headers": [
+        "services/service_manager/public/cpp/bind_source_info_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "services/service_manager/public/cpp/bind_source_info.h"
+      ]
+    }, 
+    "service_manager.mojom.Identity": {
+      "hashable": false, 
+      "typename": "::service_manager::Identity", 
+      "traits_headers": [
+        "services/service_manager/public/cpp/identity_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "services/service_manager/public/cpp/identity.h"
+      ]
+    }, 
+    "service_manager.mojom.CapabilitySet": {
+      "hashable": false, 
+      "typename": "::service_manager::CapabilitySet", 
+      "traits_headers": [
+        "services/service_manager/public/cpp/interface_provider_spec_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "services/service_manager/public/cpp/interface_provider_spec.h"
+      ]
+    }, 
+    "service_manager.mojom.InterfaceProviderSpec": {
+      "hashable": false, 
+      "typename": "::service_manager::InterfaceProviderSpec", 
+      "traits_headers": [
+        "services/service_manager/public/cpp/interface_provider_spec_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "services/service_manager/public/cpp/interface_provider_spec.h"
+      ]
+    }
+  }
+}

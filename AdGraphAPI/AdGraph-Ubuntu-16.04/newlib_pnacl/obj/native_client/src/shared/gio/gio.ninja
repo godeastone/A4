@@ -1,0 +1,16 @@
+defines = -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND -D_POSIX_C_SOURCE=199506 -D_XOPEN_SOURCE=600 -D_GNU_SOURCE=1 -D__STDC_LIMIT_MACROS=1 -DNACL_BUILD_ARCH=pnacl -DDYNAMIC_ANNOTATIONS_ENABLED=1 -DDYNAMIC_ANNOTATIONS_PREFIX=NACL_
+include_dirs = -I../.. -Inewlib_pnacl/gen
+cflags = -fno-strict-aliasing -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -fcolor-diagnostics -fmerge-all-constants -Wall -Werror -Wextra -Wimplicit-fallthrough -Wthread-safety -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -O2 -fno-ident -fdata-sections -ffunction-sections -fomit-frame-pointer -g0 -fvisibility=hidden
+cflags_c = -std=gnu11
+label_name = gio
+root_out_dir = newlib_pnacl
+target_out_dir = newlib_pnacl/obj/native_client/src/shared/gio
+target_output_name = libgio
+
+build newlib_pnacl/obj/native_client/src/shared/gio/gio/gio.o: newlib_pnacl_cc ../../native_client/src/shared/gio/gio.c
+build newlib_pnacl/obj/native_client/src/shared/gio/gio/gprintf.o: newlib_pnacl_cc ../../native_client/src/shared/gio/gprintf.c
+
+build newlib_pnacl/obj/native_client/src/shared/gio/libgio.a: newlib_pnacl_alink newlib_pnacl/obj/native_client/src/shared/gio/gio/gio.o newlib_pnacl/obj/native_client/src/shared/gio/gio/gprintf.o || newlib_pnacl/obj/build/config/nacl/nacl_base.stamp
+  arflags =
+  output_extension = .a
+  output_dir = newlib_pnacl/obj/native_client/src/shared/gio

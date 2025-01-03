@@ -1,0 +1,35 @@
+[
+    ImplementedAs=layout_worklet_global_scope_core_constructors
+] partial interface LayoutWorkletGlobalScope {
+    [RuntimeEnabled=CSSLayoutAPI] attribute LayoutChildConstructor LayoutChild;
+    [RuntimeEnabled=CSSLayoutAPI] attribute LayoutConstraintsConstructor LayoutConstraints;
+    [RuntimeEnabled=CSSLayoutAPI] attribute LayoutFragmentConstructor LayoutFragment;
+    [RuntimeEnabled=CSSLayoutAPI] attribute LayoutFragmentRequestConstructor LayoutFragmentRequest;
+    [RuntimeEnabled=CSSLayoutAPI] attribute LayoutWorkletGlobalScopeConstructor LayoutWorkletGlobalScope;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSImageValueConstructor CSSImageValue;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSKeywordValueConstructor CSSKeywordValue;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSMathInvertConstructor CSSMathInvert;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSMathMaxConstructor CSSMathMax;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSMathMinConstructor CSSMathMin;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSMathNegateConstructor CSSMathNegate;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSMathProductConstructor CSSMathProduct;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSMathSumConstructor CSSMathSum;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSMathValueConstructor CSSMathValue;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSMatrixComponentConstructor CSSMatrixComponent;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSNumericArrayConstructor CSSNumericArray;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSNumericValueConstructor CSSNumericValue;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSPerspectiveConstructor CSSPerspective;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSPositionValueConstructor CSSPositionValue;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSRotateConstructor CSSRotate;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSScaleConstructor CSSScale;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSSkewConstructor CSSSkew;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSStyleValueConstructor CSSStyleValue;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSTransformComponentConstructor CSSTransformComponent;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSTransformValueConstructor CSSTransformValue;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSTranslateConstructor CSSTranslate;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSUnitValueConstructor CSSUnitValue;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSUnparsedValueConstructor CSSUnparsedValue;
+    [RuntimeEnabled=CSSTypedOM] attribute CSSVariableReferenceValueConstructor CSSVariableReferenceValue;
+    [RuntimeEnabled=CSSTypedOM] attribute StylePropertyMapReadOnlyConstructor StylePropertyMapReadOnly;
+    [RuntimeEnabled=Worklet] attribute WorkletGlobalScopeConstructor WorkletGlobalScope;
+};

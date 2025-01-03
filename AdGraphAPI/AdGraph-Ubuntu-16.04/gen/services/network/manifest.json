@@ -1,0 +1,25 @@
+{
+"sandbox_type": "network", 
+"display_name": "Network Service", 
+"name": "network", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"test": [
+"network.mojom.NetworkServiceTest"
+], 
+"network_service": [
+"network.mojom.NetworkService"
+], 
+"url_loader": [
+"network.mojom.URLLoaderFactory"
+]
+}
+}
+}
+}

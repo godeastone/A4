@@ -1,0 +1,3 @@
+gen/services/ui/public/interfaces/ime/test_interfaces.sources_list
+gen/services/ui/public/interfaces/ime/ime.sources_list
+gen/ui/platform_window/mojo/interfaces.sources_list

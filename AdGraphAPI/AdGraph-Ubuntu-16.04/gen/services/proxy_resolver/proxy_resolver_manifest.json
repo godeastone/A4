@@ -1,0 +1,18 @@
+{
+"display_name": "Proxy resolver", 
+"name": "proxy_resolver", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"factory": [
+"proxy_resolver.mojom.ProxyResolverFactory"
+]
+}
+}
+}
+}

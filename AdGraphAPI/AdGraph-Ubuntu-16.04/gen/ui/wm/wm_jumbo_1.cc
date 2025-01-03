@@ -1,0 +1,26 @@
+/* This is a Jumbo file. Don't edit. */
+
+/* Generated with merge_for_jumbo.py. */
+
+#include "../../ui/wm/core/accelerator_filter.cc"
+#include "../../ui/wm/core/base_focus_rules.cc"
+#include "../../ui/wm/core/capture_controller.cc"
+#include "../../ui/wm/core/compound_event_filter.cc"
+#include "../../ui/wm/core/coordinate_conversion.cc"
+#include "../../ui/wm/core/cursor_manager.cc"
+#include "../../ui/wm/core/default_activation_client.cc"
+#include "../../ui/wm/core/default_screen_position_client.cc"
+#include "../../ui/wm/core/easy_resize_window_targeter.cc"
+#include "../../ui/wm/core/focus_controller.cc"
+#include "../../ui/wm/core/shadow_controller.cc"
+#include "../../ui/wm/core/shadow_types.cc"
+#include "../../ui/wm/core/transient_window_controller.cc"
+#include "../../ui/wm/core/transient_window_manager.cc"
+#include "../../ui/wm/core/transient_window_stacking_client.cc"
+#include "../../ui/wm/core/visibility_controller.cc"
+#include "../../ui/wm/core/window_animations.cc"
+#include "../../ui/wm/core/window_modality_controller.cc"
+#include "../../ui/wm/core/window_properties.cc"
+#include "../../ui/wm/core/window_util.cc"
+#include "../../ui/wm/core/wm_core_switches.cc"
+#include "../../ui/wm/core/wm_state.cc"

@@ -1,0 +1,26 @@
+/* This is a Jumbo file. Don't edit. */
+
+/* Generated with merge_for_jumbo.py. */
+
+#include "gen/services/device/public/mojom/battery_monitor.mojom.cc"
+#include "gen/services/device/public/mojom/battery_status.mojom.cc"
+#include "gen/services/device/public/mojom/fingerprint.mojom.cc"
+#include "gen/services/device/public/mojom/geolocation.mojom.cc"
+#include "gen/services/device/public/mojom/geolocation_config.mojom.cc"
+#include "gen/services/device/public/mojom/geolocation_context.mojom.cc"
+#include "gen/services/device/public/mojom/geolocation_control.mojom.cc"
+#include "gen/services/device/public/mojom/geoposition.mojom.cc"
+#include "gen/services/device/public/mojom/hid.mojom.cc"
+#include "gen/services/device/public/mojom/input_service.mojom.cc"
+#include "gen/services/device/public/mojom/nfc.mojom.cc"
+#include "gen/services/device/public/mojom/nfc_provider.mojom.cc"
+#include "gen/services/device/public/mojom/power_monitor.mojom.cc"
+#include "gen/services/device/public/mojom/public_ip_address_geolocation_provider.mojom.cc"
+#include "gen/services/device/public/mojom/screen_orientation.mojom.cc"
+#include "gen/services/device/public/mojom/screen_orientation_lock_types.mojom.cc"
+#include "gen/services/device/public/mojom/serial.mojom.cc"
+#include "gen/services/device/public/mojom/time_zone_monitor.mojom.cc"
+#include "gen/services/device/public/mojom/vibration_manager.mojom.cc"
+#include "gen/services/device/public/mojom/wake_lock.mojom.cc"
+#include "gen/services/device/public/mojom/wake_lock_context.mojom.cc"
+#include "gen/services/device/public/mojom/wake_lock_provider.mojom.cc"

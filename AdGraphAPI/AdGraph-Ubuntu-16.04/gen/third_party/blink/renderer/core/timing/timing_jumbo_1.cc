@@ -1,0 +1,27 @@
+/* This is a Jumbo file. Don't edit. */
+
+/* Generated with merge_for_jumbo.py. */
+
+#include "../../third_party/blink/renderer/core/timing/dom_window_performance.cc"
+#include "../../third_party/blink/renderer/core/timing/event_timing.cc"
+#include "../../third_party/blink/renderer/core/timing/memory_info.cc"
+#include "../../third_party/blink/renderer/core/timing/performance.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_entry.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_event_timing.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_long_task_timing.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_mark.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_measure.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_navigation.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_navigation_timing.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_observer.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_observer_entry_list.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_paint_timing.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_resource_timing.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_server_timing.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_timing.cc"
+#include "../../third_party/blink/renderer/core/timing/performance_user_timing.cc"
+#include "../../third_party/blink/renderer/core/timing/sub_task_attribution.cc"
+#include "../../third_party/blink/renderer/core/timing/task_attribution_timing.cc"
+#include "../../third_party/blink/renderer/core/timing/window_performance.cc"
+#include "../../third_party/blink/renderer/core/timing/worker_global_scope_performance.cc"
+#include "../../third_party/blink/renderer/core/timing/worker_performance.cc"

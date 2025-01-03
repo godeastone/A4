@@ -1,0 +1,19 @@
+{
+"sandbox_type": "none", 
+"display_name": "Profile Import", 
+"name": "profile_import", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"import": [
+"chrome.mojom.ProfileImport"
+]
+}
+}
+}
+}

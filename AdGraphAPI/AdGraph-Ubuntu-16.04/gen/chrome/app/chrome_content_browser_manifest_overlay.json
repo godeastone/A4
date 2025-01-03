@@ -1,0 +1,210 @@
+{
+"services": [
+{
+"display_name": "Identity Service", 
+"name": "identity", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"provides": {
+"identity_manager": [
+"identity.mojom.IdentityManager"
+]
+}
+}
+}
+}, 
+{
+"display_name": "Preferences", 
+"name": "preferences", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {}, 
+"provides": {
+"pref_client": [
+"prefs.mojom.PrefStoreConnector"
+]
+}
+}
+}
+}
+], 
+"display_name": "Chrome", 
+"name": "content_browser", 
+"interface_provider_specs": {
+"navigation:shared_worker": {
+"provides": {
+"renderer": [
+"blink.mojom.BudgetService"
+]
+}
+}, 
+"navigation:dedicated_worker": {
+"provides": {
+"renderer": [
+"blink.mojom.BudgetService"
+]
+}
+}, 
+"service_manager:connector": {
+"requires": {
+"removable_storage_writer": [
+"removable_storage_writer"
+], 
+"local_state": [
+"pref_client"
+], 
+"wifi_util_win": [
+"wifi_credentials"
+], 
+"multidevice_setup": [
+"multidevice_setup"
+], 
+"nacl_loader": [
+"browser"
+], 
+"profile_import": [
+"import"
+], 
+"chrome_printing": [
+"converter"
+], 
+"heap_profiling": [
+"profiling", 
+"heap_profiler"
+], 
+"preferences": [
+"pref_client", 
+"pref_control"
+], 
+"chrome": [
+"input_device_controller"
+], 
+"ash_pref_connector": [
+"pref_connector"
+], 
+"nacl_broker": [
+"browser"
+], 
+"unzip": [
+"unzip_file"
+], 
+"media_gallery_util": [
+"parse_media"
+], 
+"assistant": [
+"assistant"
+], 
+"device": [
+"device:fingerprint", 
+"device:geolocation_config", 
+"device:geolocation_control", 
+"device:ip_geolocator"
+], 
+"content_browser": [
+"profiling_client"
+], 
+"ash": [
+"system_ui", 
+"test", 
+"display"
+], 
+"identity": [
+"identity_manager"
+], 
+"pdf_compositor": [
+"compositor"
+], 
+"patch": [
+"patch_file"
+], 
+"ui": [
+"display_dev", 
+"ime_registrar", 
+"input_device_controller", 
+"window_manager"
+], 
+"autoclick_app": [
+"chromeos:autoclick"
+], 
+"proxy_resolver": [
+"factory"
+], 
+"file_util": [
+"analyze_archive", 
+"zip_file"
+], 
+"util_win": [
+"shell_util_win"
+]
+}, 
+"provides": {
+"gpu": [
+"metrics.mojom.CallStackProfileCollector"
+], 
+"profiling_client": [
+"heap_profiling.mojom.ProfilingClient"
+], 
+"renderer": [
+"autofill.mojom.AutofillDriver", 
+"autofill.mojom.PasswordManagerDriver", 
+"chrome.mojom.CacheStatsRecorder", 
+"chrome.mojom.NetBenchmarking", 
+"extensions.StashService", 
+"metrics.mojom.CallStackProfileCollector", 
+"mojom.ModuleEventSink", 
+"rappor.mojom.RapporRecorder", 
+"safe_browsing.mojom.SafeBrowsing", 
+"translate.mojom.ContentTranslateDriver"
+], 
+"ime:ime_driver": []
+}
+}, 
+"navigation:service_worker": {
+"provides": {
+"renderer": [
+"blink.mojom.BudgetService"
+]
+}
+}, 
+"navigation:frame": {
+"provides": {
+"multidevice_setup": [
+"chromeos.multidevice_setup.mojom.MultiDeviceSetup"
+], 
+"renderer": [
+"autofill.mojom.AutofillDriver", 
+"autofill.mojom.PasswordManagerDriver", 
+"blink.mojom.BudgetService", 
+"blink.mojom.InstalledAppProvider", 
+"blink.mojom.MediaDownloadInProductHelp", 
+"blink.mojom.ShareService", 
+"blink.mojom.TextSuggestionHost", 
+"chrome.mojom.OpenSearchDocumentDescriptionHandler", 
+"chrome.mojom.PrerenderCanceler", 
+"contextual_search.mojom.ContextualSearchJsApiService", 
+"dom_distiller.mojom.DistillabilityService", 
+"dom_distiller.mojom.DistillerJavaScriptService", 
+"extensions.KeepAlive", 
+"extensions.mime_handler.MimeHandlerService", 
+"extensions.mojom.InlineInstall", 
+"media_router.mojom.MediaRouter", 
+"page_load_metrics.mojom.PageLoadMetrics", 
+"password_manager.mojom.CredentialManager", 
+"safe_browsing.mojom.PhishingDetectorClient", 
+"translate.mojom.ContentTranslateDriver", 
+"media.mojom.MediaEngagementScoreDetailsProvider", 
+"mojom.BluetoothInternalsHandler", 
+"mojom.DiscardsDetailsProvider", 
+"mojom.InterventionsInternalsPageHandler", 
+"mojom.OmniboxPageHandler", 
+"mojom.PluginsPageHandler", 
+"mojom.ResetPasswordHandler", 
+"mojom.SiteEngagementDetailsProvider", 
+"mojom.UsbInternalsPageHandler", 
+"snippets_internals.mojom.PageHandlerFactory", 
+"web_ui_test.mojom.TestRunner"
+]
+}
+}
+}
+}

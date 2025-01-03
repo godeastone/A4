@@ -1,0 +1,162 @@
+{
+metadata: {
+  namespace: "Event",
+  suffix: "Modules",
+  export: "MODULES_EXPORT",
+},
+data: [
+  {
+    name: "third_party/blink/renderer/modules/app_banner/BeforeInstallPromptEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/background_fetch/BackgroundFetchClickEvent",
+    RuntimeEnabled: "BackgroundFetchEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/background_fetch/BackgroundFetchEvent",
+    RuntimeEnabled: "BackgroundFetchEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/background_fetch/BackgroundFetchFailEvent",
+    RuntimeEnabled: "BackgroundFetchEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/background_fetch/BackgroundFetchedEvent",
+    RuntimeEnabled: "BackgroundFetchEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/background_sync/SyncEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/cookie_store/CookieChangeEvent",
+    RuntimeEnabled: "AsyncCookiesEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/cookie_store/ExtendableCookieChangeEvent",
+    RuntimeEnabled: "AsyncCookiesEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/device_orientation/DeviceMotionEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/device_orientation/DeviceOrientationEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/encryptedmedia/MediaEncryptedEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/encryptedmedia/MediaKeyMessageEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/gamepad/GamepadEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/indexeddb/IDBVersionChangeEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/mediarecorder/BlobEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/mediastream/MediaStreamEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/mediastream/MediaStreamTrackEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/notifications/NotificationEvent",
+    RuntimeEnabled: "NotificationsEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/payments/AbortPaymentEvent",
+    RuntimeEnabled: "PaymentAppEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/payments/CanMakePaymentEvent",
+    RuntimeEnabled: "PaymentAppEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/payments/PaymentRequestEvent",
+    RuntimeEnabled: "PaymentAppEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/payments/PaymentRequestUpdateEvent",
+    RuntimeEnabled: "PaymentRequestEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/peerconnection/RTCDTMFToneChangeEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/peerconnection/RTCDataChannelEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/peerconnection/RTCPeerConnectionIceEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/presentation/PresentationConnectionAvailableEvent",
+    RuntimeEnabled: "PresentationEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/presentation/PresentationConnectionCloseEvent",
+    RuntimeEnabled: "PresentationEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/push_messaging/PushEvent",
+    RuntimeEnabled: "PushMessagingEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/sensor/SensorErrorEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/serviceworkers/ExtendableEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/serviceworkers/ExtendableMessageEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/serviceworkers/FetchEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/serviceworkers/InstallEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/speech/SpeechRecognitionError",
+  },
+  {
+    name: "third_party/blink/renderer/modules/speech/SpeechRecognitionEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/speech/SpeechSynthesisEvent",
+    RuntimeEnabled: "ScriptedSpeechEnabled",
+  },
+  {
+    name: "third_party/blink/renderer/modules/storage/StorageEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/vr/VRDisplayEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/webaudio/AudioProcessingEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/webaudio/OfflineAudioCompletionEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/webgl/WebGLContextEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/webmidi/MIDIConnectionEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/webmidi/MIDIMessageEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/websockets/CloseEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/xr/XRInputSourceEvent",
+  },
+  {
+    name: "third_party/blink/renderer/modules/xr/XRSessionEvent",
+  },
+]
+}

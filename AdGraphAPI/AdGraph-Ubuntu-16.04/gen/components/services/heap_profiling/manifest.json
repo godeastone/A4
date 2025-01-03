@@ -1,0 +1,28 @@
+{
+"sandbox_type": "profiling", 
+"display_name": "Heap Profiling Service", 
+"name": "heap_profiling", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"*": [
+"app"
+], 
+"resource_coordinator": [
+"heap_profiler_helper"
+], 
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"profiling": [
+"heap_profiling.mojom.ProfilingService"
+], 
+"heap_profiler": [
+"memory_instrumentation.mojom.HeapProfiler"
+]
+}
+}
+}
+}

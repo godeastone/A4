@@ -1,0 +1,4 @@
+gen/services/ui/public/interfaces/cursor/cursor.sources_list
+gen/mojo/public/mojom/base/base.sources_list
+gen/skia/public/interfaces/interfaces.sources_list
+gen/ui/gfx/geometry/mojo/mojo.sources_list

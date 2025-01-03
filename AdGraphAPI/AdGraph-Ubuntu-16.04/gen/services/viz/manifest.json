@@ -1,0 +1,28 @@
+{
+"display_name": "Visuals Service", 
+"sandbox_type": "none", 
+"name": "viz", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"catalog": [
+"directory"
+], 
+"*": [
+"app"
+], 
+"ui": [
+"ozone"
+], 
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"viz_host": [
+"viz.mojom.VizMain"
+]
+}
+}
+}
+}

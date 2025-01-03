@@ -1,0 +1,5 @@
+IDR_HEADLESS_LIB_DEVTOOLS_DISCOVERY_PAGE,24700,../../headless/lib/resources/headless_lib_resources.grd
+IDR_HEADLESS_BROWSER_MANIFEST_OVERLAY,24701,../../headless/lib/resources/headless_lib_resources.grd
+IDR_HEADLESS_RENDERER_MANIFEST_OVERLAY,24702,../../headless/lib/resources/headless_lib_resources.grd
+IDR_HEADLESS_PACKAGED_SERVICES_MANIFEST_OVERLAY,24703,../../headless/lib/resources/headless_lib_resources.grd
+IDR_PDF_COMPOSITOR_MANIFEST,24704,../../headless/lib/resources/headless_lib_resources.grd

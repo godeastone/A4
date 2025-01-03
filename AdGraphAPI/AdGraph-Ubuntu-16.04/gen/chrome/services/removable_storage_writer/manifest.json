@@ -1,0 +1,19 @@
+{
+"sandbox_type": "none_and_elevated", 
+"display_name": "Removable Storage Writer", 
+"name": "removable_storage_writer", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"removable_storage_writer": [
+"chrome.mojom.RemovableStorageWriter"
+]
+}
+}
+}
+}

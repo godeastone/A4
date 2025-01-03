@@ -1,0 +1,139 @@
+{
+  "c++": {
+    "net.interfaces.IPEndPoint": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "net::IPEndPoint", 
+      "traits_headers": [
+        "net/interfaces/ip_endpoint_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "net/base/ip_endpoint.h"
+      ]
+    }, 
+    "net.interfaces.HostResolverRequestInfo": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "std::unique_ptr<net::HostResolver::RequestInfo>", 
+      "traits_headers": [
+        "net/dns/mojo_host_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": true, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "net/dns/host_resolver.h"
+      ]
+    }, 
+    "net.interfaces.IPAddress": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "net::IPAddress", 
+      "traits_headers": [
+        "net/interfaces/ip_address_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "net/base/ip_address.h"
+      ]
+    }, 
+    "network.mojom.MutablePartialNetworkTrafficAnnotationTag": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "net::MutablePartialNetworkTrafficAnnotationTag", 
+      "traits_headers": [
+        "services/network/public/cpp/mutable_partial_network_traffic_annotation_tag_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "net/traffic_annotation/network_traffic_annotation.h"
+      ]
+    }, 
+    "net.interfaces.AddressFamily": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "net::AddressFamily", 
+      "traits_headers": [
+        "net/interfaces/address_family_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "net/base/address_family.h"
+      ]
+    }, 
+    "net.interfaces.AddressList": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "net::AddressList", 
+      "traits_headers": [
+        "net/interfaces/address_list_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "net/base/address_list.h"
+      ]
+    }, 
+    "network.mojom.MutableNetworkTrafficAnnotationTag": {
+      "hashable": false, 
+      "force_serialize": false, 
+      "non_copyable_non_movable": false, 
+      "typename": "net::MutableNetworkTrafficAnnotationTag", 
+      "traits_headers": [
+        "services/network/public/cpp/mutable_network_traffic_annotation_tag_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "net/traffic_annotation/network_traffic_annotation.h"
+      ]
+    }, 
+    "url.mojom.Url": {
+      "hashable": false, 
+      "typename": "GURL", 
+      "non_copyable_non_movable": false, 
+      "force_serialize": false, 
+      "traits_headers": [
+        "url/mojom/url_gurl_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "url/gurl.h"
+      ]
+    }, 
+    "mojo_base.mojom.ReadOnlyBuffer": {
+      "hashable": false, 
+      "force_serialize": true, 
+      "non_copyable_non_movable": false, 
+      "typename": "base::span<const uint8_t>", 
+      "traits_headers": [
+        "mojo/public/cpp/base/read_only_buffer_mojom_traits.h"
+      ], 
+      "copyable_pass_by_value": true, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "public_headers": [
+        "base/containers/span.h"
+      ]
+    }
+  }
+}

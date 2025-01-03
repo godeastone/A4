@@ -1,0 +1,1 @@
+gen/chrome/extensions_resources_stamp.d.stamp: ./../../out/Default/gen/chrome/browser/resources/md_extensions/crisper.js ./../../out/Default/gen/chrome/browser/resources/md_extensions/vulcanized.html ./../../tools/gritsettings/resource_ids

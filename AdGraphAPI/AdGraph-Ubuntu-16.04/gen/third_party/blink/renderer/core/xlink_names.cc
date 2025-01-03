@@ -1,0 +1,80 @@
+// Copyright (c) 2014 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// Generated from template:
+//   templates/make_qualified_names.cc.tmpl
+// and input files:
+//   ../../third_party/blink/renderer/core/svg/xlink_attribute_names.json5
+
+
+#include "third_party/blink/renderer/core/xlink_names.h"
+
+#include <memory>
+
+#include "third_party/blink/renderer/platform/wtf/static_constructors.h"
+#include "third_party/blink/renderer/platform/wtf/std_lib_extras.h"
+
+namespace blink {
+namespace XLinkNames {
+
+using namespace blink;
+
+DEFINE_GLOBAL(AtomicString, xlinkNamespaceURI);
+
+// Attributes
+
+void* AttrStorage[XLinkAttrsCount * ((sizeof(QualifiedName) + sizeof(void *) - 1) / sizeof(void *))];
+
+const QualifiedName& actuateAttr = reinterpret_cast<QualifiedName*>(&AttrStorage)[0];
+const QualifiedName& arcroleAttr = reinterpret_cast<QualifiedName*>(&AttrStorage)[1];
+const QualifiedName& hrefAttr = reinterpret_cast<QualifiedName*>(&AttrStorage)[2];
+const QualifiedName& roleAttr = reinterpret_cast<QualifiedName*>(&AttrStorage)[3];
+const QualifiedName& showAttr = reinterpret_cast<QualifiedName*>(&AttrStorage)[4];
+const QualifiedName& titleAttr = reinterpret_cast<QualifiedName*>(&AttrStorage)[5];
+const QualifiedName& typeAttr = reinterpret_cast<QualifiedName*>(&AttrStorage)[6];
+
+std::unique_ptr<const QualifiedName*[]> getXLinkAttrs() {
+  auto attrs = std::make_unique<const QualifiedName*[]>(XLinkAttrsCount);
+  for (size_t i = 0; i < XLinkAttrsCount; i++)
+    attrs[i] = reinterpret_cast<QualifiedName*>(&AttrStorage) + i;
+  return attrs;
+}
+
+
+void init() {
+  struct NameEntry {
+    const char* name;
+    unsigned hash;
+    unsigned char length;
+    unsigned char isTag;
+    unsigned char isAttr;
+  };
+
+  // Use placement new to initialize the globals.
+  AtomicString xlinkNS("http://www.w3.org/1999/xlink");
+
+  // Namespace
+  new ((void*)&xlinkNamespaceURI) AtomicString(xlinkNS);
+  static const NameEntry kNames[] = {
+    { "actuate", 5578769, 7, 0, 1 },
+    { "arcrole", 11561565, 7, 0, 1 },
+    { "href", 5797448, 4, 0, 1 },
+    { "role", 16084934, 4, 0, 1 },
+    { "show", 3191658, 4, 0, 1 },
+    { "title", 2337488, 5, 0, 1 },
+    { "type", 1916283, 4, 0, 1 },
+  };
+
+  size_t attr_i = 0;
+  for (size_t i = 0; i < arraysize(kNames); i++) {
+    StringImpl* stringImpl = StringImpl::CreateStatic(kNames[i].name, kNames[i].length, kNames[i].hash);
+    void* address = reinterpret_cast<QualifiedName*>(&AttrStorage) + attr_i;
+    QualifiedName::CreateStatic(address, stringImpl, xlinkNS);
+    attr_i++;
+  }
+  DCHECK_EQ(attr_i, XLinkAttrsCount);
+}
+
+}  // namespace XLinkNames
+}  // namespace blink

@@ -1,0 +1,20 @@
+defines = -DIS_MOJO_CPP_PLATFORM_IMPL -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND
+include_dirs = -I../.. -Inewlib_pnacl/gen
+cflags = -fno-strict-aliasing -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -fcolor-diagnostics -fmerge-all-constants -Wall -Werror -Wextra -Wimplicit-fallthrough -Wthread-safety -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -O2 -fno-ident -fdata-sections -ffunction-sections -fomit-frame-pointer -g0 -fvisibility=hidden
+cflags_cc = -std=gnu++14 -fno-exceptions -fno-rtti -fvisibility-inlines-hidden
+label_name = platform
+root_out_dir = newlib_pnacl
+target_out_dir = newlib_pnacl/obj/mojo/public/cpp/platform
+target_output_name = libmojo_cpp_platform
+
+build newlib_pnacl/obj/mojo/public/cpp/platform/platform.inputdeps.stamp: newlib_pnacl_stamp newlib_pnacl/obj/base/anchor_functions_buildflags.stamp newlib_pnacl/obj/base/build_date.stamp newlib_pnacl/obj/base/cfi_buildflags.stamp newlib_pnacl/obj/base/debugging_buildflags.stamp newlib_pnacl/obj/base/partition_alloc_buildflags.stamp newlib_pnacl/obj/base/protected_memory_buildflags.stamp newlib_pnacl/obj/base/synchronization_buildflags.stamp newlib_pnacl/obj/base/allocator/buildflags.stamp
+build newlib_pnacl/obj/mojo/public/cpp/platform/platform/named_platform_channel.o: newlib_pnacl_cxx ../../mojo/public/cpp/platform/named_platform_channel.cc || newlib_pnacl/obj/mojo/public/cpp/platform/platform.inputdeps.stamp
+build newlib_pnacl/obj/mojo/public/cpp/platform/platform/platform_channel.o: newlib_pnacl_cxx ../../mojo/public/cpp/platform/platform_channel.cc || newlib_pnacl/obj/mojo/public/cpp/platform/platform.inputdeps.stamp
+build newlib_pnacl/obj/mojo/public/cpp/platform/platform/platform_channel_endpoint.o: newlib_pnacl_cxx ../../mojo/public/cpp/platform/platform_channel_endpoint.cc || newlib_pnacl/obj/mojo/public/cpp/platform/platform.inputdeps.stamp
+build newlib_pnacl/obj/mojo/public/cpp/platform/platform/platform_channel_server_endpoint.o: newlib_pnacl_cxx ../../mojo/public/cpp/platform/platform_channel_server_endpoint.cc || newlib_pnacl/obj/mojo/public/cpp/platform/platform.inputdeps.stamp
+build newlib_pnacl/obj/mojo/public/cpp/platform/platform/platform_handle.o: newlib_pnacl_cxx ../../mojo/public/cpp/platform/platform_handle.cc || newlib_pnacl/obj/mojo/public/cpp/platform/platform.inputdeps.stamp
+
+build newlib_pnacl/obj/mojo/public/cpp/platform/libmojo_cpp_platform.a: newlib_pnacl_alink newlib_pnacl/obj/mojo/public/cpp/platform/platform/named_platform_channel.o newlib_pnacl/obj/mojo/public/cpp/platform/platform/platform_channel.o newlib_pnacl/obj/mojo/public/cpp/platform/platform/platform_channel_endpoint.o newlib_pnacl/obj/mojo/public/cpp/platform/platform/platform_channel_server_endpoint.o newlib_pnacl/obj/mojo/public/cpp/platform/platform/platform_handle.o || newlib_pnacl/obj/base/libbase.a newlib_pnacl/obj/base/libbase_static.a newlib_pnacl/obj/base/numerics/base_numerics.stamp newlib_pnacl/obj/base/third_party/dynamic_annotations/dynamic_annotations.stamp newlib_pnacl/obj/third_party/modp_b64/libmodp_b64.a
+  arflags =
+  output_extension = .a
+  output_dir = newlib_pnacl/obj/mojo/public/cpp/platform

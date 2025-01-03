@@ -1,0 +1,7 @@
+IDR_BROKENCANVAS,25300,../../third_party/blink/public/blink_image_resources.grd
+IDR_BROKENIMAGE,25301,../../third_party/blink/public/blink_image_resources.grd
+IDR_SEARCH_CANCEL,25302,../../third_party/blink/public/blink_image_resources.grd
+IDR_SEARCH_CANCEL_PRESSED,25303,../../third_party/blink/public/blink_image_resources.grd
+IDR_PASSWORD_GENERATION_ICON,25304,../../third_party/blink/public/blink_image_resources.grd
+IDR_PASSWORD_GENERATION_ICON_HOVER,25305,../../third_party/blink/public/blink_image_resources.grd
+IDR_PLACEHOLDER_ICON,25306,../../third_party/blink/public/blink_image_resources.grd

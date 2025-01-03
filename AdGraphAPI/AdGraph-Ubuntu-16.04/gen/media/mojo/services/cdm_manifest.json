@@ -1,0 +1,19 @@
+{
+"sandbox_type": "cdm", 
+"display_name": "Content Decryption Module Service", 
+"name": "cdm", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"*": [
+"app"
+]
+}, 
+"provides": {
+"media:cdm": [
+"media.mojom.CdmService"
+]
+}
+}
+}
+}

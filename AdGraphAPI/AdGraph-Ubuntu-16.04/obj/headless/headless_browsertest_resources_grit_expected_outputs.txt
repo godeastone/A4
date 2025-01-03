@@ -1,0 +1,2 @@
+gen/headless/grit/headless_browsertest_resources.h
+gen/headless/headless_browsertest_resources.pak

@@ -1,0 +1,8 @@
+[
+    ImplementedAs=paint_worklet_global_scope_modules_constructors
+] partial interface PaintWorkletGlobalScope {
+    [RuntimeEnabled=CSSPaintAPI] attribute PaintRenderingContext2DConstructor PaintRenderingContext2D;
+    [RuntimeEnabled=CSSPaintAPI] attribute PaintSizeConstructor PaintSize;
+    [RuntimeEnabled=CSSPaintAPI] attribute PaintWorkletGlobalScopeConstructor PaintWorkletGlobalScope;
+    [RuntimeEnabled=CSSPaintAPI] attribute Path2DConstructor Path2D;
+};

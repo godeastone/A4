@@ -1,0 +1,34 @@
+{
+"services": [
+{
+"display_name": "PDF Compositor Service", 
+"sandbox_type": "pdf_compositor", 
+"name": "pdf_compositor", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"content_browser": [
+"font_loader"
+], 
+"*": [
+"app"
+], 
+"ui": [
+"discardable_memory"
+], 
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"compositor": [
+"printing.mojom.PdfCompositor"
+]
+}
+}
+}
+}
+], 
+"name": "content_packaged_services", 
+"interface_provider_specs": {}
+}

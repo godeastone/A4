@@ -1,0 +1,19 @@
+{
+"sandbox_type": "utility", 
+"display_name": "Chrome Media Gallery Utilities", 
+"name": "media_gallery_util", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"service_manager": [
+"service_manager:all_users"
+]
+}, 
+"provides": {
+"parse_media": [
+"chrome.mojom.MediaParserFactory"
+]
+}
+}
+}
+}

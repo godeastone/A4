@@ -1,0 +1,38 @@
+{
+"display_name": "Content (plugin process)", 
+"name": "content_plugin", 
+"interface_provider_specs": {
+"service_manager:connector": {
+"requires": {
+"device": [
+"device:power_monitor"
+], 
+"content_browser": [
+"dwrite_font_proxy", 
+"field_trials", 
+"font_cache", 
+"plugin"
+], 
+"*": [
+"app"
+], 
+"ui": [
+"discardable_memory"
+]
+}, 
+"provides": {
+"service_manager:service_factory": [
+"service_manager.mojom.ServiceFactory"
+], 
+"browser": [
+"content.mojom.Child", 
+"content.mojom.ChildControl", 
+"content.mojom.ChildHistogramFetcher", 
+"content.mojom.ChildHistogramFetcherFactory", 
+"content.mojom.ResourceUsageReporter", 
+"IPC.mojom.ChannelBootstrap"
+]
+}
+}
+}
+}

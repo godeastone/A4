@@ -1,0 +1,1 @@
+gen/chrome/print_preview_resources_stamp.d.stamp: ./../../out/Default/gen/chrome/browser/resources/print_preview/crisper.js ./../../out/Default/gen/chrome/browser/resources/print_preview/vulcanized.html ./../../tools/gritsettings/resource_ids

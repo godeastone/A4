@@ -1,0 +1,36 @@
+{
+  "c++": {
+    "chrome_cleaner.mojom.FilePath": {
+      "hashable": false, 
+      "typename": "base::FilePath", 
+      "traits_headers": [
+        "components/chrome_cleaner/public/typemaps/chrome_prompt_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "base/files/file_path.h", 
+        "base/strings/string16.h"
+      ]
+    }, 
+    "chrome_cleaner.mojom.RegistryKey": {
+      "hashable": false, 
+      "typename": "base::string16", 
+      "traits_headers": [
+        "components/chrome_cleaner/public/typemaps/chrome_prompt_struct_traits.h"
+      ], 
+      "copyable_pass_by_value": false, 
+      "force_serialize": false, 
+      "move_only": false, 
+      "nullable_is_same_type": false, 
+      "non_copyable_non_movable": false, 
+      "public_headers": [
+        "base/files/file_path.h", 
+        "base/strings/string16.h"
+      ]
+    }
+  }
+}
