@@ -1,9 +1,0 @@
-defines = -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND -DWEBRTC_ENABLE_PROTOBUF=1 -DHAVE_SCTP -DENABLE_EXTERNAL_AUTH -DUSE_BUILTIN_SW_CODECS -DHAVE_WEBRTC_VIDEO -DHAVE_WEBRTC_VOICE -DLOGGING_INSIDE_WEBRTC -DWEBRTC_NON_STATIC_TRACE_EVENT_HANDLERS=0 -DGTEST_RELATIVE_PATH -DWEBRTC_CHROMIUM_BUILD -DWEBRTC_POSIX
-include_dirs = -I../.. -Inewlib_pnacl/gen -I../../third_party/webrtc_overrides -I../../third_party/webrtc
-label_name = ptr_util
-root_out_dir = newlib_pnacl
-target_out_dir = newlib_pnacl/obj/third_party/webrtc/rtc_base
-target_output_name = ptr_util
-
-
-build newlib_pnacl/obj/third_party/webrtc/rtc_base/ptr_util.stamp: newlib_pnacl_stamp

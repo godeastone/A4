@@ -1,0 +1,42 @@
+defines = -DHAVE_JPEG -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND
+include_dirs = -I../.. -Inewlib_pnacl/gen -I../../third_party/libyuv/include -I../../third_party/libjpeg_turbo
+cflags = -ffp-contract=fast -fno-strict-aliasing -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -fcolor-diagnostics -fmerge-all-constants -Wall -Werror -Wextra -Wimplicit-fallthrough -Wthread-safety -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -fomit-frame-pointer -g0 -fvisibility=hidden -O2 -fno-ident -fdata-sections -ffunction-sections
+cflags_cc = -std=gnu++14 -fno-exceptions -fno-rtti -fvisibility-inlines-hidden
+label_name = libyuv_internal
+root_out_dir = newlib_pnacl
+target_out_dir = newlib_pnacl/obj/third_party/libyuv
+target_output_name = libyuv_internal
+
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/compare.o: newlib_pnacl_cxx ../../third_party/libyuv/source/compare.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/compare_common.o: newlib_pnacl_cxx ../../third_party/libyuv/source/compare_common.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/compare_gcc.o: newlib_pnacl_cxx ../../third_party/libyuv/source/compare_gcc.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert.o: newlib_pnacl_cxx ../../third_party/libyuv/source/convert.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert_argb.o: newlib_pnacl_cxx ../../third_party/libyuv/source/convert_argb.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert_from.o: newlib_pnacl_cxx ../../third_party/libyuv/source/convert_from.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert_from_argb.o: newlib_pnacl_cxx ../../third_party/libyuv/source/convert_from_argb.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert_jpeg.o: newlib_pnacl_cxx ../../third_party/libyuv/source/convert_jpeg.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert_to_argb.o: newlib_pnacl_cxx ../../third_party/libyuv/source/convert_to_argb.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert_to_i420.o: newlib_pnacl_cxx ../../third_party/libyuv/source/convert_to_i420.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/cpu_id.o: newlib_pnacl_cxx ../../third_party/libyuv/source/cpu_id.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/mjpeg_decoder.o: newlib_pnacl_cxx ../../third_party/libyuv/source/mjpeg_decoder.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/mjpeg_validate.o: newlib_pnacl_cxx ../../third_party/libyuv/source/mjpeg_validate.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/planar_functions.o: newlib_pnacl_cxx ../../third_party/libyuv/source/planar_functions.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/rotate.o: newlib_pnacl_cxx ../../third_party/libyuv/source/rotate.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/rotate_any.o: newlib_pnacl_cxx ../../third_party/libyuv/source/rotate_any.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/rotate_argb.o: newlib_pnacl_cxx ../../third_party/libyuv/source/rotate_argb.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/rotate_common.o: newlib_pnacl_cxx ../../third_party/libyuv/source/rotate_common.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/rotate_gcc.o: newlib_pnacl_cxx ../../third_party/libyuv/source/rotate_gcc.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/row_any.o: newlib_pnacl_cxx ../../third_party/libyuv/source/row_any.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/row_common.o: newlib_pnacl_cxx ../../third_party/libyuv/source/row_common.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/row_gcc.o: newlib_pnacl_cxx ../../third_party/libyuv/source/row_gcc.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/scale.o: newlib_pnacl_cxx ../../third_party/libyuv/source/scale.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/scale_any.o: newlib_pnacl_cxx ../../third_party/libyuv/source/scale_any.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/scale_argb.o: newlib_pnacl_cxx ../../third_party/libyuv/source/scale_argb.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/scale_common.o: newlib_pnacl_cxx ../../third_party/libyuv/source/scale_common.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/scale_gcc.o: newlib_pnacl_cxx ../../third_party/libyuv/source/scale_gcc.cc
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal/video_common.o: newlib_pnacl_cxx ../../third_party/libyuv/source/video_common.cc
+
+build newlib_pnacl/obj/third_party/libyuv/libyuv_internal.a: newlib_pnacl_alink newlib_pnacl/obj/third_party/libyuv/libyuv_internal/compare.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/compare_common.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/compare_gcc.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert_argb.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert_from.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert_from_argb.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert_jpeg.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert_to_argb.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/convert_to_i420.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/cpu_id.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/mjpeg_decoder.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/mjpeg_validate.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/planar_functions.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/rotate.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/rotate_any.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/rotate_argb.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/rotate_common.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/rotate_gcc.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/row_any.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/row_common.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/row_gcc.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/scale.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/scale_any.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/scale_argb.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/scale_common.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/scale_gcc.o newlib_pnacl/obj/third_party/libyuv/libyuv_internal/video_common.o || newlib_pnacl/obj/third_party/jpeg_includes.stamp
+  arflags =
+  output_extension = .a
+  output_dir = newlib_pnacl/obj/third_party/libyuv

@@ -1,0 +1,20 @@
+defines = -DGFX_IMPLEMENTATION -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND
+include_dirs = -I../.. -Iirt_x64/gen
+cflags = -fno-strict-aliasing -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -fcolor-diagnostics -fmerge-all-constants -integrated-as -m64 -march=x86-64 -fasynchronous-unwind-tables -fomit-frame-pointer -Wall -Werror -Wextra -Wimplicit-fallthrough -Wthread-safety -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -Os -ffunction-sections -fdata-sections -fomit-frame-pointer -g0 -fvisibility=hidden
+cflags_cc = -std=gnu++14 -fno-exceptions -fno-rtti -fvisibility-inlines-hidden
+label_name = memory_buffer_sources
+root_out_dir = irt_x64
+target_out_dir = irt_x64/obj/ui/gfx
+target_output_name = memory_buffer_sources
+
+build irt_x64/obj/ui/gfx/memory_buffer_sources.inputdeps.stamp: irt_x64_stamp irt_x64/obj/base/anchor_functions_buildflags.stamp irt_x64/obj/base/build_date.stamp irt_x64/obj/base/cfi_buildflags.stamp irt_x64/obj/base/debugging_buildflags.stamp irt_x64/obj/base/partition_alloc_buildflags.stamp irt_x64/obj/base/protected_memory_buildflags.stamp irt_x64/obj/base/synchronization_buildflags.stamp irt_x64/obj/base/allocator/buildflags.stamp ./tls_edit irt_x64/obj/ui/gfx/geometry/geometry__jumbo_merge.stamp
+build irt_x64/obj/ui/gfx/memory_buffer_sources/buffer_format_util.o: irt_x64_cxx ../../ui/gfx/buffer_format_util.cc || irt_x64/obj/ui/gfx/memory_buffer_sources.inputdeps.stamp
+build irt_x64/obj/ui/gfx/memory_buffer_sources/ca_layer_params.o: irt_x64_cxx ../../ui/gfx/ca_layer_params.cc || irt_x64/obj/ui/gfx/memory_buffer_sources.inputdeps.stamp
+build irt_x64/obj/ui/gfx/memory_buffer_sources/client_native_pixmap_factory.o: irt_x64_cxx ../../ui/gfx/client_native_pixmap_factory.cc || irt_x64/obj/ui/gfx/memory_buffer_sources.inputdeps.stamp
+build irt_x64/obj/ui/gfx/memory_buffer_sources/generic_shared_memory_id.o: irt_x64_cxx ../../ui/gfx/generic_shared_memory_id.cc || irt_x64/obj/ui/gfx/memory_buffer_sources.inputdeps.stamp
+build irt_x64/obj/ui/gfx/memory_buffer_sources/gpu_fence.o: irt_x64_cxx ../../ui/gfx/gpu_fence.cc || irt_x64/obj/ui/gfx/memory_buffer_sources.inputdeps.stamp
+build irt_x64/obj/ui/gfx/memory_buffer_sources/gpu_fence_handle.o: irt_x64_cxx ../../ui/gfx/gpu_fence_handle.cc || irt_x64/obj/ui/gfx/memory_buffer_sources.inputdeps.stamp
+build irt_x64/obj/ui/gfx/memory_buffer_sources/native_pixmap_handle.o: irt_x64_cxx ../../ui/gfx/native_pixmap_handle.cc || irt_x64/obj/ui/gfx/memory_buffer_sources.inputdeps.stamp
+build irt_x64/obj/ui/gfx/memory_buffer_sources/gpu_memory_buffer.o: irt_x64_cxx ../../ui/gfx/gpu_memory_buffer.cc || irt_x64/obj/ui/gfx/memory_buffer_sources.inputdeps.stamp
+
+build irt_x64/obj/ui/gfx/memory_buffer_sources.stamp: irt_x64_stamp irt_x64/obj/ui/gfx/memory_buffer_sources/buffer_format_util.o irt_x64/obj/ui/gfx/memory_buffer_sources/ca_layer_params.o irt_x64/obj/ui/gfx/memory_buffer_sources/client_native_pixmap_factory.o irt_x64/obj/ui/gfx/memory_buffer_sources/generic_shared_memory_id.o irt_x64/obj/ui/gfx/memory_buffer_sources/gpu_fence.o irt_x64/obj/ui/gfx/memory_buffer_sources/gpu_fence_handle.o irt_x64/obj/ui/gfx/memory_buffer_sources/native_pixmap_handle.o irt_x64/obj/ui/gfx/memory_buffer_sources/gpu_memory_buffer.o || irt_x64/obj/ui/gfx/buffer_types.stamp irt_x64/obj/ui/gfx/native_widget_types.stamp irt_x64/obj/base/libbase.a irt_x64/obj/ui/gfx/geometry/libgeometry.a irt_x64/obj/base/libbase_static.a irt_x64/obj/base/numerics/base_numerics.stamp irt_x64/obj/base/third_party/dynamic_annotations/dynamic_annotations.stamp irt_x64/obj/third_party/modp_b64/libmodp_b64.a irt_x64/obj/ui/gfx/gfx_export.stamp

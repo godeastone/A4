@@ -1,0 +1,18 @@
+defines = -D_LIB -DHAVE_EXPAT_CONFIG_H -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND -DXML_STATIC
+include_dirs = -I../.. -Inewlib_pnacl/gen -I../../third_party/expat/files/lib
+cflags = -fno-strict-aliasing -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -fcolor-diagnostics -fmerge-all-constants -Wall -Werror -Wextra -Wimplicit-fallthrough -Wthread-safety -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -fomit-frame-pointer -g0 -fvisibility=hidden -O2 -fno-ident -fdata-sections -ffunction-sections
+cflags_c = -std=gnu11
+label_name = expat
+root_out_dir = newlib_pnacl
+target_out_dir = newlib_pnacl/obj/third_party/expat
+target_output_name = libexpat
+
+build newlib_pnacl/obj/third_party/expat/expat/loadlibrary.o: newlib_pnacl_cc ../../third_party/expat/files/lib/loadlibrary.c
+build newlib_pnacl/obj/third_party/expat/expat/xmlparse.o: newlib_pnacl_cc ../../third_party/expat/files/lib/xmlparse.c
+build newlib_pnacl/obj/third_party/expat/expat/xmlrole.o: newlib_pnacl_cc ../../third_party/expat/files/lib/xmlrole.c
+build newlib_pnacl/obj/third_party/expat/expat/xmltok.o: newlib_pnacl_cc ../../third_party/expat/files/lib/xmltok.c
+
+build newlib_pnacl/obj/third_party/expat/libexpat.a: newlib_pnacl_alink newlib_pnacl/obj/third_party/expat/expat/loadlibrary.o newlib_pnacl/obj/third_party/expat/expat/xmlparse.o newlib_pnacl/obj/third_party/expat/expat/xmlrole.o newlib_pnacl/obj/third_party/expat/expat/xmltok.o
+  arflags =
+  output_extension = .a
+  output_dir = newlib_pnacl/obj/third_party/expat

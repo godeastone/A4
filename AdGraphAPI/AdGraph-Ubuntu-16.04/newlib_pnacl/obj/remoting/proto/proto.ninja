@@ -1,0 +1,24 @@
+defines = -DV8_DEPRECATION_WARNINGS -DNO_TCMALLOC -DFULL_SAFE_BROWSING -DSAFE_BROWSING_CSD -DSAFE_BROWSING_DB_LOCAL -DCHROMIUM_BUILD -DFIELDTRIAL_TESTING_ENABLED -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -DCR_CLANG_REVISION=\"332838-1\" -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D_FORTIFY_SOURCE=2 -DNDEBUG -DNVALGRIND -DGOOGLE_PROTOBUF_NO_RTTI -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DHAVE_PTHREAD
+include_dirs = -I../.. -Inewlib_pnacl/gen -I../../third_party/protobuf/src -Inewlib_pnacl/gen/protoc_out -I../../third_party/protobuf/src
+cflags = -fno-strict-aliasing -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -fcolor-diagnostics -fmerge-all-constants -Wall -Werror -Wextra -Wimplicit-fallthrough -Wthread-safety -Wno-missing-field-initializers -Wno-unused-parameter -Wno-c++11-narrowing -Wno-covered-switch-default -Wno-unneeded-internal-declaration -O2 -fno-ident -fdata-sections -ffunction-sections -fomit-frame-pointer -g0 -fvisibility=hidden
+cflags_cc = -std=gnu++14 -fno-exceptions -fno-rtti -fvisibility-inlines-hidden
+label_name = proto
+root_out_dir = newlib_pnacl
+target_out_dir = newlib_pnacl/obj/remoting/proto
+target_output_name = libproto
+
+build newlib_pnacl/obj/remoting/proto/proto/audio.pb.o: newlib_pnacl_cxx newlib_pnacl/gen/remoting/proto/audio.pb.cc || newlib_pnacl/obj/remoting/proto/proto_gen.stamp
+build newlib_pnacl/obj/remoting/proto/proto/control.pb.o: newlib_pnacl_cxx newlib_pnacl/gen/remoting/proto/control.pb.cc || newlib_pnacl/obj/remoting/proto/proto_gen.stamp
+build newlib_pnacl/obj/remoting/proto/proto/event.pb.o: newlib_pnacl_cxx newlib_pnacl/gen/remoting/proto/event.pb.cc || newlib_pnacl/obj/remoting/proto/proto_gen.stamp
+build newlib_pnacl/obj/remoting/proto/proto/file_transfer.pb.o: newlib_pnacl_cxx newlib_pnacl/gen/remoting/proto/file_transfer.pb.cc || newlib_pnacl/obj/remoting/proto/proto_gen.stamp
+build newlib_pnacl/obj/remoting/proto/proto/internal.pb.o: newlib_pnacl_cxx newlib_pnacl/gen/remoting/proto/internal.pb.cc || newlib_pnacl/obj/remoting/proto/proto_gen.stamp
+build newlib_pnacl/obj/remoting/proto/proto/mux.pb.o: newlib_pnacl_cxx newlib_pnacl/gen/remoting/proto/mux.pb.cc || newlib_pnacl/obj/remoting/proto/proto_gen.stamp
+build newlib_pnacl/obj/remoting/proto/proto/process_stats.pb.o: newlib_pnacl_cxx newlib_pnacl/gen/remoting/proto/process_stats.pb.cc || newlib_pnacl/obj/remoting/proto/proto_gen.stamp
+build newlib_pnacl/obj/remoting/proto/proto/test.pb.o: newlib_pnacl_cxx newlib_pnacl/gen/remoting/proto/test.pb.cc || newlib_pnacl/obj/remoting/proto/proto_gen.stamp
+build newlib_pnacl/obj/remoting/proto/proto/video.pb.o: newlib_pnacl_cxx newlib_pnacl/gen/remoting/proto/video.pb.cc || newlib_pnacl/obj/remoting/proto/proto_gen.stamp
+build newlib_pnacl/obj/remoting/proto/proto/video_stats.pb.o: newlib_pnacl_cxx newlib_pnacl/gen/remoting/proto/video_stats.pb.cc || newlib_pnacl/obj/remoting/proto/proto_gen.stamp
+
+build newlib_pnacl/obj/remoting/proto/libproto.a: newlib_pnacl_alink newlib_pnacl/obj/remoting/proto/proto/audio.pb.o newlib_pnacl/obj/remoting/proto/proto/control.pb.o newlib_pnacl/obj/remoting/proto/proto/event.pb.o newlib_pnacl/obj/remoting/proto/proto/file_transfer.pb.o newlib_pnacl/obj/remoting/proto/proto/internal.pb.o newlib_pnacl/obj/remoting/proto/proto/mux.pb.o newlib_pnacl/obj/remoting/proto/proto/process_stats.pb.o newlib_pnacl/obj/remoting/proto/proto/test.pb.o newlib_pnacl/obj/remoting/proto/proto/video.pb.o newlib_pnacl/obj/remoting/proto/proto/video_stats.pb.o || newlib_pnacl/obj/third_party/protobuf/libprotobuf_lite.a newlib_pnacl/obj/remoting/proto/proto_gen.stamp
+  arflags =
+  output_extension = .a
+  output_dir = newlib_pnacl/obj/remoting/proto
